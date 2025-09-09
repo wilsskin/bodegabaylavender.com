@@ -1,0 +1,543 @@
+{% doc %}
+  @prompt
+    gallery carouel
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-gallery-carousel-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: {{ block.settings.border_radius }}px;}
+
+  .ai-gallery-carousel__viewport-{{ ai_gen_id }} {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .ai-gallery-carousel__container-{{ ai_gen_id }} {
+    display: flex;
+    transition: transform 0.3s ease;will-change: transform;
+  }
+
+  .ai-gallery-carousel__slide-{{ ai_gen_id }} {
+    flex: 0 0 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  .ai-gallery-carousel__image-{{ ai_gen_id }} {
+    width: 100%;
+    height: {{ block.settings.image_height }}px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-gallery-carousel__placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: {{ block.settings.image_height }}px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-gallery-carousel__placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+    opacity: 0.3;
+  }
+
+  .ai-gallery-carousel__empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-gallery-carousel__navigation-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: {{ block.settings.nav_button_color }};
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    color: {{ block.settings.nav_button_icon_color }};
+  }
+
+  .ai-gallery-carousel__navigation-{{ ai_gen_id }}:hover {
+    transform: translateY(-50%) scale(1.1);
+    opacity: 0.9;
+  }
+
+  .ai-gallery-carousel__navigation-{{ ai_gen_id }}:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: translateY(-50%) scale(1);
+  }
+
+  .ai-gallery-carousel__nav-prev-{{ ai_gen_id }} {
+    left: 16px;
+  }
+
+  .ai-gallery-carousel__nav-next-{{ ai_gen_id }} {
+    right: 16px;
+  }
+
+  .ai-gallery-carousel__dots-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .ai-gallery-carousel__dot-{{ ai_gen_id }} {
+    width: {{ block.settings.dot_size }}px;
+    height: {{ block.settings.dot_size }}px;
+    border-radius: 50%;
+    border: none;
+    background: {{ block.settings.dot_inactive_color }};
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .ai-gallery-carousel__dot-{{ ai_gen_id }}:hover {
+    transform: scale(1.2);
+  }
+
+  .ai-gallery-carousel__dot-{{ ai_gen_id }}.active {
+    background: {{ block.settings.dot_active_color }};
+  }
+
+  .ai-gallery-carousel__counter-{{ ai_gen_id }} {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    z-index: 2;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-gallery-carousel__image-{{ ai_gen_id }},
+    .ai-gallery-carousel__placeholder-{{ ai_gen_id }} {
+      height: {{ block.settings.image_height_mobile }}px;
+    }
+
+    .ai-gallery-carousel__navigation-{{ ai_gen_id }} {
+      width: 36px;
+      height: 36px;
+    }
+
+    .ai-gallery-carousel__nav-prev-{{ ai_gen_id }} {
+      left: 8px;
+    }
+
+    .ai-gallery-carousel__nav-next-{{ ai_gen_id }} {
+      right: 8px;
+    }
+  }
+{% endstyle %}
+
+<gallery-carousel-{{ ai_gen_id }}
+  class="ai-gallery-carousel-{{ ai_gen_id }}"
+  data-autoplay="{{ block.settings.autoplay }}"
+  data-autoplay-speed="{{ block.settings.autoplay_speed }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-gallery-carousel__viewport-{{ ai_gen_id }}">
+    <div class="ai-gallery-carousel__container-{{ ai_gen_id }}">
+      {% assign has_images = false %}
+      {% for i in (1..8) %}
+        {% assign image_key = 'image_' | append: i %}
+        {% assign current_image = block.settings[image_key] %}
+        {% if current_image != blank %}
+          {% assign has_images = true %}
+          <div class="ai-gallery-carousel__slide-{{ ai_gen_id }}">
+            <img
+              src="{{ current_image | image_url: width: 1200 }}"
+              alt="{{ current_image.alt | escape }}"
+              class="ai-gallery-carousel__image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="{{ current_image.width }}"
+              height="{{ current_image.height }}"
+            >
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% unless has_images %}
+        <div class="ai-gallery-carousel__slide-{{ ai_gen_id }}">
+          <div class="ai-gallery-carousel__placeholder-{{ ai_gen_id }}">
+            {{'image' | placeholder_svg_tag }}
+            <div class="ai-gallery-carousel__empty-state-{{ ai_gen_id }}">
+              Add images to create your gallery
+            </div>
+          </div>
+        </div>
+      {% endunless %}
+    </div>
+  </div>
+
+  {% if has_images %}
+    {% if block.settings.show_navigation %}
+      <button
+        class="ai-gallery-carousel__navigation-{{ ai_gen_id }} ai-gallery-carousel__nav-prev-{{ ai_gen_id }}"
+        aria-label="Previous image"
+        data-direction="prev"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15,18 9,12 15,6"></polyline>
+        </svg>
+      </button>
+
+      <button
+        class="ai-gallery-carousel__navigation-{{ ai_gen_id }} ai-gallery-carousel__nav-next-{{ ai_gen_id }}"
+        aria-label="Next image"
+        data-direction="next"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9,18 15,12 9,6"></polyline>
+        </svg>
+      </button>
+    {% endif %}
+
+    {% if block.settings.show_counter %}
+      <div class="ai-gallery-carousel__counter-{{ ai_gen_id }}">
+        <span class="current">1</span> / <span class="total"></span>
+      </div>
+    {% endif %}
+
+    {% if block.settings.show_dots %}
+      <div class="ai-gallery-carousel__dots-{{ ai_gen_id }}"></div>
+    {% endif %}
+  {% endif %}
+</gallery-carousel-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class GalleryCarousel{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentSlide = 0;
+        this.totalSlides = 0;
+        this.autoplayInterval = null;
+        this.isAutoplay = this.dataset.autoplay === 'true';
+        this.autoplaySpeed = parseInt(this.dataset.autoplaySpeed) * 1000;
+      }
+
+      connectedCallback() {
+        this.container = this.querySelector('.ai-gallery-carousel__container-{{ ai_gen_id }}');
+        this.slides = this.querySelectorAll('.ai-gallery-carousel__slide-{{ ai_gen_id }}');
+        this.totalSlides = this.slides.length;
+
+        if (this.totalSlides <= 1) return;
+
+        this.setupNavigation();
+        this.setupDots();
+        this.setupCounter();
+        this.updateCarousel();
+
+        if (this.isAutoplay) {
+          this.startAutoplay();
+          this.addEventListener('mouseenter', () => this.stopAutoplay());
+          this.addEventListener('mouseleave', () => this.startAutoplay());
+        }
+      }
+
+      setupNavigation() {
+        const prevBtn = this.querySelector('.ai-gallery-carousel__nav-prev-{{ ai_gen_id }}');
+        const nextBtn = this.querySelector('.ai-gallery-carousel__nav-next-{{ ai_gen_id }}');
+
+        if (prevBtn && nextBtn) {
+          prevBtn.addEventListener('click', () => this.goToSlide(this.currentSlide - 1));
+          nextBtn.addEventListener('click', () => this.goToSlide(this.currentSlide + 1));
+        }
+      }
+
+      setupDots() {
+        const dotsContainer = this.querySelector('.ai-gallery-carousel__dots-{{ ai_gen_id }}');
+        if (!dotsContainer) return;dotsContainer.innerHTML = '';
+        for (let i = 0; i < this.totalSlides; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'ai-gallery-carousel__dot-{{ ai_gen_id }}';
+          dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+          dot.addEventListener('click', () => this.goToSlide(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      setupCounter() {
+        const counter = this.querySelector('.ai-gallery-carousel__counter-{{ ai_gen_id }}');
+        if (counter) {
+          const totalSpan = counter.querySelector('.total');
+          if (totalSpan) {
+            totalSpan.textContent = this.totalSlides;
+          }
+        }
+      }
+
+      goToSlide(index) {
+        if (index< 0) {
+          this.currentSlide = this.totalSlides - 1;
+        } else if (index >= this.totalSlides) {
+          this.currentSlide = 0;
+        } else {
+          this.currentSlide = index;
+        }
+        this.updateCarousel();
+      }
+
+      updateCarousel() {
+        if (!this.container) return;
+
+        const translateX = -this.currentSlide * 100;
+        this.container.style.transform = `translateX(${translateX}%)`;
+
+        this.updateNavigation();
+        this.updateDots();
+        this.updateCounter();
+      }
+
+      updateNavigation() {
+        const prevBtn = this.querySelector('.ai-gallery-carousel__nav-prev-{{ ai_gen_id }}');
+        const nextBtn = this.querySelector('.ai-gallery-carousel__nav-next-{{ ai_gen_id }}');
+
+        if (prevBtn && nextBtn) {
+          prevBtn.disabled = this.currentSlide === 0;
+          nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+        }
+      }
+
+      updateDots() {
+        const dots = this.querySelectorAll('.ai-gallery-carousel__dot-{{ ai_gen_id }}');
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === this.currentSlide);
+        });
+      }
+
+      updateCounter() {
+        const counter = this.querySelector('.ai-gallery-carousel__counter-{{ ai_gen_id }}');
+        if (counter) {
+          const currentSpan = counter.querySelector('.current');
+          if (currentSpan) {
+            currentSpan.textContent = this.currentSlide + 1;
+          }
+        }
+      }
+
+      startAutoplay() {
+        if (!this.isAutoplay || this.totalSlides <= 1) return;
+        this.stopAutoplay();
+        this.autoplayInterval = setInterval(() => {
+          this.goToSlide(this.currentSlide + 1);
+        }, this.autoplaySpeed);
+      }
+
+      stopAutoplay() {
+        if (this.autoplayInterval) {
+          clearInterval(this.autoplayInterval);
+          this.autoplayInterval = null;
+        }
+      }
+
+      disconnectedCallback() {
+        this.stopAutoplay();
+      }
+    }
+
+    customElements.define('gallery-carousel-{{ ai_gen_id }}', GalleryCarousel{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Gallery carousel",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_5",
+      "label": "Image 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_6",
+      "label": "Image 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_7",
+      "label": "Image 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_8",
+      "label": "Image 8"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 200,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Image height",
+      "default": 400
+    },
+    {
+      "type": "range",
+      "id": "image_height_mobile",
+      "min": 200,
+      "max": 600,
+      "step": 50,
+      "unit": "px",
+      "label": "Mobile image height",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show navigation arrows",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "nav_button_color",
+      "label": "Navigation button color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "nav_button_icon_color",
+      "label": "Navigation icon color",
+      "default": "#000000"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show dots",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "dot_size",
+      "min": 6,
+      "max": 16,
+      "step": 2,
+      "unit": "px",
+      "label": "Dot size",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "dot_active_color",
+      "label": "Active dot color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "dot_inactive_color",
+      "label": "Inactive dot color",
+      "default": "#cccccc"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_counter",
+      "label": "Show counter",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Autoplay"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay speed",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gallery carousel"
+    }
+  ],
+  "tag": null
+}
+{% endschema %}

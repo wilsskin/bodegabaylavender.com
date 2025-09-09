@@ -1,0 +1,149 @@
+{% comment %}
+  Section: Icon + Text Grid (Dawn‑clean)
+  Purpose: Simple, dependency‑free grid of icons with body text.
+  Notes:
+    - Save as sections/icon-text-grid.liquid
+    - Works with Online Store 2.0 JSON templates
+    - Icons: upload SVG/PNG via image_picker OR paste raw inline SVG
+    - For recolor via CSS, set your SVG path fills to "currentColor"
+{% endcomment %}
+
+<section id="icon-text-{{ section.id }}" class="itx-section" style="--itx-max: {{ section.settings.max_width }}px; --itx-gap: {{ section.settings.gap }}px; --itx-pad: {{ section.settings.section_padding }}px; --itx-bg: {{ section.settings.bg_color }}; --itx-text: {{ section.settings.text_color }}; --itx-icon: {{ section.settings.icon_color }}; --itx-icon-w: {{ section.settings.icon_width }}px;">
+  <div class="itx-wrap">
+    {% if section.settings.heading != blank %}
+      <h2 class="itx-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.subheading != blank %}
+      <div class="itx-subheading rte">{{ section.settings.subheading }}</div>
+    {% endif %}
+
+    <div class="itx-grid cols-d-{{ section.settings.columns_desktop }} cols-t-{{ section.settings.columns_tablet }} cols-m-{{ section.settings.columns_mobile }} align-{{ section.settings.text_align }}">
+      {% for block in section.blocks %}
+        {% assign b = block.settings %}
+        <article class="itx-item" {{ block.shopify_attributes }}>
+          {% if b.svg_raw != blank %}
+            <div class="itx-icon" aria-hidden="true">
+              {{ b.svg_raw }}
+            </div>
+          {% elsif b.icon_img != blank %}
+            {% assign alt_text = b.alt | default: b.title %}
+            <div class="itx-icon">
+              {{ b.icon_img | image_url: width: 128 | image_tag: alt: alt_text, loading: 'lazy' }}
+            </div>
+          {% endif %}
+
+          {% if b.title != blank %}
+            <h3 class="itx-title">{{ b.title }}</h3>
+          {% endif %}
+          {% if b.body != blank %}
+            <div class="itx-body rte">{{ b.body }}</div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <style>
+    #icon-text-{{ section.id }}{background:var(--itx-bg);color:var(--itx-text)}
+    #icon-text-{{ section.id }} .itx-wrap{max-width:var(--itx-max);margin:0 auto;padding:var(--itx-pad) 16px}
+    #icon-text-{{ section.id }} .itx-heading{margin:0 0 6px;font-size:clamp(22px,2.8vw,30px);line-height:1.2;text-align:{{ section.settings.heading_align }}}
+    #icon-text-{{ section.id }} .itx-subheading{margin:0 0 22px;opacity:.9;text-align:{{ section.settings.heading_align }}}
+
+    #icon-text-{{ section.id }} .itx-grid{display:grid;gap:var(--itx-gap)}
+    #icon-text-{{ section.id }} .cols-d-1{grid-template-columns:1fr}
+    #icon-text-{{ section.id }} .cols-d-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    #icon-text-{{ section.id }} .cols-d-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    #icon-text-{{ section.id }} .cols-d-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    #icon-text-{{ section.id }} .cols-d-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+
+    @media (max-width: 768px){
+      #icon-text-{{ section.id }} .cols-t-1{grid-template-columns:1fr}
+      #icon-text-{{ section.id }} .cols-t-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+      #icon-text-{{ section.id }} .cols-t-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+    @media (max-width: 480px){
+      #icon-text-{{ section.id }} .cols-m-1{grid-template-columns:1fr}
+      #icon-text-{{ section.id }} .cols-m-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+
+    #icon-text-{{ section.id }} .itx-item{display:grid;gap:10px;align-content:start}
+    #icon-text-{{ section.id }} .itx-icon{width:var(--itx-icon-w)}
+    #icon-text-{{ section.id }} .itx-icon img{width:100%;height:auto;display:block}
+    #icon-text-{{ section.id }} .itx-icon svg{width:100%;height:auto;display:block;fill:var(--itx-icon);stroke:var(--itx-icon)}
+    #icon-text-{{ section.id }} .itx-title{margin:0;font-size:16px;line-height:1.25}
+    #icon-text-{{ section.id }} .itx-body{font-size:14px;opacity:.9}
+
+    #icon-text-{{ section.id }} .align-left{ text-align:left }
+    #icon-text-{{ section.id }} .align-center{ text-align:center }
+    #icon-text-{{ section.id }} .align-right{ text-align:right }
+
+    /* Center icons when text is centered */
+    #icon-text-{{ section.id }} .align-center .itx-item{justify-items:center}
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Icon + Text Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "subheading", "label": "Subheading" },
+    { "type": "select", "id": "heading_align", "label": "Heading align", "default": "center", "options": [
+      {"value":"left","label":"Left"}, {"value":"center","label":"Center"}, {"value":"right","label":"Right"}
+    ]},
+
+    { "type": "range", "id": "columns_desktop", "label": "Columns on desktop", "min": 1, "max": 5, "step": 1, "default": 4 },
+    { "type": "range", "id": "columns_tablet", "label": "Columns on tablet", "min": 1, "max": 3, "step": 1, "default": 2 },
+    {
+  "type": "select",
+  "id": "columns_mobile",
+  "label": "Columns on mobile",
+  "default": "1",
+  "options": [
+    { "value": "1", "label": "1" },
+    { "value": "2", "label": "2" }
+  ]
+},
+
+    { "type": "range", "id": "gap", "label": "Grid gap (px)", "min": 8, "max": 48, "step": 4, "default": 16 },
+    { "type": "range", "id": "section_padding", "label": "Section padding (px)", "min": 0, "max": 120, "step": 4, "default": 40 },
+    { "type": "select", "id": "text_align", "label": "Item text align", "default": "center", "options": [
+      {"value":"left","label":"Left"}, {"value":"center","label":"Center"}, {"value":"right","label":"Right"}
+    ]},
+
+    { "type": "range", "id": "icon_width", "label": "Icon width (px)", "min": 24, "max": 160, "step": 4, "default": 64 },
+    { "type": "range", "id": "max_width", "label": "Max width (px)", "min": 720, "max": 1600, "step": 40, "default": 1120 },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#111111" },
+    { "type": "color", "id": "icon_color", "label": "Icon color (for inline SVG)", "default": "#4A5BD1" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "image_picker", "id": "icon_img", "label": "Icon image (SVG/PNG)" },
+        { "type": "textarea", "id": "svg_raw", "label": "Or paste inline SVG", "info": "If provided, this overrides the uploaded icon. Set fills/strokes to 'currentColor' to use the Icon color." },
+        { "type": "text", "id": "alt", "label": "Icon alt text" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Sustainable" },
+        { "type": "richtext", "id": "body", "label": "Body text", "default": "<p>Short descriptive copy that explains the benefit.<\/p>" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Icon + Text Grid",
+      "category": "Homepage",
+      "blocks": [
+        {"type":"item","settings":{"title":"Fast shipping","body":"<p>Two to three day delivery in the US<\/p>"}},
+        {"type":"item","settings":{"title":"Planet friendly","body":"<p>Low waste packaging and refills<\/p>"}},
+        {"type":"item","settings":{"title":"Small batch","body":"<p>Handmade in Sonoma County<\/p>"}},
+        {"type":"item","settings":{"title":"Local pickup","body":"<p>Free pickup at the farm store<\/p>"}}
+      ]
+    }
+  ]
+}
+{% endschema %}
