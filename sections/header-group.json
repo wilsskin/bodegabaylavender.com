@@ -38,6 +38,9 @@
     },
     "header": {
       "type": "header",
+      "custom_css": [
+        "/* Desktop header menu spacing */@media screen and (min-width: 990px) {/* Use flex gap for clean spacing */ .header__inline-menu .list-menu--inline {display: flex; gap: 48px; } /* Reset any theme margins that might fight the gap */ .header__inline-menu .list-menu--inline > li, .header__inline-menu .list-menu__item {margin: 0; } /* Optional: remove extra horizontal padding on links, so the visible gap is exactly 48px */ .header__inline-menu .header__menu-item {padding-left: 0; padding-right: 0; }}"
+      ],
       "settings": {
         "logo_position": "middle-center",
         "mobile_logo_position": "center",

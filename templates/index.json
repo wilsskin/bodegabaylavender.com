@@ -43,6 +43,7 @@
         "text_XDjURj",
         "buttons_LCWnQm"
       ],
+      "custom_css": [],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/hero-image.jpg",
