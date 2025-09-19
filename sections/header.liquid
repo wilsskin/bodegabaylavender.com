@@ -74,6 +74,24 @@
       padding-top: 0.5rem;
     }
   }
+
+  /* Header nav: remove underlines and set hover/active color */
+  .header a[aria-current="page"],
+  .header .list-menu__item--active,
+  .header .header__active-menu-item,
+  .header .mega-menu__link--active {
+    text-decoration: none;
+    color: #52448C;
+  }
+
+  .header .header__menu-item:hover,
+  .header .header__menu-item:focus,
+  .header .header__menu-item:hover .header__active-menu-item,
+  .header .header__inline-menu a.list-menu__item:hover,
+  .header .mega-menu__link:hover {
+    text-decoration: none;
+    color: #52448C;
+  }
 </style>
 
 {%- style -%}
