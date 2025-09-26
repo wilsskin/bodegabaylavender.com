@@ -247,6 +247,73 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   font-weight: var(--font-body-weight);
 }
 
+/* Paragraph text utility: 18px baseline at body_scale 100%, scales with rem */
+.text-paragraph {
+  font-size: 1.8rem;
+  letter-spacing: 0.06rem;
+  line-height: calc(1 + 0.8 / var(--font-body-scale));
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+}
+
+/* Heading text utilities that follow Dawn's heading scaling */
+.text-h2 {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: calc(var(--font-heading-scale) * 3.2rem);
+  line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
+  letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
+  color: rgb(var(--color-foreground));
+}
+
+.text-h3 {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: calc(var(--font-heading-scale) * 2.4rem);
+  line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
+  letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
+  color: rgb(var(--color-foreground));
+}
+
+/* Spacing utility classes - 8px base system */
+.spacing-xsmall { margin: var(--spacing-xsmall); }
+.spacing-small { margin: var(--spacing-small); }
+.spacing-medium { margin: var(--spacing-medium); }
+.spacing-large { margin: var(--spacing-large); }
+.spacing-xlarge { margin: var(--spacing-xlarge); }
+.spacing-section-small { margin: var(--spacing-section-small); }
+.spacing-section-large { margin: var(--spacing-section-large); }
+
+/* Spacing margin utilities */
+.margin-xsmall { margin: var(--spacing-xsmall); }
+.margin-small { margin: var(--spacing-small); }
+.margin-medium { margin: var(--spacing-medium); }
+.margin-large { margin: var(--spacing-large); }
+.margin-xlarge { margin: var(--spacing-xlarge); }
+.margin-section-small { margin: var(--spacing-section-small); }
+.margin-section-large { margin: var(--spacing-section-large); }
+
+/* Spacing padding utilities */
+.padding-xsmall { padding: var(--spacing-xsmall); }
+.padding-small { padding: var(--spacing-small); }
+.padding-medium { padding: var(--spacing-medium); }
+.padding-large { padding: var(--spacing-large); }
+.padding-xlarge { padding: var(--spacing-xlarge); }
+.padding-section-small { padding: var(--spacing-section-small); }
+.padding-section-large { padding: var(--spacing-section-large); }
+
+/* Spacing gap utilities */
+.gap-xsmall { gap: var(--spacing-xsmall); }
+.gap-small { gap: var(--spacing-small); }
+.gap-medium { gap: var(--spacing-medium); }
+.gap-large { gap: var(--spacing-large); }
+.gap-xlarge { gap: var(--spacing-xlarge); }
+.gap-section-small { gap: var(--spacing-section-small); }
+.gap-section-large { gap: var(--spacing-section-large); }
+
 h1,
 h2,
 h3,
@@ -295,37 +362,37 @@ h5,
 
 h1,
 .h1 {
-  font-size: calc(var(--font-heading-scale) * 3rem);
+  font-size: calc(var(--font-heading-scale) * 4.8rem);
 }
 
 @media only screen and (min-width: 750px) {
   h1,
   .h1 {
-    font-size: calc(var(--font-heading-scale) * 4rem);
+    font-size: calc(var(--font-heading-scale) * 4.8rem);
   }
 }
 
 h2,
 .h2 {
-  font-size: calc(var(--font-heading-scale) * 2rem);
+  font-size: calc(var(--font-heading-scale) * 3.2rem);
 }
 
 @media only screen and (min-width: 750px) {
   h2,
   .h2 {
-    font-size: calc(var(--font-heading-scale) * 2.4rem);
+    font-size: calc(var(--font-heading-scale) * 3.2rem);
   }
 }
 
 h3,
 .h3 {
-  font-size: calc(var(--font-heading-scale) * 1.7rem);
+  font-size: calc(var(--font-heading-scale) * 2.4rem);
 }
 
 @media only screen and (min-width: 750px) {
   h3,
   .h3 {
-    font-size: calc(var(--font-heading-scale) * 1.8rem);
+    font-size: calc(var(--font-heading-scale) * 2.4rem);
   }
 }
 

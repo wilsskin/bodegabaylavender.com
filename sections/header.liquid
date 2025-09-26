@@ -75,22 +75,87 @@
     }
   }
 
-  /* Header nav: remove underlines and set hover/active color */
+  /* Reset default underlines that cause duplicates */
+  .header .header__menu-item:hover span { text-decoration: none !important; }
+  .header details[open] > .header__menu-item,
+  .header details[open]:hover > .header__menu-item { text-decoration: none !important; }
+  .header .header__active-menu-item { text-decoration: none !important; }
+
+  /* Header nav: active = purple + underline; hover = purple */
   .header a[aria-current="page"],
   .header .list-menu__item--active,
-  .header .header__active-menu-item,
   .header .mega-menu__link--active {
-    text-decoration: none;
     color: #52448C;
+    text-decoration: underline;
+    text-decoration-color: #52448C;
+    text-decoration-thickness: 2px;
+    text-underline-offset: calc(0.3rem + 4px);
+  }
+
+  /* Active state for dropdown summary text */
+  .header summary.header__menu-item > span.header__active-menu-item {
+    color: #52448C;
+    text-decoration: underline;
+    text-decoration-color: #52448C;
+    text-decoration-thickness: 2px;
+    text-underline-offset: calc(0.3rem + 4px);
   }
 
   .header .header__menu-item:hover,
   .header .header__menu-item:focus,
-  .header .header__menu-item:hover .header__active-menu-item,
   .header .header__inline-menu a.list-menu__item:hover,
-  .header .mega-menu__link:hover {
-    text-decoration: none;
+  .header .mega-menu__link:hover,
+  .header summary.header__menu-item:hover > span {
     color: #52448C;
+    text-decoration: underline;
+    text-decoration-color: #52448C;
+    text-decoration-thickness: 2px;
+    text-underline-offset: calc(0.3rem + 4px);
+  }
+
+  /* Preserve thicker underline on hover for active states */
+  .header .header__menu-item:hover .header__active-menu-item { text-decoration: none; }
+  .header .list-menu__item--active:hover,
+  .header .mega-menu__link--active:hover {
+    text-decoration: underline;
+    text-decoration-color: #52448C;
+    text-decoration-thickness: 2px;
+    text-underline-offset: calc(0.3rem + 4px);
+  }
+
+  /* Nav link weight: set to medium (500) for all header variants */
+  .header .header__inline-menu a.list-menu__item,
+  .header summary.header__menu-item,
+  .header summary.header__menu-item > span,
+  .header .mega-menu__link,
+  .header .header__submenu a.header__menu-item,
+  .header .menu-drawer__menu-item {
+    font-weight: 500;
+    font-size: 1.5rem; /* 16px - body text size */
+  }
+
+  /* Ensure active text (span) is purple, not theme default */
+  .header .header__active-menu-item {
+    color: #52448C;
+  }
+
+  /* Header icons: 28px size with custom colors */
+  .header__icon .svg-wrapper {
+    width: 28px;
+    height: 28px;
+  }
+
+  .header__icon {
+    color: #4D4D62; /* Default icon color */
+  }
+
+  .header__icon:hover {
+    color: #6149A2; /* Hover icon color */
+  }
+
+  /* Header icons spacing */
+  .header__icons {
+    gap: 8px;
   }
 </style>
 
