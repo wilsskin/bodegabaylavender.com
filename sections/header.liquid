@@ -141,8 +141,8 @@
 
   /* Header icons: 28px size with custom colors */
   .header__icon .svg-wrapper {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
   }
 
   .header__icon {
@@ -155,13 +155,41 @@
 
   /* Header icons spacing */
   .header__icons {
-    gap: 8px;
+    gap: 12px;
+  }
+
+  /* Header background and container alignment */
+  .header-wrapper {
+    background-color: #E1E0F1;
+  }
+
+  .header.page-width {
+    max-width: 1200px;
+    padding: 8px 48px;
+  }
+
+  /* Remove logo padding and ensure proper alignment */
+  .header__heading-link {
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Ensure nav links are left-aligned within container */
+  .header__inline-menu {
+    margin-left: 0;
+    justify-self: start;
+  }
+
+  /* Ensure icons are right-aligned within container */
+  .header__icons {
+    justify-self: end;
+    margin-right: 0;
   }
 </style>
 
 {%- style -%}
   .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 0 {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 0;
   }
 
   .section-header {
