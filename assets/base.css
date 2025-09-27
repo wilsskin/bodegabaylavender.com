@@ -238,8 +238,23 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   background-color: rgba(var(--color-foreground), 0.2);
 }
 
+/* ========================================
+   TEXT HIERARCHY SYSTEM - 5 SIZES ONLY
+   ======================================== */
+
+/* Small Text Options (for paragraphs, captions, etc.) */
+.text-tag {
+  font-size: 1.6rem; /* 16px */
+  letter-spacing: 0.1rem;
+  line-height: calc(1 + 0.6 / var(--font-body-scale));
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 .text-body {
-  font-size: 1.5rem;
+  font-size: 1.8rem; /* 18px */
   letter-spacing: 0.06rem;
   line-height: calc(1 + 0.8 / var(--font-body-scale));
   font-family: var(--font-body-family);
@@ -247,32 +262,33 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   font-weight: var(--font-body-weight);
 }
 
-/* Paragraph text utility: 18px baseline at body_scale 100%, scales with rem */
-.text-paragraph {
-  font-size: 1.8rem;
-  letter-spacing: 0.06rem;
-  line-height: calc(1 + 0.8 / var(--font-body-scale));
-  font-family: var(--font-body-family);
-  font-style: var(--font-body-style);
-  font-weight: var(--font-body-weight);
-}
-
-/* Heading text utilities that follow Dawn's heading scaling */
-.text-h2 {
+/* H3 can be used as either small heading or large body text */
+.text-h3 {
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
-  font-size: calc(var(--font-heading-scale) * 3.2rem);
+  font-size: calc(var(--font-heading-scale) * 2.4rem); /* 24px */
   line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
   letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
   color: rgb(var(--color-foreground));
 }
 
-.text-h3 {
+/* Large Heading Options */
+.text-h2 {
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
-  font-size: calc(var(--font-heading-scale) * 2.4rem);
+  font-size: calc(var(--font-heading-scale) * 3.2rem); /* 32px */
+  line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
+  letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
+  color: rgb(var(--color-foreground));
+}
+
+.text-h1 {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: calc(var(--font-heading-scale) * 4.8rem); /* 48px */
   line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
   letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
   color: rgb(var(--color-foreground));
@@ -362,7 +378,7 @@ h5,
 
 h1,
 .h1 {
-  font-size: calc(var(--font-heading-scale) * 4.8rem);
+  font-size: calc(var(--font-heading-scale) * 4.8rem); /* 48px */
 }
 
 @media only screen and (min-width: 750px) {
@@ -374,7 +390,7 @@ h1,
 
 h2,
 .h2 {
-  font-size: calc(var(--font-heading-scale) * 3.2rem);
+  font-size: calc(var(--font-heading-scale) * 3.2rem); /* 32px */
 }
 
 @media only screen and (min-width: 750px) {
@@ -386,7 +402,7 @@ h2,
 
 h3,
 .h3 {
-  font-size: calc(var(--font-heading-scale) * 2.4rem);
+  font-size: calc(var(--font-heading-scale) * 2.4rem); /* 24px */
 }
 
 @media only screen and (min-width: 750px) {
