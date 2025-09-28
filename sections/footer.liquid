@@ -99,7 +99,7 @@
   .footer-2025__column-links {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
   }
 
   .footer-2025__link {
@@ -125,7 +125,7 @@
   .footer-2025__email {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.36;
     color: #000000;
     margin: 0;
@@ -198,13 +198,14 @@
     }
 
     .footer-2025__nav-columns {
-      flex-direction: column;
+      flex-direction: row;
       gap: 48px;
+      justify-content: flex-start;
     }
 
     .footer-2025__column {
       min-width: auto;
-      width: 100%;
+      width: auto;
     }
 
     .footer-2025__contact {
@@ -227,6 +228,18 @@
 
     .footer-2025__copyright-mobile {
       display: block;
+    }
+  }
+
+  /* Small Mobile Layout - Below 575px */
+  @media screen and (max-width: 300px) {
+    .footer-2025__nav-columns {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .footer-2025__column {
+      width: 100%;
     }
   }
 
