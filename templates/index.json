@@ -37,106 +37,6 @@
         "text_style": "text-h3"
       }
     },
-    "rich_text_6eXcqn": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_UCKptL": {
-          "type": "heading",
-          "settings": {
-            "heading": "About Us",
-            "heading_size": "h2"
-          }
-        },
-        "text_x3KChx": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We are a family-owned and operated lavender farm located in the town of Bodega Bay, situated along the Sonoma coast in Northern California.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_UCKptL",
-        "text_x3KChx"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 28
-      }
-    },
-    "icon_text_RTyb9K": {
-      "type": "icon-text",
-      "blocks": {
-        "item_Qr73iJ": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "",
-            "body": "<p>Organic Products</p>"
-          }
-        },
-        "item_yetBE8": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "",
-            "body": "<p>Sustainably Sourced</p>"
-          }
-        },
-        "item_WT4fiq": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "",
-            "body": "<p>Always Handcrafted</p>"
-          }
-        },
-        "item_DQCcy8": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "",
-            "body": "<p>Family Owned </p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_Qr73iJ",
-        "item_yetBE8",
-        "item_WT4fiq",
-        "item_DQCcy8"
-      ],
-      "custom_css": [],
-      "name": "Icon + Text Grid",
-      "settings": {
-        "heading": "",
-        "subheading": "",
-        "heading_align": "center",
-        "columns_desktop": 4,
-        "columns_tablet": 2,
-        "columns_mobile": "2",
-        "gap": 40,
-        "section_padding": 20,
-        "text_align": "center",
-        "icon_width": 40,
-        "max_width": 800,
-        "bg_color": "#e1e0f1",
-        "text_color": "#111111",
-        "icon_color": "#4a5bd1"
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -152,7 +52,7 @@
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "solid",
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": false,
@@ -161,7 +61,7 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 100,
+        "padding_top": 80,
         "padding_bottom": 80
       }
     },
@@ -463,8 +363,6 @@
   "order": [
     "hero_2025_WkhdLt",
     "about_2025_WUiYAc",
-    "rich_text_6eXcqn",
-    "icon_text_RTyb9K",
     "featured_collection",
     "image_banner_pJEhUQ",
     "collection_list_MCdawP",
