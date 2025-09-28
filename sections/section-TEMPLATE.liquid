@@ -1,0 +1,191 @@
+{%- style -%}
+  .section-{{ section.id }} {
+    background-color: {{ section.settings.background_color | default: '#ffffff' }};
+    padding: var(--spacing-section-small) 0;
+  }
+
+  .section-{{ section.id }}__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-medium);
+  }
+
+  /* Responsive padding */
+  @media screen and (max-width: 900px) {
+    .section-{{ section.id }}__container {
+      padding: 0 var(--spacing-medium);
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}__container {
+      padding: 0 var(--spacing-small);
+    }
+  }
+
+  /* Side-by-side layout for desktop */
+  .section-{{ section.id }}__content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-large);
+  }
+
+  .section-{{ section.id }}__text {
+    flex: 1;
+  }
+
+  .section-{{ section.id }}__image {
+    flex: 1;
+  }
+
+  .section-{{ section.id }}__image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  /* Mobile: stack image first, then text */
+  @media screen and (max-width: 900px) {
+    .section-{{ section.id }}__content {
+      flex-direction: column;
+      gap: var(--spacing-medium);
+    }
+
+    .section-{{ section.id }}__image {
+      order: 1;
+    }
+
+    .section-{{ section.id }}__text {
+      order: 2;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}">
+  <div class="section-{{ section.id }}__container">
+    <div class="section-{{ section.id }}__content">
+      <!-- Text Content -->
+      <div class="section-{{ section.id }}__text">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="{{ section.settings.heading_size | default: 'text-h2' }}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="{{ section.settings.text_style | default: 'text-body' }}">
+            {{ section.settings.text }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+          <a href="{{ section.settings.button_link }}" class="button">
+            {{ section.settings.button_label }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      <!-- Image Content -->
+      {%- if section.settings.image != blank -%}
+        <div class="section-{{ section.id }}__image">
+          <img 
+            src="{{ section.settings.image | image_url: width: 600 }}"
+            alt="{{ section.settings.image.alt | escape }}"
+            loading="lazy"
+            width="600"
+            height="400"
+          >
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Section Template",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Section Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        {
+          "value": "text-h1",
+          "label": "H1"
+        },
+        {
+          "value": "text-h2",
+          "label": "H2"
+        },
+        {
+          "value": "text-h3",
+          "label": "H3"
+        }
+      ],
+      "default": "text-h2"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Add your text content here.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "label": "Text Style",
+      "options": [
+        {
+          "value": "text-body",
+          "label": "Body"
+        },
+        {
+          "value": "text-h3",
+          "label": "H3"
+        },
+        {
+          "value": "text-tag",
+          "label": "Tag"
+        }
+      ],
+      "default": "text-body"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Template"
+    }
+  ]
+}
+{% endschema %}

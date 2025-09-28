@@ -1,0 +1,236 @@
+{%- style -%}
+  .section-{{ section.id }} {
+    background-color: {{ section.settings.background_color | default: '#EDECFE' }};
+    padding: var(--spacing-section-small) 0;
+  }
+
+  .section-{{ section.id }}__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-medium);
+  }
+
+  /* Responsive padding */
+  @media screen and (max-width: 900px) {
+    .section-{{ section.id }}__container {
+      padding: 0 var(--spacing-medium);
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}__container {
+      padding: 0 var(--spacing-small);
+    }
+  }
+
+  /* About content layout */
+  .section-{{ section.id }}__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-large);
+  }
+
+  .section-{{ section.id }}__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-medium);
+    text-align: center;
+    max-width: 800px;
+  }
+
+  .section-{{ section.id }}__features {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-large);
+    width: 100%;
+  }
+
+  .section-{{ section.id }}__feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xsmall);
+    flex: 1;
+  }
+
+  .section-{{ section.id }}__feature-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+  }
+
+  .section-{{ section.id }}__feature-icon img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(246deg) brightness(87%) contrast(97%);
+  }
+
+  .section-{{ section.id }}__feature-text {
+    text-align: center;
+  }
+
+  /* Mobile responsive */
+  @media screen and (max-width: 900px) {
+    .section-{{ section.id }}__features {
+      flex-direction: column;
+      gap: var(--spacing-medium);
+    }
+
+    .section-{{ section.id }}__feature {
+      flex-direction: row;
+      gap: var(--spacing-small);
+      justify-content: flex-start;
+      width: 100%;
+    }
+
+    .section-{{ section.id }}__feature-text {
+      text-align: left;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}__features {
+      gap: var(--spacing-small);
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}">
+  <div class="section-{{ section.id }}__container">
+    <div class="section-{{ section.id }}__content">
+      <!-- Text Content -->
+      <div class="section-{{ section.id }}__text">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="{{ section.settings.heading_size | default: 'text-h3' }}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="{{ section.settings.text_style | default: 'text-h3' }}">
+            {{ section.settings.text }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Features Grid -->
+      <div class="section-{{ section.id }}__features">
+        <div class="section-{{ section.id }}__feature">
+          <div class="section-{{ section.id }}__feature-icon">
+            <img src="{{ 'organic-products.svg' | asset_url }}" alt="Organic Products" width="24" height="24">
+          </div>
+          <div class="section-{{ section.id }}__feature-text text-tag">
+            Organic Products
+          </div>
+        </div>
+
+        <div class="section-{{ section.id }}__feature">
+          <div class="section-{{ section.id }}__feature-icon">
+            <img src="{{ 'sustainably-sourced.svg' | asset_url }}" alt="Sustainably Sourced" width="24" height="24">
+          </div>
+          <div class="section-{{ section.id }}__feature-text text-tag">
+            Sustainably Sourced
+          </div>
+        </div>
+
+        <div class="section-{{ section.id }}__feature">
+          <div class="section-{{ section.id }}__feature-icon">
+            <img src="{{ 'always-handcrafted.svg' | asset_url }}" alt="Always Handcrafted" width="24" height="24">
+          </div>
+          <div class="section-{{ section.id }}__feature-text text-tag">
+            Always Handcrafted
+          </div>
+        </div>
+
+        <div class="section-{{ section.id }}__feature">
+          <div class="section-{{ section.id }}__feature-icon">
+            <img src="{{ 'family-owned.svg' | asset_url }}" alt="Family Owned" width="24" height="24">
+          </div>
+          <div class="section-{{ section.id }}__feature-text text-tag">
+            Family Owned
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About 2025",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#EDECFE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "About Us"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        {
+          "value": "text-h1",
+          "label": "H1"
+        },
+        {
+          "value": "text-h2",
+          "label": "H2"
+        },
+        {
+          "value": "text-h3",
+          "label": "H3"
+        }
+      ],
+      "default": "text-h3"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>We are a family-owned and operated lavender farm located in the town of Bodega Bay, situated along the Sonoma coast in Northern California.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "label": "Text Style",
+      "options": [
+        {
+          "value": "text-body",
+          "label": "Body"
+        },
+        {
+          "value": "text-h3",
+          "label": "H3"
+        },
+        {
+          "value": "text-tag",
+          "label": "Tag"
+        }
+      ],
+      "default": "text-h3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About 2025"
+    }
+  ]
+}
+{% endschema %}
