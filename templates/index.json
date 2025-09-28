@@ -139,46 +139,15 @@
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "Shop by Category",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "image_ratio": "square",
         "columns_desktop": 4,
         "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 100,
+        "padding_top": 80,
         "padding_bottom": 80
-      }
-    },
-    "rich_text_E67bNK": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_yTTiKV": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "heading_size": "h1"
-          }
-        },
-        "text_7XXMf3": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Like our products? Come visit us at the <strong>San Rafael Farmers Market</strong> every Thursday night! </p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_yTTiKV",
-        "text_7XXMf3"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-11ca6ec6-6c1a-4ccb-8a76-a0e87b09ab82",
-        "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 16
       }
     },
     "rich_text_7DT8hL": {
@@ -206,7 +175,7 @@
       "settings": {
         "desktop_content_position": "left",
         "content_alignment": "left",
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-1",
         "full_width": true,
         "padding_top": 100,
         "padding_bottom": 0
@@ -264,7 +233,7 @@
         "text_align": "left",
         "icon_width": 48,
         "max_width": 1200,
-        "bg_color": "#edecfe",
+        "bg_color": "#ffffff",
         "text_color": "#111111",
         "icon_color": "#4a5bd1"
       }
@@ -366,7 +335,6 @@
     "featured_collection",
     "image_banner_pJEhUQ",
     "collection_list_MCdawP",
-    "rich_text_E67bNK",
     "rich_text_7DT8hL",
     "icon_text_L7XzyW",
     "image_with_text_p3ACVm",
