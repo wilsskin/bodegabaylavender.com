@@ -9,56 +9,6 @@
  */
 {
   "sections": {
-    "image_banner_LiRcLy": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_pFf9hM": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Bodega Bay  Lavender</strong>",
-            "heading_size": "h1"
-          }
-        },
-        "text_XDjURj": {
-          "type": "text",
-          "settings": {
-            "text": "Coastal Lavender, From Our Home to Yours",
-            "text_style": "subtitle"
-          }
-        },
-        "buttons_LCWnQm": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_pFf9hM",
-        "text_XDjURj",
-        "buttons_LCWnQm"
-      ],
-      "custom_css": [],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/hero-image.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-e50f3282-3573-43ac-9184-872d41a92da2",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
-      }
-    },
     "hero_2025_WkhdLt": {
       "type": "hero-2025",
       "name": "Hero 2025",
@@ -474,10 +424,43 @@
         "padding_top": 100,
         "padding_bottom": 36
       }
+    },
+    "newsletter_iTBiza": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_DDiqzG": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_xdUewM": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
+          }
+        },
+        "email_form_AtzNrq": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_DDiqzG",
+        "paragraph_xdUewM",
+        "email_form_AtzNrq"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
-    "image_banner_LiRcLy",
     "hero_2025_WkhdLt",
     "about_2025_WUiYAc",
     "rich_text_6eXcqn",
@@ -489,6 +472,7 @@
     "rich_text_7DT8hL",
     "icon_text_L7XzyW",
     "image_with_text_p3ACVm",
-    "featured_blog_Ac9YWU"
+    "featured_blog_Ac9YWU",
+    "newsletter_iTBiza"
   ]
 }
