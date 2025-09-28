@@ -9,154 +9,32 @@
  */
 {
   "sections": {
-    "image_banner_LiRcLy": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_pFf9hM": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Bodega Bay  Lavender</strong>",
-            "heading_size": "h1"
-          }
-        },
-        "text_XDjURj": {
-          "type": "text",
-          "settings": {
-            "text": "Coastal Lavender, From Our Home to Yours",
-            "text_style": "subtitle"
-          }
-        },
-        "buttons_LCWnQm": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_pFf9hM",
-        "text_XDjURj",
-        "buttons_LCWnQm"
-      ],
-      "custom_css": [],
-      "name": "t:sections.image-banner.presets.name",
+    "hero_2025_WkhdLt": {
+      "type": "hero-2025",
+      "name": "Hero 2025",
       "settings": {
         "image": "shopify://shop_images/hero-image.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-e50f3282-3573-43ac-9184-872d41a92da2",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
+        "heading": "Bodega Bay Lavender",
+        "heading_size": "h1",
+        "subtitle": "Coastal Lavender, From Our Home to Yours",
+        "subtitle_style": "h3",
+        "button_label": "Shop Now",
+        "button_link": "shopify://collections/all",
+        "text_color": "#ffffff",
+        "button_color": "#636dcf",
+        "button_text_color": "#ffffff",
+        "button_hover_color": "#6149A2"
       }
     },
-    "rich_text_6eXcqn": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_UCKptL": {
-          "type": "heading",
-          "settings": {
-            "heading": "About Us",
-            "heading_size": "h2"
-          }
-        },
-        "text_x3KChx": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We are a family-owned and operated lavender farm located in the town of Bodega Bay, situated along the Sonoma coast in Northern California.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_UCKptL",
-        "text_x3KChx"
-      ],
-      "name": "t:sections.rich-text.presets.name",
+    "about_2025_WUiYAc": {
+      "type": "about-2025",
+      "name": "About 2025",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 28
-      }
-    },
-    "icon_text_RTyb9K": {
-      "type": "icon-text",
-      "blocks": {
-        "item_Qr73iJ": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "",
-            "body": "<p>Organic Products</p>"
-          }
-        },
-        "item_yetBE8": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "",
-            "body": "<p>Sustainably Sourced</p>"
-          }
-        },
-        "item_WT4fiq": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "",
-            "body": "<p>Always Handcrafted</p>"
-          }
-        },
-        "item_DQCcy8": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "",
-            "body": "<p>Family Owned </p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_Qr73iJ",
-        "item_yetBE8",
-        "item_WT4fiq",
-        "item_DQCcy8"
-      ],
-      "custom_css": [],
-      "name": "Icon + Text Grid",
-      "settings": {
-        "heading": "",
-        "subheading": "",
-        "heading_align": "center",
-        "columns_desktop": 4,
-        "columns_tablet": 2,
-        "columns_mobile": "2",
-        "gap": 40,
-        "section_padding": 20,
-        "text_align": "center",
-        "icon_width": 40,
-        "max_width": 800,
-        "bg_color": "#e1e0f1",
-        "text_color": "#111111",
-        "icon_color": "#4a5bd1"
+        "background_color": "#EDECFE",
+        "heading": "About Us",
+        "heading_size": "text-h3",
+        "text": "<p>We are a family-owned and operated lavender farm located in the town of Bodega Bay, situated along the Sonoma coast in Northern California.</p>",
+        "text_style": "text-h3"
       }
     },
     "featured_collection": {
@@ -165,7 +43,7 @@
         "collection": "mists",
         "products_to_show": 3,
         "title": "Best Sellers",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
@@ -174,7 +52,7 @@
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "solid",
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": false,
@@ -183,7 +61,7 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 100,
+        "padding_top": 80,
         "padding_bottom": 80
       }
     },
@@ -261,46 +139,15 @@
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "Shop by Category",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "image_ratio": "square",
         "columns_desktop": 4,
         "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 100,
+        "padding_top": 80,
         "padding_bottom": 80
-      }
-    },
-    "rich_text_E67bNK": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_yTTiKV": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "heading_size": "h1"
-          }
-        },
-        "text_7XXMf3": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Like our products? Come visit us at the <strong>San Rafael Farmers Market</strong> every Thursday night! </p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_yTTiKV",
-        "text_7XXMf3"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-11ca6ec6-6c1a-4ccb-8a76-a0e87b09ab82",
-        "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 16
       }
     },
     "rich_text_7DT8hL": {
@@ -328,7 +175,7 @@
       "settings": {
         "desktop_content_position": "left",
         "content_alignment": "left",
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-1",
         "full_width": true,
         "padding_top": 100,
         "padding_bottom": 0
@@ -386,7 +233,7 @@
         "text_align": "left",
         "icon_width": 48,
         "max_width": 1200,
-        "bg_color": "#edecfe",
+        "bg_color": "#ffffff",
         "text_color": "#111111",
         "icon_color": "#4a5bd1"
       }
@@ -433,10 +280,10 @@
       "type": "featured-blog",
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
-        "blog": "",
+        "blog": "news",
         "post_limit": 3,
         "heading": "Blog posts",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "columns_desktop": 3,
         "show_view_all": true,
         "show_image": true,
@@ -447,105 +294,51 @@
         "padding_bottom": 36
       }
     },
-    "1757046056fff705cd": {
-      "type": "_blocks",
+    "newsletter_iTBiza": {
+      "type": "newsletter",
       "blocks": {
-        "ai_gen_block_0cbd5fb_JiDHDc": {
-          "type": "ai_gen_block_0cbd5fb",
+        "heading_DDiqzG": {
+          "type": "heading",
           "settings": {
-            "image_height": 400,
-            "image_height_mobile": 300,
-            "border_radius": 8,
-            "show_navigation": true,
-            "nav_button_color": "#ffffff",
-            "nav_button_icon_color": "#000000",
-            "show_dots": true,
-            "dot_size": 10,
-            "dot_active_color": "#000000",
-            "dot_inactive_color": "#cccccc",
-            "show_counter": false,
-            "autoplay": false,
-            "autoplay_speed": 4
-          },
-          "blocks": {}
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_xdUewM": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
+          }
+        },
+        "email_form_AtzNrq": {
+          "type": "email_form",
+          "settings": {}
         }
       },
       "block_order": [
-        "ai_gen_block_0cbd5fb_JiDHDc"
+        "heading_DDiqzG",
+        "paragraph_xdUewM",
+        "email_form_AtzNrq"
       ],
-      "settings": {}
-    },
-    "multicolumn_9MtPNF": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_L7QGJQ": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/leaf.svg",
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_VURXcc": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/leaf.svg",
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_3nERAB": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/leaf.svg",
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_L7QGJQ",
-        "column_VURXcc",
-        "column_3nERAB"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
+      "name": "t:sections.newsletter.presets.name",
       "settings": {
-        "title": "Multicolumn",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
         "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
-    "image_banner_LiRcLy",
-    "rich_text_6eXcqn",
-    "icon_text_RTyb9K",
+    "hero_2025_WkhdLt",
+    "about_2025_WUiYAc",
     "featured_collection",
     "image_banner_pJEhUQ",
     "collection_list_MCdawP",
-    "rich_text_E67bNK",
     "rich_text_7DT8hL",
     "icon_text_L7XzyW",
     "image_with_text_p3ACVm",
     "featured_blog_Ac9YWU",
-    "1757046056fff705cd",
-    "multicolumn_9MtPNF"
+    "newsletter_iTBiza"
   ]
 }
