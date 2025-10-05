@@ -23,18 +23,20 @@
         "text_color": "#ffffff",
         "button_color": "#636dcf",
         "button_text_color": "#ffffff",
-        "button_hover_color": "#6149A2"
+        "button_hover_color": "#6149a2"
       }
     },
     "about_2025_WUiYAc": {
       "type": "about-2025",
       "name": "About 2025",
       "settings": {
-        "background_color": "#EDECFE",
+        "background_color": "#edecfe",
         "heading": "About Us",
         "heading_size": "text-h3",
         "text": "<p>We are a family-owned and operated lavender farm located in the town of Bodega Bay, situated along the Sonoma coast in Northern California.</p>",
-        "text_style": "text-h3"
+        "text_style": "text-h3",
+        "icon_size": 32,
+        "icon_color": "#6149a2"
       }
     },
     "featured_collection": {
@@ -78,7 +80,7 @@
         "text_raEQYd": {
           "type": "text",
           "settings": {
-            "text": "Every bundle of lavender is hand-harvested by our family farm in Bodega Bay, bringing the calm of the coast straight to you.",
+            "text": "Every bundle of lavender is hand-harvested and distilled by our family in Bodega Bay.",
             "text_style": "body"
           }
         }
@@ -146,7 +148,7 @@
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 80,
+        "padding_top": 120,
         "padding_bottom": 80
       }
     },
@@ -272,8 +274,8 @@
         "mobile_content_alignment": "left",
         "section_color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
         "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "featured_blog_Ac9YWU": {
@@ -285,7 +287,7 @@
         "heading": "Blog posts",
         "heading_size": "h2",
         "columns_desktop": 3,
-        "show_view_all": true,
+        "show_view_all": false,
         "show_image": true,
         "show_date": false,
         "show_author": false,
