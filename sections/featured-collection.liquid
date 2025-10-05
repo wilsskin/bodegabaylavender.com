@@ -36,6 +36,12 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Override global title styles for this section */
+  .collection__title .title {
+    font-weight: 500 !important;
+    text-align: center !important;
+  }
 {%- endstyle -%}
 
 {%- liquid

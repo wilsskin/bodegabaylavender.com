@@ -632,6 +632,9 @@ hr {
   text-decoration: none;
   color: currentColor;
   display: block;
+  font-family: var(--font-body-family);
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .placeholder {

@@ -2,85 +2,132 @@
   .section-{{ section.id }} {
     background-color: {{ section.settings.background_color | default: '#EDECFE' }};
     padding: var(--spacing-section-small) 0;
+    
+    /* Icon customization variables */
+    --icon-size: {{ section.settings.icon_size | default: 32 }}px;
+    --icon-color: {{ section.settings.icon_color | default: '#6149A2' }};
   }
 
   .section-{{ section.id }}__container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--spacing-medium);
+    padding: 0;
   }
 
-  /* Responsive padding */
-  @media screen and (max-width: 900px) {
-    .section-{{ section.id }}__container {
-      padding: 0 var(--spacing-medium);
-    }
-  }
-
-  @media screen and (max-width: 750px) {
-    .section-{{ section.id }}__container {
-      padding: 0 var(--spacing-small);
-    }
-  }
-
-  /* About content layout */
+  /* Main content layout - matching Figma structure */
   .section-{{ section.id }}__content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-large);
+    gap: var(--spacing-xlarge); /* 64px - using our spacing variable */
   }
 
+  /* Text content styling - matching Figma typography */
   .section-{{ section.id }}__text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-medium);
+    gap: var(--spacing-medium); /* 24px - using our spacing variable */
     text-align: center;
     max-width: 800px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
   }
 
+  .section-{{ section.id }}__text h2 {
+    font-family: var(--font-heading-family);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.36;
+    color: #000000;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  .section-{{ section.id }}__text .text-content {
+    font-family: var(--font-body-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.36;
+    color: #000000;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  .section-{{ section.id }}__text .text-content p {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Features grid - matching Figma layout with max-width constraint */
   .section-{{ section.id }}__features {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: var(--spacing-large);
+    gap: 0; /* No gap - features fill the full width */
+    max-width: 800px; /* Max width constraint as requested */
     width: 100%;
+    padding: 0;
+    margin: 0;
   }
 
   .section-{{ section.id }}__feature {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-xsmall);
-    flex: 1;
+    gap: var(--spacing-xsmall); /* 8px - using our spacing variable */
+    flex: 0 0 auto; /* Don't grow, don't shrink, size to content */
+    padding: 0;
+    margin: 0;
+    width: auto; /* Width based on content */
   }
 
+  /* Icon styling - flexible and customizable */
   .section-{{ section.id }}__feature-icon {
-    width: 32px;
-    height: 32px;
+    width: var(--icon-size, 32px);
+    height: var(--icon-size, 32px);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
-    border-radius: 50%;
   }
 
   .section-{{ section.id }}__feature-icon img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(246deg) brightness(87%) contrast(97%);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    color: var(--icon-color, #6149A2);
+    fill: var(--icon-color, #6149A2);
   }
 
+  /* SVG color control */
+  .section-{{ section.id }}__feature-icon svg {
+    width: 100%;
+    height: 100%;
+    color: var(--icon-color, #6149A2);
+    fill: var(--icon-color, #6149A2);
+  }
+
+  /* Feature text styling - matching Figma typography */
   .section-{{ section.id }}__feature-text {
+    font-family: var(--font-body-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.36;
+    color: #000000;
     text-align: center;
   }
 
-  /* Mobile responsive */
+  /* Mobile responsive - adapting to smaller screens */
   @media screen and (max-width: 900px) {
     .section-{{ section.id }}__features {
       flex-direction: column;
       gap: var(--spacing-medium);
+      max-width: 100%;
     }
 
     .section-{{ section.id }}__feature {
@@ -93,11 +140,24 @@
     .section-{{ section.id }}__feature-text {
       text-align: left;
     }
+    
+    .section-{{ section.id }}__text h2 {
+      width: 100%;
+    }
   }
 
   @media screen and (max-width: 750px) {
     .section-{{ section.id }}__features {
       gap: var(--spacing-small);
+    }
+    
+    .section-{{ section.id }}__text h2 {
+      font-size: 16px;
+      width: 100%;
+    }
+    
+    .section-{{ section.id }}__text .text-content {
+      font-size: 20px;
     }
   }
 {%- endstyle -%}
@@ -108,13 +168,13 @@
       <!-- Text Content -->
       <div class="section-{{ section.id }}__text">
         {%- if section.settings.heading != blank -%}
-          <h2 class="{{ section.settings.heading_size | default: 'text-h3' }}">
+          <h2>
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
 
         {%- if section.settings.text != blank -%}
-          <div class="{{ section.settings.text_style | default: 'text-h3' }}">
+          <div class="text-content">
             {{ section.settings.text }}
           </div>
         {%- endif -%}
@@ -124,36 +184,36 @@
       <div class="section-{{ section.id }}__features">
         <div class="section-{{ section.id }}__feature">
           <div class="section-{{ section.id }}__feature-icon">
-            <img src="{{ 'organic-products.svg' | asset_url }}" alt="Organic Products" width="24" height="24">
+            <img src="{{ 'icon-organic.svg' | asset_url }}" alt="Organic">
           </div>
-          <div class="section-{{ section.id }}__feature-text text-tag">
+          <div class="section-{{ section.id }}__feature-text">
             Organic Products
           </div>
         </div>
 
         <div class="section-{{ section.id }}__feature">
           <div class="section-{{ section.id }}__feature-icon">
-            <img src="{{ 'sustainably-sourced.svg' | asset_url }}" alt="Sustainably Sourced" width="24" height="24">
+            <img src="{{ 'icon-sustainable.svg' | asset_url }}" alt="Sustainable">
           </div>
-          <div class="section-{{ section.id }}__feature-text text-tag">
+          <div class="section-{{ section.id }}__feature-text">
             Sustainably Sourced
           </div>
         </div>
 
         <div class="section-{{ section.id }}__feature">
           <div class="section-{{ section.id }}__feature-icon">
-            <img src="{{ 'always-handcrafted.svg' | asset_url }}" alt="Always Handcrafted" width="24" height="24">
+            <img src="{{ 'icon-handcrafted.svg' | asset_url }}" alt="Handcrafted">
           </div>
-          <div class="section-{{ section.id }}__feature-text text-tag">
+          <div class="section-{{ section.id }}__feature-text">
             Always Handcrafted
           </div>
         </div>
 
         <div class="section-{{ section.id }}__feature">
           <div class="section-{{ section.id }}__feature-icon">
-            <img src="{{ 'family-owned.svg' | asset_url }}" alt="Family Owned" width="24" height="24">
+            <img src="{{ 'icon-family.svg' | asset_url }}" alt="Family">
           </div>
-          <div class="section-{{ section.id }}__feature-text text-tag">
+          <div class="section-{{ section.id }}__feature-text">
             Family Owned
           </div>
         </div>
@@ -204,7 +264,7 @@
       "type": "richtext",
       "id": "text",
       "label": "Text",
-      "default": "<p>We are a family-owned and operated lavender farm located in the town of Bodega Bay, situated along the Sonoma coast in Northern California.</p>"
+      "default": "<p>We are a family-owned and operated lavender farm located in Bodega Bay, situated along the Sonoma coast in Northern California.</p>"
     },
     {
       "type": "select",
@@ -225,6 +285,26 @@
         }
       ],
       "default": "text-h3"
+    },
+    {
+      "type": "header",
+      "content": "Icon Settings"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 16,
+      "max": 64,
+      "step": 4,
+      "unit": "px",
+      "label": "Icon Size",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Color",
+      "default": "#6149A2"
     }
   ],
   "presets": [
