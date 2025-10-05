@@ -52,8 +52,8 @@
 
 .blog-articles .article-card .card__information,
 .blog__posts .article-card .card__information {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .article-card__info {
@@ -73,9 +73,56 @@
   margin-top: auto;
 }
 
+.article-card__read-more {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 24px;
+  background-color: #636DCF;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.36;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+/* Force button to be on top and receive hover events */
+.article-card__read-more {
+  position: relative !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+}
+
+.article-card__read-more:hover {
+  background-color: #505ABC !important;
+}
+
+/* Disable border hover effect on blog post images */
+.article-card__image img {
+  border: 0 !important;
+  transition: none !important;
+}
+
+.article-card-wrapper:hover .article-card__image img {
+  border: 0 !important;
+  transform: none !important;
+}
+
 .article-card__excerpt {
   width: 100%;
   margin-top: 1.2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .article-card__link:not(:only-child) {

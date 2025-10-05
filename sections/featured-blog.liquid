@@ -15,6 +15,29 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Blog text alignment - left aligned, no padding */
+  .section-{{ section.id }} .blog__title {
+    text-align: left !important;
+  }
+
+  .section-{{ section.id }} .title-wrapper-with-link {
+    justify-content: flex-start !important;
+  }
+
+  .section-{{ section.id }} .card__content {
+    text-align: left !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .section-{{ section.id }} .card__heading {
+    text-align: left !important;
+  }
+
+  .section-{{ section.id }} .article-card__excerpt {
+    text-align: left !important;
+  }
 {%- endstyle -%}
 
 {%- liquid

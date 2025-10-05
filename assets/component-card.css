@@ -388,8 +388,11 @@
 
   .card:hover .media.media--hover-effect > img:first-child:only-child,
   .card-wrapper:hover .media.media--hover-effect > img:first-child:only-child {
-    transform: scale(1.03);
+    /* Disabled zoom effect */
+    transform: scale(1);
   }
+
+  
 
   .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
     opacity: 0;
@@ -398,13 +401,22 @@
   .card-wrapper:hover .media.media--hover-effect > img + img {
     opacity: 1;
     transition: transform var(--duration-long) ease;
-    transform: scale(1.03);
+    /* Disabled zoom effect */
+    transform: scale(1);
   }
 
-  .underline-links-hover:hover a {
-    text-decoration: underline;
-    text-underline-offset: 0.3rem;
+  /* Add transition to default state */
+  .card__media img {
+    border: 0;
+    border-radius: var(--border-radius);
+    transition: border 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   }
+
+  /* Simple border around image on hover */
+  .card-wrapper:hover .card__media img {
+    border: 3px solid rgba(204, 204, 204, .6);
+  }
+
 }
 
 .card--standard.card--media .card__inner .card__information,

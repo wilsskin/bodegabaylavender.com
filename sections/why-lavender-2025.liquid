@@ -1,0 +1,309 @@
+{%- style -%}
+  .section-{{ section.id }} {
+    background-color: {{ section.settings.background_color | default: '#ffffff' }};
+    padding: var(--spacing-section-large) 0;
+  }
+
+  .section-{{ section.id }}__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-medium);
+  }
+
+  @media screen and (max-width: 900px) {
+    .section-{{ section.id }}__container {
+      padding: 0 var(--spacing-medium);
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}__container {
+      padding: 0 var(--spacing-small);
+    }
+  }
+
+  .section-{{ section.id }}__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-section-small);
+  }
+
+  .section-{{ section.id }}__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xsmall);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .section-{{ section.id }}__heading {
+    font-family: var(--font-body-family);
+    font-weight: 600;
+    font-size: calc(var(--font-body-scale) * 3.2rem);
+    line-height: 1.36;
+    color: #000000;
+    margin: 0;
+  }
+
+  .section-{{ section.id }}__text {
+    font-family: var(--font-body-family);
+    font-weight: 400;
+    font-size: calc(var(--font-body-scale) * 1.8rem);
+    line-height: 1.36;
+    color: #000000;
+    margin: 0;
+    text-align: left;
+  }
+
+  .section-{{ section.id }}__features {
+    display: flex;
+    gap: var(--spacing-xsmall);
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .section-{{ section.id }}__feature {
+    flex: 1;
+    min-width: 311px;
+    max-width: 311px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xsmall);
+  }
+
+  .section-{{ section.id }}__feature-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xsmall);
+    padding: var(--spacing-xsmall) 0 0 0;
+  }
+
+  .section-{{ section.id }}__feature-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #EDECFE;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .section-{{ section.id }}__feature-icon svg {
+    width: 22px;
+    height: 22px;
+    color: #6149A2;
+    fill: #6149A2;
+  }
+
+  .section-{{ section.id }}__feature-title {
+    font-family: var(--font-body-family);
+    font-weight: 600;
+    font-size: calc(var(--font-body-scale) * 1.8rem);
+    line-height: 1.36;
+    color: #000000;
+    margin: 0;
+  }
+
+  .section-{{ section.id }}__feature-text {
+    font-family: var(--font-body-family);
+    font-weight: 400;
+    font-size: calc(var(--font-body-scale) * 1.6rem);
+    line-height: 1.5;
+    color: #4D4D62;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .section-{{ section.id }}__features {
+      gap: var(--spacing-medium);
+    }
+    
+    .section-{{ section.id }}__feature {
+      min-width: 280px;
+      max-width: 280px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .section-{{ section.id }}__features {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .section-{{ section.id }}__feature {
+      min-width: 100%;
+      max-width: 400px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}__heading {
+      font-size: calc(var(--font-body-scale) * 2.8rem);
+    }
+
+    .section-{{ section.id }}__text {
+      font-size: calc(var(--font-body-scale) * 1.6rem);
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .section-{{ section.id }}__heading {
+      font-size: calc(var(--font-body-scale) * 2.4rem);
+    }
+
+    .section-{{ section.id }}__text {
+      font-size: calc(var(--font-body-scale) * 1.4rem);
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}">
+  <div class="section-{{ section.id }}__container">
+    <div class="section-{{ section.id }}__content">
+      <div class="section-{{ section.id }}__header">
+        <h2 class="section-{{ section.id }}__heading">
+          {{ section.settings.heading | default: 'Why Lavender?' }}
+        </h2>
+        <p class="section-{{ section.id }}__text">
+          {{ section.settings.text | default: 'Beyond the popular use cases like stress relief, aromatherapy, and floral beauty, there are many ways to use lavender!' }}
+        </p>
+      </div>
+
+      <div class="section-{{ section.id }}__features">
+        <div class="section-{{ section.id }}__feature">
+          <div class="section-{{ section.id }}__feature-header">
+            <div class="section-{{ section.id }}__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                <path d="M8 12L10 14L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="section-{{ section.id }}__feature-title">
+              {{ section.settings.feature_1_title | default: 'Treat burn wounds' }}
+            </h3>
+          </div>
+          <p class="section-{{ section.id }}__feature-text">
+            {{ section.settings.feature_1_text | default: '"I always keep 100% pure lavender essential oil in the kitchen in case I burn myself."' }}
+          </p>
+        </div>
+
+        <div class="section-{{ section.id }}__feature">
+          <div class="section-{{ section.id }}__feature-header">
+            <div class="section-{{ section.id }}__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                <path d="M8 12L10 14L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="section-{{ section.id }}__feature-title">
+              {{ section.settings.feature_2_title | default: 'Repel insects' }}
+            </h3>
+          </div>
+          <p class="section-{{ section.id }}__feature-text">
+            {{ section.settings.feature_2_text | default: '"We use lavender hydrosol as a mosquito repellent everyday when we are in Kauai."' }}
+          </p>
+        </div>
+
+        <div class="section-{{ section.id }}__feature">
+          <div class="section-{{ section.id }}__feature-header">
+            <div class="section-{{ section.id }}__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                <path d="M8 12L10 14L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="section-{{ section.id }}__feature-title">
+              {{ section.settings.feature_3_title | default: 'Natural glass cleaner' }}
+            </h3>
+          </div>
+          <p class="section-{{ section.id }}__feature-text">
+            {{ section.settings.feature_3_text | default: '"Lavender hydrosol is the best non-chemical glass cleaner I have ever used."' }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Lavender 2025",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Lavender?"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description Text",
+      "default": "Beyond the popular use cases like stress relief, aromatherapy, and floral beauty, there are many ways to use lavender!"
+    },
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_title",
+      "label": "Feature 1 Title",
+      "default": "Treat burn wounds"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_1_text",
+      "label": "Feature 1 Text",
+      "default": "I always keep 100% pure lavender essential oil in the kitchen in case I burn myself."
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Feature 2 Title",
+      "default": "Repel insects"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_2_text",
+      "label": "Feature 2 Text",
+      "default": "We use lavender hydrosol as a mosquito repellent everyday when we are in Kauai."
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Feature 3 Title",
+      "default": "Natural glass cleaner"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_3_text",
+      "label": "Feature 3 Text",
+      "default": "Lavender hydrosol is the best non-chemical glass cleaner I have ever used."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Lavender 2025"
+    }
+  ]
+}
+{% endschema %}
