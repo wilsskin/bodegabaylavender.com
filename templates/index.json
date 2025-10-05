@@ -152,92 +152,19 @@
         "padding_bottom": 80
       }
     },
-    "rich_text_7DT8hL": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_WGrnLF": {
-          "type": "heading",
-          "settings": {
-            "heading": "Why Lavender?",
-            "heading_size": "h1"
-          }
-        },
-        "text_YEc9mc": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Beyond the popular use cases like stress relief, aromatherapy,<br/>and floral beauty, there are many ways to use lavender! </p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_WGrnLF",
-        "text_YEc9mc"
-      ],
-      "name": "t:sections.rich-text.presets.name",
+    "why_lavender_2025_pMpeJw": {
+      "type": "why-lavender-2025",
+      "name": "Why Lavender 2025",
       "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 100,
-        "padding_bottom": 0
-      }
-    },
-    "icon_text_L7XzyW": {
-      "type": "icon-text",
-      "blocks": {
-        "item_FYEEwt": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "Treat burn wounds",
-            "body": "<p><em>“I always keep a bottle of 100% pure lavender essential oil in the kitchen in case I burn myself.”</em></p>"
-          }
-        },
-        "item_QJ6HGt": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "Treat burn wounds",
-            "body": "<p><em>“I always keep a bottle of 100% pure lavender essential oil in the kitchen in case I burn myself.”</em></p>"
-          }
-        },
-        "item_GrDXCM": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "Treat burn wounds",
-            "body": "<p><em>“I always keep a bottle of 100% pure lavender essential oil in the kitchen in case I burn myself.”</em></p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_FYEEwt",
-        "item_QJ6HGt",
-        "item_GrDXCM"
-      ],
-      "name": "Icon + Text Grid",
-      "settings": {
-        "heading": "",
-        "subheading": "",
-        "heading_align": "center",
-        "columns_desktop": 4,
-        "columns_tablet": 2,
-        "columns_mobile": "1",
-        "gap": 48,
-        "section_padding": 48,
-        "text_align": "left",
-        "icon_width": 48,
-        "max_width": 1200,
-        "bg_color": "#ffffff",
-        "text_color": "#111111",
-        "icon_color": "#4a5bd1"
+        "background_color": "#ffffff",
+        "heading": "Why Lavender?",
+        "text": "Beyond the popular use cases like stress relief, aromatherapy, and floral beauty, there are many ways to use lavender!",
+        "feature_1_title": "Treat burn wounds",
+        "feature_1_text": "I always keep 100% pure lavender essential oil in the kitchen in case I burn myself.",
+        "feature_2_title": "Repel insects",
+        "feature_2_text": "We use lavender hydrosol as a mosquito repellent everyday when we are in Kauai.",
+        "feature_3_title": "Natural glass cleaner",
+        "feature_3_text": "Lavender hydrosol is the best non-chemical glass cleaner I have ever used."
       }
     },
     "image_with_text_p3ACVm": {
@@ -337,8 +264,7 @@
     "featured_collection",
     "image_banner_pJEhUQ",
     "collection_list_MCdawP",
-    "rich_text_7DT8hL",
-    "icon_text_L7XzyW",
+    "why_lavender_2025_pMpeJw",
     "image_with_text_p3ACVm",
     "featured_blog_Ac9YWU",
     "newsletter_iTBiza"
