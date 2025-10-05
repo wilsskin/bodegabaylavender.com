@@ -219,8 +219,8 @@
         "show_date": false,
         "show_author": false,
         "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
-        "padding_top": 100,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "newsletter_iTBiza": {
