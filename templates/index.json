@@ -144,7 +144,7 @@
         "heading_size": "h2",
         "image_ratio": "square",
         "columns_desktop": 4,
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": false,
@@ -199,8 +199,8 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
-        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "section_color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
         "padding_top": 64,
         "padding_bottom": 64
       }
@@ -218,7 +218,7 @@
         "show_image": true,
         "show_date": false,
         "show_author": false,
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -251,7 +251,7 @@
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
