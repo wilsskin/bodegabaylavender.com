@@ -91,7 +91,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/home-image1.jpg",
+        "image": "shopify://shop_images/jami-danny.png",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "image_behavior": "none",
