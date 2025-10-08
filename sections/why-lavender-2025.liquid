@@ -32,9 +32,9 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xsmall);
-    text-align: center;
+    text-align: left;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0;
   }
 
   .section-{{ section.id }}__heading {
@@ -69,14 +69,16 @@
     max-width: 311px;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xsmall);
+    gap: var(--spacing-medium);
+    align-items: center;
+    text-align: center;
   }
 
   .section-{{ section.id }}__feature-header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: var(--spacing-xsmall);
-    padding: var(--spacing-xsmall) 0 0 0;
+    gap: var(--spacing-medium);
   }
 
   .section-{{ section.id }}__feature-icon {
@@ -180,10 +182,10 @@
                 <path d="M8 12L10 14L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3 class="section-{{ section.id }}__feature-title">
-              {{ section.settings.feature_1_title | default: 'Treat burn wounds' }}
-            </h3>
           </div>
+          <h3 class="section-{{ section.id }}__feature-title">
+            {{ section.settings.feature_1_title | default: 'Treat burn wounds' }}
+          </h3>
           <p class="section-{{ section.id }}__feature-text">
             {{ section.settings.feature_1_text | default: '"I always keep 100% pure lavender essential oil in the kitchen in case I burn myself."' }}
           </p>
@@ -197,10 +199,10 @@
                 <path d="M8 12L10 14L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3 class="section-{{ section.id }}__feature-title">
-              {{ section.settings.feature_2_title | default: 'Repel insects' }}
-            </h3>
           </div>
+          <h3 class="section-{{ section.id }}__feature-title">
+            {{ section.settings.feature_2_title | default: 'Repel insects' }}
+          </h3>
           <p class="section-{{ section.id }}__feature-text">
             {{ section.settings.feature_2_text | default: '"We use lavender hydrosol as a mosquito repellent everyday when we are in Kauai."' }}
           </p>
@@ -214,10 +216,10 @@
                 <path d="M8 12L10 14L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3 class="section-{{ section.id }}__feature-title">
-              {{ section.settings.feature_3_title | default: 'Natural glass cleaner' }}
-            </h3>
           </div>
+          <h3 class="section-{{ section.id }}__feature-title">
+            {{ section.settings.feature_3_title | default: 'Natural glass cleaner' }}
+          </h3>
           <p class="section-{{ section.id }}__feature-text">
             {{ section.settings.feature_3_text | default: '"Lavender hydrosol is the best non-chemical glass cleaner I have ever used."' }}
           </p>

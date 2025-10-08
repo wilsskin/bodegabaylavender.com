@@ -23,18 +23,20 @@
         "text_color": "#ffffff",
         "button_color": "#636dcf",
         "button_text_color": "#ffffff",
-        "button_hover_color": "#6149A2"
+        "button_hover_color": "#6149a2"
       }
     },
     "about_2025_WUiYAc": {
       "type": "about-2025",
       "name": "About 2025",
       "settings": {
-        "background_color": "#EDECFE",
+        "background_color": "#edecfe",
         "heading": "About Us",
         "heading_size": "text-h3",
         "text": "<p>We are a family-owned and operated lavender farm located in the town of Bodega Bay, situated along the Sonoma coast in Northern California.</p>",
-        "text_style": "text-h3"
+        "text_style": "text-h3",
+        "icon_size": 32,
+        "icon_color": "#6149a2"
       }
     },
     "featured_collection": {
@@ -78,7 +80,7 @@
         "text_raEQYd": {
           "type": "text",
           "settings": {
-            "text": "Every bundle of lavender is hand-harvested by our family farm in Bodega Bay, bringing the calm of the coast straight to you.",
+            "text": "Every bundle of lavender is hand-harvested and distilled by our family in Bodega Bay.",
             "text_style": "body"
           }
         }
@@ -142,7 +144,7 @@
         "heading_size": "h2",
         "image_ratio": "square",
         "columns_desktop": 4,
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": false,
@@ -150,92 +152,19 @@
         "padding_bottom": 80
       }
     },
-    "rich_text_7DT8hL": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_WGrnLF": {
-          "type": "heading",
-          "settings": {
-            "heading": "Why Lavender?",
-            "heading_size": "h1"
-          }
-        },
-        "text_YEc9mc": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Beyond the popular use cases like stress relief, aromatherapy,<br/>and floral beauty, there are many ways to use lavender! </p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_WGrnLF",
-        "text_YEc9mc"
-      ],
-      "name": "t:sections.rich-text.presets.name",
+    "why_lavender_2025_q3arH3": {
+      "type": "why-lavender-2025",
+      "name": "Why Lavender 2025",
       "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 100,
-        "padding_bottom": 0
-      }
-    },
-    "icon_text_L7XzyW": {
-      "type": "icon-text",
-      "blocks": {
-        "item_FYEEwt": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "Treat burn wounds",
-            "body": "<p><em>“I always keep a bottle of 100% pure lavender essential oil in the kitchen in case I burn myself.”</em></p>"
-          }
-        },
-        "item_QJ6HGt": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "Treat burn wounds",
-            "body": "<p><em>“I always keep a bottle of 100% pure lavender essential oil in the kitchen in case I burn myself.”</em></p>"
-          }
-        },
-        "item_GrDXCM": {
-          "type": "item",
-          "settings": {
-            "icon_img": "shopify://shop_images/leaf.svg",
-            "svg_raw": "",
-            "alt": "",
-            "title": "Treat burn wounds",
-            "body": "<p><em>“I always keep a bottle of 100% pure lavender essential oil in the kitchen in case I burn myself.”</em></p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_FYEEwt",
-        "item_QJ6HGt",
-        "item_GrDXCM"
-      ],
-      "name": "Icon + Text Grid",
-      "settings": {
-        "heading": "",
-        "subheading": "",
-        "heading_align": "center",
-        "columns_desktop": 4,
-        "columns_tablet": 2,
-        "columns_mobile": "1",
-        "gap": 48,
-        "section_padding": 48,
-        "text_align": "left",
-        "icon_width": 48,
-        "max_width": 1200,
-        "bg_color": "#ffffff",
-        "text_color": "#111111",
-        "icon_color": "#4a5bd1"
+        "background_color": "#ffffff",
+        "heading": "Why Lavender?",
+        "text": "Beyond the popular use cases like stress relief, aromatherapy, and floral beauty, there are many ways to use lavender!",
+        "feature_1_title": "Treat burn wounds",
+        "feature_1_text": "I always keep 100% pure lavender essential oil in the kitchen in case I burn myself.",
+        "feature_2_title": "Repel insects",
+        "feature_2_text": "We use lavender hydrosol as a mosquito repellent everyday when we are in Kauai.",
+        "feature_3_title": "Natural glass cleaner",
+        "feature_3_text": "Lavender hydrosol is the best non-chemical glass cleaner I have ever used."
       }
     },
     "image_with_text_p3ACVm": {
@@ -262,6 +191,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/stay-with-us.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -270,10 +200,10 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
-        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "section_color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "featured_blog_Ac9YWU": {
@@ -285,11 +215,11 @@
         "heading": "Blog posts",
         "heading_size": "h2",
         "columns_desktop": 3,
-        "show_view_all": true,
+        "show_view_all": false,
         "show_image": true,
         "show_date": false,
         "show_author": false,
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
         "padding_top": 100,
         "padding_bottom": 36
       }
@@ -322,7 +252,7 @@
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
@@ -335,8 +265,7 @@
     "featured_collection",
     "image_banner_pJEhUQ",
     "collection_list_MCdawP",
-    "rich_text_7DT8hL",
-    "icon_text_L7XzyW",
+    "why_lavender_2025_q3arH3",
     "image_with_text_p3ACVm",
     "featured_blog_Ac9YWU",
     "newsletter_iTBiza"
