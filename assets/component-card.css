@@ -407,14 +407,15 @@
 
   /* Add transition to default state */
   .card__media img {
-    border: 0;
+    border: 1.4px solid #000000;
     border-radius: var(--border-radius);
-    transition: border 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    transition: border-color 0.3s ease-out !important;
   }
 
-  /* Simple border around image on hover */
+  /* Border color change on hover */
   .card-wrapper:hover .card__media img {
-    border: 3px solid rgba(204, 204, 204, .6);
+    border-color: #636DCF;
+    filter: brightness(0.9);
   }
 
 }
