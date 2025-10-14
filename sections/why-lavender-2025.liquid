@@ -1,46 +1,46 @@
 {%- style -%}
   .section-{{ section.id }} {
     background-color: {{ section.settings.background_color | default: '#ffffff' }};
-    padding: var(--spacing-section-large) 0;
+    padding: var(--spacing-xlarge) 0; /* 64px top and bottom */
   }
 
   .section-{{ section.id }}__container {
-    max-width: 1200px;
+    max-width: 120rem; /* 1200px - using rem */
     margin: 0 auto;
-    padding: 0 var(--spacing-medium);
+    padding: 0 1.5rem;
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (min-width: 750px) {
     .section-{{ section.id }}__container {
-      padding: 0 var(--spacing-medium);
+      padding: 0 5rem;
     }
   }
 
-  @media screen and (max-width: 750px) {
+  @media screen and (min-width: 990px) {
     .section-{{ section.id }}__container {
-      padding: 0 var(--spacing-small);
+      padding: 0 5rem;
     }
   }
 
   .section-{{ section.id }}__content {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-section-small);
+    gap: var(--spacing-xlarge); /* 64px - using variable */
   }
 
   .section-{{ section.id }}__header {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xsmall);
+    gap: var(--spacing-xsmall); /* 8px - using variable */
     text-align: left;
-    max-width: 600px;
+    max-width: 60rem; /* 600px - using rem */
     margin: 0;
   }
 
   .section-{{ section.id }}__heading {
     font-family: var(--font-body-family);
     font-weight: 600;
-    font-size: calc(var(--font-body-scale) * 3.2rem);
+    font-size: 3.2rem; /* 32px - matches design */
     line-height: 1.36;
     color: #000000;
     margin: 0;
@@ -49,43 +49,55 @@
   .section-{{ section.id }}__text {
     font-family: var(--font-body-family);
     font-weight: 400;
-    font-size: calc(var(--font-body-scale) * 1.8rem);
+    font-size: 1.8rem; /* 18px - matches design */
     line-height: 1.36;
     color: #000000;
     margin: 0;
     text-align: left;
+    max-width: 60rem; /* 600px - using rem */
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}__text {
+      max-width: 100%; /* Remove fixed width on mobile */
+    }
   }
 
   .section-{{ section.id }}__features {
     display: flex;
-    gap: var(--spacing-xsmall);
+    gap: 1rem; /* 10px - using rem */
     justify-content: space-between;
     flex-wrap: wrap;
   }
 
   .section-{{ section.id }}__feature {
     flex: 1;
-    min-width: 311px;
-    max-width: 311px;
+    width: 32rem; /* 320px total (288px content + 32px padding) */
+    max-width: 32rem; /* 320px total */
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-medium);
-    align-items: center;
-    text-align: center;
+    gap: var(--spacing-xsmall); /* 8px - using variable */
+    align-items: flex-start;
+    text-align: left;
+    background-color: #FFFFFF; /* White card background */
+    border: 1.5px solid #6149A2; /* Purple border */
+    border-radius: 1.6rem; /* 16px border radius */
+    padding: 1.6rem; /* 16px padding on all sides */
   }
 
   .section-{{ section.id }}__feature-header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: var(--spacing-medium);
+    padding-bottom: 0.8rem
   }
 
   .section-{{ section.id }}__feature-icon {
-    width: 50px;
-    height: 50px;
+    width: 5rem; /* 50px - using rem */
+    height: 5rem; /* 50px - using rem */
     background-color: #EDECFE;
-    border-radius: 50%;
+    border: 1px solid #6149A2; /* Purple border on icon */
+    border-radius: 1.6rem; /* 16px border radius to match card */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,8 +105,8 @@
   }
 
   .section-{{ section.id }}__feature-icon svg {
-    width: 22px;
-    height: 22px;
+    width: 2.2rem; /* 22px - using rem */
+    height: 2.2rem; /* 22px - using rem */
     color: #6149A2;
     fill: #6149A2;
   }
@@ -102,16 +114,18 @@
   .section-{{ section.id }}__feature-title {
     font-family: var(--font-body-family);
     font-weight: 600;
-    font-size: calc(var(--font-body-scale) * 1.8rem);
+    font-size: 1.8rem; /* 18px - matches design */
     line-height: 1.36;
     color: #000000;
     margin: 0;
+    flex: 1;
   }
 
   .section-{{ section.id }}__feature-text {
     font-family: var(--font-body-family);
     font-weight: 400;
-    font-size: calc(var(--font-body-scale) * 1.6rem);
+    font-size: 1.6rem; /* 16px - matches design */
+    font-style: italic; /* Added italic styling */
     line-height: 1.5;
     color: #4D4D62;
     margin: 0;
@@ -119,44 +133,66 @@
 
   @media screen and (max-width: 1024px) {
     .section-{{ section.id }}__features {
-      gap: var(--spacing-medium);
+      gap: 1.5rem; /* Increase gap on smaller screens */
     }
     
     .section-{{ section.id }}__feature {
-      min-width: 280px;
-      max-width: 280px;
+      width: 30.4rem; /* 304px total (272px content + 32px padding) */
+      max-width: 30.4rem; /* 304px total */
     }
   }
 
   @media screen and (max-width: 900px) {
     .section-{{ section.id }}__features {
-      flex-direction: column;
-      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 1rem;
     }
     
     .section-{{ section.id }}__feature {
-      min-width: 100%;
-      max-width: 400px;
+      width: calc(50% - 0.5rem); /* 2 cards per row */
+      max-width: none;
+    }
+    
+    .section-{{ section.id }}__feature:nth-child(3) {
+      width: 100%; /* 3rd card full width below */
     }
   }
 
   @media screen and (max-width: 750px) {
     .section-{{ section.id }}__heading {
-      font-size: calc(var(--font-body-scale) * 2.8rem);
+      font-size: 2.8rem; /* 28px on mobile */
     }
 
     .section-{{ section.id }}__text {
-      font-size: calc(var(--font-body-scale) * 1.6rem);
+      font-size: 1.6rem; /* 16px on mobile */
+    }
+
+    .section-{{ section.id }}__feature-title {
+      font-size: 1.6rem; /* 16px on mobile */
+    }
+
+    .section-{{ section.id }}__feature-text {
+      font-size: 1.4rem; /* 14px on mobile */
     }
   }
 
   @media screen and (max-width: 480px) {
     .section-{{ section.id }}__heading {
-      font-size: calc(var(--font-body-scale) * 2.4rem);
+      font-size: 2.4rem; /* 24px on small mobile */
     }
 
     .section-{{ section.id }}__text {
-      font-size: calc(var(--font-body-scale) * 1.4rem);
+      font-size: 1.4rem; /* 14px on small mobile */
+    }
+
+    .section-{{ section.id }}__feature-title {
+      font-size: 1.4rem; /* 14px on small mobile */
+    }
+
+    .section-{{ section.id }}__feature-text {
+      font-size: 1.2rem; /* 12px on small mobile */
     }
   }
 {%- endstyle -%}
@@ -177,51 +213,42 @@
         <div class="section-{{ section.id }}__feature">
           <div class="section-{{ section.id }}__feature-header">
             <div class="section-{{ section.id }}__feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
-                <path d="M8 12L10 14L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              {{ 'icon-burn.svg' | asset_url | img_tag: 'Burn treatment icon', 'width="22" height="22"' }}
             </div>
           </div>
           <h3 class="section-{{ section.id }}__feature-title">
             {{ section.settings.feature_1_title | default: 'Treat burn wounds' }}
           </h3>
           <p class="section-{{ section.id }}__feature-text">
-            {{ section.settings.feature_1_text | default: '"I always keep 100% pure lavender essential oil in the kitchen in case I burn myself."' }}
+            "{{ section.settings.feature_1_text | default: 'I always keep 100% pure lavender essential oil in the kitchen in case I burn myself.' }}"
           </p>
         </div>
 
         <div class="section-{{ section.id }}__feature">
           <div class="section-{{ section.id }}__feature-header">
             <div class="section-{{ section.id }}__feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
-                <path d="M8 12L10 14L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              {{ 'icon-repel.svg' | asset_url | img_tag: 'Insect repellent icon', 'width="22" height="22"' }}
             </div>
           </div>
           <h3 class="section-{{ section.id }}__feature-title">
             {{ section.settings.feature_2_title | default: 'Repel insects' }}
           </h3>
           <p class="section-{{ section.id }}__feature-text">
-            {{ section.settings.feature_2_text | default: '"We use lavender hydrosol as a mosquito repellent everyday when we are in Kauai."' }}
+            "{{ section.settings.feature_2_text | default: 'We use lavender hydrosol as a mosquito repellent everyday when we are in Kauai.' }}"
           </p>
         </div>
 
         <div class="section-{{ section.id }}__feature">
           <div class="section-{{ section.id }}__feature-header">
             <div class="section-{{ section.id }}__feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
-                <path d="M8 12L10 14L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              {{ 'icon-glass.svg' | asset_url | img_tag: 'Glass cleaner icon', 'width="22" height="22"' }}
             </div>
           </div>
           <h3 class="section-{{ section.id }}__feature-title">
             {{ section.settings.feature_3_title | default: 'Natural glass cleaner' }}
           </h3>
           <p class="section-{{ section.id }}__feature-text">
-            {{ section.settings.feature_3_text | default: '"Lavender hydrosol is the best non-chemical glass cleaner I have ever used."' }}
+            "{{ section.settings.feature_3_text | default: "Lavender hydrosol is the best non-chemical glass cleaner I've ever used." }}"
           </p>
         </div>
       </div>

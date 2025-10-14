@@ -378,25 +378,25 @@ h5,
 
 h1,
 .h1 {
-  font-size: calc(var(--font-heading-scale) * 4.8rem); /* 48px */
+  font-size: calc(var(--font-heading-scale) * 3.2rem); /* 32px on mobile */
 }
 
 @media only screen and (min-width: 750px) {
   h1,
   .h1 {
-    font-size: calc(var(--font-heading-scale) * 4.8rem);
+    font-size: calc(var(--font-heading-scale) * 4.8rem); /* 48px on desktop */
   }
 }
 
 h2,
 .h2 {
-  font-size: calc(var(--font-heading-scale) * 3.2rem); /* 32px */
+  font-size: calc(var(--font-heading-scale) * 2.4rem); /* 24px on mobile */
 }
 
 @media only screen and (min-width: 750px) {
   h2,
   .h2 {
-    font-size: calc(var(--font-heading-scale) * 3.2rem);
+    font-size: calc(var(--font-heading-scale) * 3.2rem); /* 32px on desktop */
   }
 }
 
@@ -421,13 +421,13 @@ h4,
 
 h5,
 .h5 {
-  font-size: calc(var(--font-heading-scale) * 1.2rem);
+  font-size: calc(var(--font-heading-scale) * 1.1rem); /* Smaller on mobile */
 }
 
 @media only screen and (min-width: 750px) {
   h5,
   .h5 {
-    font-size: calc(var(--font-heading-scale) * 1.3rem);
+    font-size: calc(var(--font-heading-scale) * 1.5rem); /* Larger on desktop */
   }
 }
 
