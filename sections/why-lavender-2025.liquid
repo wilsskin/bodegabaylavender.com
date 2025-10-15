@@ -25,7 +25,11 @@
   .section-{{ section.id }}__content {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xlarge); /* 64px - using variable */
+    gap: 2.4rem; /* 32px - default gap */
+  }
+
+  .section-{{ section.id }}__content > .section-{{ section.id }}__header + .section-{{ section.id }}__features {
+    margin-top: 3.2rem; /* Additional 32px to make total 64px between header and features */
   }
 
   .section-{{ section.id }}__header {
@@ -72,8 +76,7 @@
 
   .section-{{ section.id }}__feature {
     flex: 1;
-    width: 32rem; /* 320px total (288px content + 32px padding) */
-    max-width: 32rem; /* 320px total */
+    max-width: 32.8rem; /* 320px total */
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xsmall); /* 8px - using variable */
@@ -195,6 +198,25 @@
       font-size: 1.2rem; /* 12px on small mobile */
     }
   }
+
+  .section-{{ section.id }}__cta {
+    text-align: left;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .section-{{ section.id }}__cta-link {
+    font-family: var(--font-body-family);
+    font-weight: 600; /* Bold */
+    font-size: 1.8rem; /* 18px - using rem */
+    color: #636DCF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .section-{{ section.id }}__cta-link:hover {
+    color: #4A52B8; /* Slightly darker on hover */
+  }
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}">
@@ -220,7 +242,7 @@
             {{ section.settings.feature_1_title | default: 'Treat burn wounds' }}
           </h3>
           <p class="section-{{ section.id }}__feature-text">
-            "{{ section.settings.feature_1_text | default: 'I always keep 100% pure lavender essential oil in the kitchen in case I burn myself.' }}"
+            "I always keep <a href="#" style="color: #636DCF; text-decoration: underline;">lavender essential oil</a> in the kitchen in case I burn myself"
           </p>
         </div>
 
@@ -234,7 +256,7 @@
             {{ section.settings.feature_2_title | default: 'Repel insects' }}
           </h3>
           <p class="section-{{ section.id }}__feature-text">
-            "{{ section.settings.feature_2_text | default: 'We use lavender hydrosol as a mosquito repellent everyday when we are in Kauai.' }}"
+            "We use <a href="#" style="color: #636DCF; text-decoration: underline;">lavender hydrosol</a> as a mosquito repellent everyday in Kauai"
           </p>
         </div>
 
@@ -248,9 +270,15 @@
             {{ section.settings.feature_3_title | default: 'Natural glass cleaner' }}
           </h3>
           <p class="section-{{ section.id }}__feature-text">
-            "{{ section.settings.feature_3_text | default: "Lavender hydrosol is the best non-chemical glass cleaner I've ever used." }}"
+            "<a href="#" style="color: #636DCF; text-decoration: underline;">Lavender hydrosol</a> is the best non-chemical glass cleaner I've ever used"
           </p>
         </div>
+      </div>
+      
+      <div class="section-{{ section.id }}__cta">
+        <a href="/collections/all" class="section-{{ section.id }}__cta-link">
+          Explore Our Products →
+        </a>
       </div>
     </div>
   </div>

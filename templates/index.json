@@ -13,7 +13,7 @@
       "type": "hero-2025",
       "name": "Hero 2025",
       "settings": {
-        "image": "shopify://shop_images/hero-image.jpg",
+        "image": "shopify://shop_images/home-hero-1.webp",
         "heading": "Bodega Bay Lavender",
         "heading_size": "h1",
         "subtitle": "Coastal Lavender, From Our Home to Yours",
@@ -124,30 +124,23 @@
           "settings": {
             "collection": ""
           }
-        },
-        "featured_collection_mGHQkK": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
         }
       },
       "block_order": [
         "featured_collection_NHJYNp",
         "featured_collection_c9Mfem",
-        "featured_collection_KJcpz6",
-        "featured_collection_mGHQkK"
+        "featured_collection_KJcpz6"
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "Shop by Category",
         "heading_size": "h2",
         "image_ratio": "square",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
         "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -157,14 +150,14 @@
       "name": "Why Lavender 2025",
       "settings": {
         "background_color": "#ffffff",
-        "heading": "Why Lavender?",
+        "heading": "Why Use Lavender?",
         "text": "Beyond the popular use cases like stress relief, aromatherapy, and floral beauty, there are many ways to use lavender!",
-        "feature_1_title": "Treat burn wounds",
-        "feature_1_text": "I always keep 100% pure lavender essential oil in the kitchen in case I burn myself.",
-        "feature_2_title": "Repel insects",
-        "feature_2_text": "We use lavender hydrosol as a mosquito repellent everyday when we are in Kauai.",
-        "feature_3_title": "Natural glass cleaner",
-        "feature_3_text": "Lavender hydrosol is the best non-chemical glass cleaner I have ever used."
+        "feature_1_title": "Treat burn wounds effectively",
+        "feature_1_text": "I always keep lavender essential oil in the kitchen in case I burn myself",
+        "feature_2_title": "Repel insects (and smell great!)",
+        "feature_2_text": "We use lavender hydrosol as a mosquito repellent everyday in Kauai",
+        "feature_3_title": "Clean glass without chemicals",
+        "feature_3_text": "Lavender hydrosol is the best non-chemical glass cleaner I’ve ever used"
       }
     },
     "image_with_text_p3ACVm": {
@@ -220,8 +213,8 @@
         "show_date": false,
         "show_author": false,
         "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
-        "padding_top": 100,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "newsletter_iTBiza": {

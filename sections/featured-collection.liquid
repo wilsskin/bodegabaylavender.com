@@ -39,14 +39,25 @@
 
   /* Override global title styles for this section */
   .collection__title .title {
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     text-align: center !important;
+  }
+
+  /* Shrink individual product cards when carousel activates below 990px */
+  @media screen and (max-width: 989px) {
+    .grid__item {
+      max-width: 28rem; /* 300px - smaller individual cards */
+    }
   }
 
   /* Fix product name font size on mobile */
   @media screen and (max-width: 749px) {
     .full-unstyled-link {
       font-size: 1.4rem !important;
+    }
+    
+    .card__information {
+      padding: 0.4rem 0.5rem !important;
     }
   }
 {%- endstyle -%}
@@ -62,7 +73,7 @@
   assign columns_mobile_int = section.settings.columns_mobile | plus: 0
   assign columns_desktop_int = section.settings.columns_desktop | plus: 0
   assign show_mobile_slider = false
-  if section.settings.swipe_on_mobile and products_to_display > columns_mobile_int
+  if products_to_display > columns_mobile_int
     assign show_mobile_slider = true
   endif
 

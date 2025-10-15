@@ -15,13 +15,20 @@
     }
   }
 
+  /* Shrink individual collection cards when carousel activates below 990px */
+  @media screen and (max-width: 989px) {
+    .grid__item {
+      max-width: 28rem; /* 300px - smaller individual cards */
+    }
+  }
+
   /* Override global title styles for this section */
   .title-wrapper-with-link {
     justify-content: center !important;
   }
   
   .title-wrapper-with-link .collection-list-title.h2.inline-richtext {
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     text-align: center !important;
   }
 {%- endstyle -%}
