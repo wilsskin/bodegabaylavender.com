@@ -634,7 +634,7 @@ hr {
   display: block;
   font-family: var(--font-body-family);
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .placeholder {
@@ -1702,10 +1702,7 @@ details[open] > .share-button__fallback {
   right: var(--inputs-border-width);
   bottom: var(--inputs-border-width);
   left: var(--inputs-border-width);
-  border: 0.1rem solid transparent;
   border-radius: var(--inputs-radius);
-  box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
-  transition: box-shadow var(--duration-short) ease;
   z-index: 1;
 }
 
@@ -1725,7 +1722,6 @@ details[open] > .share-button__fallback {
 .localization-form__select:hover.localization-form__select:after {
   box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width))
     rgba(var(--color-foreground), var(--inputs-border-opacity));
-  outline: 0;
   border-radius: var(--inputs-radius);
 }
 
@@ -1735,24 +1731,10 @@ details[open] > .share-button__fallback {
 .customer select:focus-visible,
 .localization-form__select:focus-visible.localization-form__select:after {
   box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
-  outline: 0;
   border-radius: var(--inputs-radius);
 }
 
-.field__input:focus,
-.select__select:focus,
-.customer .field input:focus,
-.customer select:focus,
-.localization-form__select:focus.localization-form__select:after {
-  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
-  outline: 0;
-  border-radius: var(--inputs-radius);
-}
 
-.localization-form__select:focus {
-  outline: 0;
-  box-shadow: none;
-}
 
 .text-area,
 .select {
@@ -1788,7 +1770,6 @@ details[open] > .share-button__fallback {
   position: relative;
   width: 100%;
   display: flex;
-  transition: box-shadow var(--duration-short) ease;
 }
 
 .customer .field {
@@ -1805,7 +1786,6 @@ details[open] > .share-button__fallback {
   text-align: left;
   padding: 1.5rem;
   margin: var(--inputs-border-width);
-  transition: box-shadow var(--duration-short) ease;
 }
 
 .field__label,

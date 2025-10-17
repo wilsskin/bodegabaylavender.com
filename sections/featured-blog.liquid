@@ -40,6 +40,39 @@
   .section-{{ section.id }} .article-card__excerpt {
     text-align: left !important;
   }
+
+  /* Remove top padding from blog post list items */
+  .section-{{ section.id }} .blog__post {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* Set max width on blog post cards */
+  .section-{{ section.id }} .article-card-wrapper {
+    max-width: 320px;
+  }
+
+  /* Responsive text sizing for 650px and below */
+  @media screen and (max-width: 650px) {
+    .section-{{ section.id }} .article-card__excerpt {
+      font-size: 12px !important;
+    }
+
+     .section-{{ section.id }} .article-card-wrapper {
+    max-width: 320px;
+  }
+
+    .section-{{ section.id }} .article-card__read-more {
+      font-size: 12px !important;
+      padding: 6px 12px !important;
+    }
+
+    .section-{{ section.id }} .card__heading {
+      font-size: 16px !important;
+      font-weight: 600px !important;
+      padding-top: 8px;
+    }
+  }
 {%- endstyle -%}
 
 {%- liquid

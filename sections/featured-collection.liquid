@@ -43,6 +43,25 @@
     text-align: center !important;
   }
 
+  /* Reduce bottom margin on small screens */
+  @media screen and (max-width: 450px) {
+    .collection .title-wrapper-with-link,
+    .collection .collection__title.title-wrapper {
+      margin-bottom: 2rem !important;
+    }
+  }
+
+  /* Remove top spacing from list items to hug content */
+  .collection .grid__item {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  .collection .slider__slide {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
   /* Shrink individual product cards when carousel activates below 990px */
   @media screen and (max-width: 989px) {
     .grid__item {
@@ -53,7 +72,8 @@
   /* Fix product name font size on mobile */
   @media screen and (max-width: 749px) {
     .full-unstyled-link {
-      font-size: 1.4rem !important;
+      font-size: 16px !important;
+      font-weight: 700px !important;
     }
     
     .card__information {

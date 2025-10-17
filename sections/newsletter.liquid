@@ -13,11 +13,346 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Newsletter 2025 - Figma Design Implementation */
+  .newsletter-2025 {
+    background-color: #EDECFE;
+    padding: 80px 0 144px;
+  }
+
+  .newsletter-2025 .newsletter__wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 144px;
+    background: transparent;
+  }
+
+  .newsletter-2025 .newsletter__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 600px;
+    flex: 0 0 auto;
+  }
+
+  .newsletter-2025 .inline-richtext {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600 !important;
+    font-size: 32px;
+    line-height: 1.36;
+    color: #000000;
+    text-align: left;
+    margin: 0;
+    max-width: 600px;
+    word-wrap: normal;
+    white-space: normal;
+  }
+
+  .newsletter-2025 .field {
+    width: 450px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .newsletter-2025 .field:before {
+    background: #FFFFFF !important;
+    border-radius: 8px !important;
+  }
+
+  .newsletter-2025 .field:after {
+    border: 0.5px solid #4D4D62 !important;
+    border-radius: 8px !important;
+  }
+
+  .newsletter-2025 .field__input {
+    flex: 1 !important;
+    padding: 16px 0 16px 1.5rem !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 18px !important;
+    line-height: 1.36 !important;
+    color: rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .newsletter-2025 .field__input::placeholder {
+    color: rgba(0, 0, 0, 0.6) !important;
+    opacity: 1 !important;
+  }
+
+  /* Style user input text */
+  .newsletter-2025 .field__input:not(:placeholder-shown) {
+    color: #000000 !important;
+    font-weight: 400 !important;
+  }
+
+  .newsletter-2025 .field__label {
+    display: none;
+  }
+
+  /* Fix focus border with border radius */
+  .newsletter-2025 .field__input:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground)) !important;
+    border-radius: 8px 0 0 8px !important;
+    padding: 16px 0 16px 1.5rem !important;
+  }
+
+  /* Remove ALL transitions from field elements */
+  .newsletter-2025 .field,
+  .newsletter-2025 .field:before,
+  .newsletter-2025 .field:after,
+  .newsletter-2025 .field__input {
+    transition: none !important;
+  }
+
+  /* Override field:after with rounded left corners */
+  .newsletter-2025 .field:after {
+    box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity)) !important;
+    border-radius: 8px 8px 8px 8px !important;
+    transition: none !important;
+  }
+
+  .newsletter-2025 .newsletter-form__button {
+    background: #636DCF !important;
+    border: none !important;
+    border-radius: 0 8px 8px 0 !important;
+    padding: 10px 25px !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative;
+    gap: 10px;
+  }
+
+  .newsletter-2025 .newsletter-form__button:hover {
+    background: #505ABC !important;
+  }
+
+  .newsletter-2025 .newsletter-form__button .svg-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .newsletter-2025 .newsletter-form__button svg {
+    display: block !important;
+    width: 24px !important;
+    height: 17px !important; /* Maintain 14:10 aspect ratio */
+    color: #FFFFFF !important; /* Use color instead of fill */
+    fill: currentColor !important;
+  }
+
+  .newsletter-2025__badges {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex: 0 0 auto;
+  }
+
+  .newsletter-2025__badge {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+  }
+
+  /* Override ALL base.css hover/focus effects */
+  .newsletter-2025 .newsletter-form__button:hover::after {
+    --border-offset: 0px !important;
+    box-shadow: 0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background)) !important;
+  }
+
+  /* Override field hover effects */
+  .newsletter-2025 .field:hover.field:after {
+    box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity)) !important;
+  }
+
+  /* Override field focus effects */
+  .newsletter-2025 .field__input:focus-visible,
+  .newsletter-2025 .field__input:focus {
+    box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity)) !important;
+  }
+
+  /* CRITICAL: Override newsletter-section.css that breaks layout */
+  .newsletter-2025 .newsletter__wrapper > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .newsletter-2025 .newsletter__wrapper > * + * {
+    margin-top: 0 !important;
+  }
+
+  /* CRITICAL: Remove margin auto from newsletter form */
+  .newsletter-2025 .newsletter-form {
+    margin: 0 !important;
+    max-width: none !important;
+  }
+
+  @media screen and (min-width: 750px) {
+    .newsletter-2025 .newsletter-form {
+      margin: 0 !important;
+      max-width: none !important;
+    }
+  }
+
+  /* Tablet (651px-990px) - Vertical Layout */
+  @media screen and (max-width: 990px) {
+    .newsletter-2025 .newsletter__wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 48px;
+    }
+    
+    .newsletter-2025 .newsletter__content {
+      align-items: flex-start;
+    }
+    
+    .newsletter-2025 .inline-richtext {
+      font-size: 28px;
+      text-align: left;
+    }
+    
+    .newsletter-2025__badges {
+      margin-left: 0;
+    }
+  }
+
+  /* Mobile (451px-650px) - Vertical Compact */
+  @media screen and (max-width: 650px) {
+    .newsletter-2025 {
+      padding: 80px 0;
+    }
+
+    .newsletter-2025 .newsletter__wrapper {
+      padding: 0 48px;
+      gap: 32px;
+    }
+
+    .newsletter-2025 .newsletter__content {
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .newsletter-2025 .inline-richtext {
+      font-size: 24px;
+      text-align: left;
+      max-width: 360px;
+    }
+
+    .newsletter-2025 .field {
+      max-width: 360px;
+    }
+
+    .newsletter-2025 .field__input {
+      font-size: 14px;
+      padding: 14px 0;
+    }
+
+    .newsletter-2025 .newsletter-form__button::after {
+      font-size: 14px;
+    }
+
+    .newsletter-2025__badges {
+      gap: 16px;
+    }
+
+    .newsletter-2025__badge {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  /* Small Mobile (≤450px) - Centered Compact */
+  @media screen and (max-width: 450px) {
+    .newsletter-2025 {
+      padding: 64px 0;
+    }
+
+    .newsletter-2025 .newsletter__wrapper {
+      gap: 24px;
+      padding: 0 16px;
+    }
+
+    .newsletter-2025 .newsletter__content {
+      gap: 8px;
+    }
+
+    .newsletter-2025 .inline-richtext {
+      font-size: 16px;
+      text-align: center;
+      max-width: 288px;
+    }
+
+    .newsletter-2025 .field {
+      max-width: 288px;
+      max-height: 32px;
+    }
+
+    .newsletter-2025 .field__input {
+      font-size: 12px !important;
+      padding: 8px 0 8px 1rem !important;
+    }
+
+    .newsletter-2025 .field__input:focus {
+      padding: 8px 0 8px 1rem !important; /* Same padding on focus */
+      box-shadow: none !important; /* Remove box-shadow on mobile focus */
+      border-radius: 8px 0 0 8px !important;
+    }
+
+    .newsletter-2025 .field:after {
+      border-radius: 8px 8px 8px 8px !important; /* Match mobile field size */
+      max-width: 288px;
+      max-height: 32px;
+
+    }
+
+    .newsletter-2025 .newsletter-form__button {
+      padding: 6px 16px !important;
+      max-height: 32px;
+    }
+
+    .newsletter-2025 .newsletter-form__button svg {
+      width: 16px !important;
+      height: 11px !important; /* Maintain 14:10 aspect ratio */
+    }
+
+    .newsletter-2025 .newsletter-form__button::after {
+      font-size: 12px !important;
+    }
+
+    .newsletter-2025__badges {
+      gap: 16px;
+    }
+
+    .newsletter-2025__badge {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  /* Reduce bottom margin on small screens */
+  @media screen and (max-width: 450px) {
+    .newsletter-2025 .title-wrapper-with-link {
+      margin-bottom: 2rem !important;
+    }
+  }
 {%- endstyle -%}
 
-<div class="newsletter center {% if section.settings.full_width == false %}newsletter--narrow page-width{% endif %}">
+<div class="newsletter newsletter-2025 {% if section.settings.full_width == false %}newsletter--narrow page-width{% endif %}">
   <div class="newsletter__wrapper color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
-    {%- for block in section.blocks -%}
+    <div class="newsletter__content">
+      {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when '@app' -%}
           {% render block %}
@@ -33,16 +368,7 @@
             {{ block.settings.heading }}
           </h2>
         {%- when 'paragraph' -%}
-          <div
-            class="newsletter__subheading rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {{ block.shopify_attributes }}
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-              style="--animation-order: {{ forloop.index }};"
-            {% endif %}
-          >
-            {{ block.settings.text }}
-          </div>
+          <!-- Paragraph block removed for Figma design -->
         {%- when 'email_form' -%}
           <div {{ block.shopify_attributes }}>
             {% form 'customer', class: 'newsletter-form' %}
@@ -72,7 +398,7 @@
                     {% elsif form.posted_successfully? %}
                       aria-describedby="Newsletter-success--{{ section.id }}"
                     {% endif %}
-                    placeholder="{{ 'newsletter.label' | t }}"
+                    placeholder="Enter Email"
                     required
                   >
                   <label class="field__label" for="NewsletterForm--{{ section.id }}">
@@ -117,6 +443,29 @@
           </div>
       {%- endcase -%}
     {%- endfor -%}
+    </div> <!-- Close newsletter__content wrapper -->
+
+    <!-- Badge Images -->
+    <div class="newsletter-2025__badges">
+      <img 
+        src="{{ 'banner-organic.png' | asset_url }}" 
+        alt="Organic Certified" 
+        class="newsletter-2025__badge"
+        loading="lazy"
+      >
+      <img 
+        src="{{ 'banner-lavender.png' | asset_url }}" 
+        alt="Lavender Certified" 
+        class="newsletter-2025__badge"
+        loading="lazy"
+      >
+      <img 
+        src="{{ 'banner-marin.png' | asset_url }}" 
+        alt="Marin Certified" 
+        class="newsletter-2025__badge"
+        loading="lazy"
+      >
+    </div>
   </div>
 </div>
 
@@ -213,19 +562,6 @@
       ]
     },
     {
-      "type": "paragraph",
-      "name": "t:sections.newsletter.blocks.paragraph.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "text",
-          "default": "t:sections.newsletter.blocks.paragraph.settings.paragraph.default",
-          "label": "t:sections.newsletter.blocks.paragraph.settings.paragraph.label"
-        }
-      ]
-    },
-    {
       "type": "email_form",
       "name": "t:sections.newsletter.blocks.email_form.name",
       "limit": 1
@@ -240,9 +576,6 @@
       "blocks": [
         {
           "type": "heading"
-        },
-        {
-          "type": "paragraph"
         },
         {
           "type": "email_form"

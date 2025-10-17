@@ -1,0 +1,404 @@
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .gallery-{{ section.id }}__wrapper {
+    background-color: {{ section.settings.background_color | default: '#ffffff' }};
+  }
+
+  .gallery-{{ section.id }}__grid {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .gallery-{{ section.id }}__item {
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .gallery-{{ section.id }}__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-{{ section.id }}__item:hover .gallery-{{ section.id }}__image {
+    transform: scale(1.02);
+  }
+
+  /* Portrait: 3:4 ratio */
+  .gallery-{{ section.id }}__item--portrait {
+    width: 450px;
+    height: 600px;
+  }
+
+  /* Square: 4:4 ratio */
+  .gallery-{{ section.id }}__item--square {
+    width: 600px;
+    height: 600px;
+  }
+
+  /* Landscape: 4:3 ratio */
+  .gallery-{{ section.id }}__item--landscape {
+    width: 600px;
+    height: 450px;
+  }
+
+  /* Desktop: Traditional carousel with multiple images visible */
+  @media screen and (min-width: 650px) {
+    .gallery-{{ section.id }}__grid {
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .gallery-{{ section.id }}__grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gallery-{{ section.id }}__item--portrait {
+      width: 450px;
+      height: 600px;
+      max-width: 450px;
+    }
+
+    .gallery-{{ section.id }}__item--square {
+      width: 600px;
+      height: 600px;
+      max-width: 600px;
+    }
+
+    .gallery-{{ section.id }}__item--landscape {
+      width: 600px;
+      height: 450px;
+      max-width: 600px;
+    }
+
+    /* Ensure images hang off the right side */
+    .gallery-{{ section.id }}__grid:after {
+      content: '';
+      flex-shrink: 0;
+      width: 1.5rem;
+    }
+  }
+
+  /* Mobile: Single image slider */
+  @media screen and (max-width: 649px) {
+    .gallery-{{ section.id }}__grid {
+      overflow: hidden;
+    }
+
+    .gallery-{{ section.id }}__item {
+      width: 100%;
+    }
+
+    .gallery-{{ section.id }}__item--portrait {
+      width: 100%;
+      height: 400px;
+      max-height: 400px;
+    }
+
+    .gallery-{{ section.id }}__item--square {
+      width: 100%;
+      height: 350px;
+      max-height: 350px;
+    }
+
+    .gallery-{{ section.id }}__item--landscape {
+      width: 100%;
+      height: 280px;
+      max-height: 280px;
+    }
+
+    /* Slide transition for mobile */
+    .gallery-{{ section.id }}__grid.slider {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .gallery-{{ section.id }}__item.slider__slide {
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+  }
+
+  /* Responsive scaling for smaller screens */
+  @media screen and (max-width: 480px) {
+    .gallery-{{ section.id }}__item--portrait {
+      height: 350px;
+    }
+
+    .gallery-{{ section.id }}__item--square {
+      height: 300px;
+    }
+
+    .gallery-{{ section.id }}__item--landscape {
+      height: 240px;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .gallery-{{ section.id }}__item--portrait {
+      height: 320px;
+    }
+
+    .gallery-{{ section.id }}__item--square {
+      height: 280px;
+    }
+
+    .gallery-{{ section.id }}__item--landscape {
+      height: 220px;
+    }
+  }
+
+  /* Slider button styling to match featured-collection */
+  .gallery-{{ section.id }} .slider-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .gallery-{{ section.id }} .slider-button {
+    background: none;
+    border: 1px solid rgba(var(--color-foreground), 0.1);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: rgb(var(--color-foreground));
+  }
+
+  .gallery-{{ section.id }} .slider-button:hover {
+    background-color: rgba(var(--color-foreground), 0.05);
+    border-color: rgba(var(--color-foreground), 0.2);
+  }
+
+  .gallery-{{ section.id }} .slider-button svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .gallery-{{ section.id }} .slider-counter {
+    font-size: 14px;
+    color: rgba(var(--color-foreground), 0.6);
+    font-family: var(--font-body-family);
+  }
+
+  /* Hide slider buttons on desktop carousel */
+  @media screen and (min-width: 650px) {
+    .gallery-{{ section.id }} .slider-buttons {
+      display: none !important;
+    }
+  }
+{%- endstyle -%}
+
+<div class="gallery-{{ section.id }}__wrapper color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="title-wrapper title-wrapper--no-top-margin" style="margin-bottom: 3rem;">
+        <h2 class="title {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    <slider-component class="slider-mobile-gutter">
+      <ul 
+        id="Gallery-{{ section.id }}"
+        class="gallery-{{ section.id }}__grid{% if section.blocks.size > 1 %} slider{% if section.blocks.size > 1 %} slider--tablet grid--peek{% endif %}{% endif %}"
+        role="list"
+        aria-label="Gallery images"
+      >
+        {%- for block in section.blocks -%}
+          <li 
+            id="Slide-{{ section.id }}-{{ forloop.index }}"
+            class="gallery-{{ section.id }}__item gallery-{{ section.id }}__item--{{ section.settings.image_size }}{% if section.blocks.size > 1 %} slider__slide{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.image != blank -%}
+              <img 
+                src="{{ block.settings.image | image_url: width: 1200 }}"
+                srcset="{{ block.settings.image | image_url: width: 400 }} 400w,
+                        {{ block.settings.image | image_url: width: 600 }} 600w,
+                        {{ block.settings.image | image_url: width: 800 }} 800w,
+                        {{ block.settings.image | image_url: width: 1000 }} 1000w,
+                        {{ block.settings.image | image_url: width: 1200 }} 1200w"
+                sizes="(max-width: 649px) 100vw, 600px"
+                alt="{{ block.settings.image.alt | escape | default: 'Gallery image' }}"
+                class="gallery-{{ section.id }}__image"
+                loading="{% if forloop.index <= 2 %}eager{% else %}lazy{% endif %}"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+              >
+            {%- else -%}
+              <div class="gallery-{{ section.id }}__placeholder" style="background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #999;">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- if section.blocks.size > 1 -%}
+        <div class="slider-buttons">
+          <button
+            type="button"
+            class="slider-button slider-button--prev"
+            name="previous"
+            aria-label="Previous image"
+            aria-controls="Gallery-{{ section.id }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+          </button>
+          <div class="slider-counter caption">
+            <span class="slider-counter--current">1</span>
+            <span aria-hidden="true"> / </span>
+            <span class="visually-hidden">of</span>
+            <span class="slider-counter--total">{{ section.blocks.size }}</span>
+          </div>
+          <button
+            type="button"
+            class="slider-button slider-button--next"
+            name="next"
+            aria-label="Next image"
+            aria-controls="Gallery-{{ section.id }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+          </button>
+        </div>
+      {%- endif -%}
+    </slider-component>
+  </div>
+</div>
+
+<script src="{{ 'slider-component.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Gallery 2025",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Gallery"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "image_size",
+      "label": "Image Size & Ratio",
+      "options": [
+        { "value": "portrait", "label": "Portrait (3:4)" },
+        { "value": "square", "label": "Square (4:4)" },
+        { "value": "landscape", "label": "Landscape (4:3)" }
+      ],
+      "default": "square",
+      "info": "All images in the gallery will use this size and aspect ratio"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gallery_image",
+      "name": "Gallery Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gallery 2025",
+      "blocks": [
+        { "type": "gallery_image" },
+        { "type": "gallery_image" },
+        { "type": "gallery_image" },
+        { "type": "gallery_image" }
+      ]
+    }
+  ]
+}
+{% endschema %}
