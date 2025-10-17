@@ -110,19 +110,19 @@
         "featured_collection_NHJYNp": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "new-home"
           }
         },
         "featured_collection_c9Mfem": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "new-wellness"
           }
         },
         "featured_collection_KJcpz6": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "new-culinary"
           }
         }
       },
@@ -173,7 +173,7 @@
         "text_MUKfQm": {
           "type": "text",
           "settings": {
-            "text": "<p>We love opening our home up to people and allowing them to experience the beauty of Bodega Bay. We offer rental stays, group events, retreats, and learning sessions.   <br/><br/>Visit our <strong>stay with us</strong> page to learn more!</p>",
+            "text": "<p>We love opening our home up to people and allowing them to experience the beauty of Bodega Bay. We offer rental stays, group events, retreats, and learning sessions.   <br/><br/>Visit our <a href=\"/pages/stay-with-us\" title=\"Stay With Us\"><strong>stay with us</strong></a> page or contact us for a <a href=\"https://docs.google.com/forms/u/0/\" target=\"_blank\" title=\"https://docs.google.com/forms/u/0/\"><strong>lunch & learn!</strong></a></p>",
             "text_style": "body"
           }
         }
