@@ -248,6 +248,49 @@
       "name": "Gallery carousel",
       "settings": {}
     },
+    "gallery_2025_QeKMRR": {
+      "type": "gallery-2025",
+      "blocks": {
+        "gallery_image_AmQULX": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_7588.jpg"
+          }
+        },
+        "gallery_image_zB4Mtx": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_0373.jpg"
+          }
+        },
+        "gallery_image_Gtjzgh": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/48CC285C-EA49-478E-8312-69E0A1FDE047.jpg"
+          }
+        },
+        "gallery_image_tEy9Pm": {
+          "type": "gallery_image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "gallery_image_AmQULX",
+        "gallery_image_zB4Mtx",
+        "gallery_image_Gtjzgh",
+        "gallery_image_tEy9Pm"
+      ],
+      "name": "Gallery 2025",
+      "settings": {
+        "background_color": "#ffffff",
+        "color_scheme": "",
+        "heading": "Gallery",
+        "heading_size": "h2",
+        "image_size": "square",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "newsletter_iTBiza": {
       "type": "newsletter",
       "blocks": {
@@ -273,43 +316,6 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
-      }
-    },
-    "gallery_2025_QeKMRR": {
-      "type": "gallery-2025",
-      "blocks": {
-        "gallery_image_AmQULX": {
-          "type": "gallery_image",
-          "settings": {}
-        },
-        "gallery_image_zB4Mtx": {
-          "type": "gallery_image",
-          "settings": {}
-        },
-        "gallery_image_Gtjzgh": {
-          "type": "gallery_image",
-          "settings": {}
-        },
-        "gallery_image_tEy9Pm": {
-          "type": "gallery_image",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "gallery_image_AmQULX",
-        "gallery_image_zB4Mtx",
-        "gallery_image_Gtjzgh",
-        "gallery_image_tEy9Pm"
-      ],
-      "name": "Gallery 2025",
-      "settings": {
-        "background_color": "#ffffff",
-        "color_scheme": "",
-        "heading": "Gallery",
-        "heading_size": "h2",
-        "image_size": "square",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     }
   },
