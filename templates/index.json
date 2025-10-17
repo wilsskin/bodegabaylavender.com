@@ -243,6 +243,37 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "blocks_UHrCnE": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0cbd5fb_GfC3rz": {
+          "type": "ai_gen_block_0cbd5fb",
+          "settings": {
+            "image_1": "shopify://shop_images/BC5CA208-CE18-468B-B13C-1E81DA239B6E_1_105_c.jpg",
+            "image_2": "shopify://shop_images/IMG_8006.jpg",
+            "image_height": 400,
+            "image_height_mobile": 300,
+            "border_radius": 8,
+            "show_navigation": true,
+            "nav_button_color": "#ffffff",
+            "nav_button_icon_color": "#000000",
+            "show_dots": true,
+            "dot_size": 10,
+            "dot_active_color": "#000000",
+            "dot_inactive_color": "#cccccc",
+            "show_counter": false,
+            "autoplay": false,
+            "autoplay_speed": 4
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0cbd5fb_GfC3rz"
+      ],
+      "name": "Gallery carousel",
+      "settings": {}
     }
   },
   "order": [
@@ -254,6 +285,7 @@
     "why_lavender_2025_q3arH3",
     "image_with_text_p3ACVm",
     "featured_blog_Ac9YWU",
-    "newsletter_iTBiza"
+    "newsletter_iTBiza",
+    "blocks_UHrCnE"
   ]
 }
