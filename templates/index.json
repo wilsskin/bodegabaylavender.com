@@ -274,6 +274,43 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "gallery_2025_QeKMRR": {
+      "type": "gallery-2025",
+      "blocks": {
+        "gallery_image_AmQULX": {
+          "type": "gallery_image",
+          "settings": {}
+        },
+        "gallery_image_zB4Mtx": {
+          "type": "gallery_image",
+          "settings": {}
+        },
+        "gallery_image_Gtjzgh": {
+          "type": "gallery_image",
+          "settings": {}
+        },
+        "gallery_image_tEy9Pm": {
+          "type": "gallery_image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "gallery_image_AmQULX",
+        "gallery_image_zB4Mtx",
+        "gallery_image_Gtjzgh",
+        "gallery_image_tEy9Pm"
+      ],
+      "name": "Gallery 2025",
+      "settings": {
+        "background_color": "#ffffff",
+        "color_scheme": "",
+        "heading": "Gallery",
+        "heading_size": "h2",
+        "image_size": "square",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -286,6 +323,7 @@
     "image_with_text_p3ACVm",
     "featured_blog_Ac9YWU",
     "blocks_UHrCnE",
+    "gallery_2025_QeKMRR",
     "newsletter_iTBiza"
   ]
 }
