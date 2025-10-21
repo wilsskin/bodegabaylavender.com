@@ -406,13 +406,14 @@
 
 /* Add transition to default state */
 .card__media img {
-  border: 1.4px solid #000000;
   border-radius: var(--border-radius);
   transition: border-color 0.15s ease-out, filter 0.3s ease-out !important;
+  border: 1px solid rgb(var(--color-background));
 }
 
 /* Border color change on hover */
 .card-wrapper:hover .card__media img {
+  border: 1px solid #636DCF;
   border-color: #636DCF;
   filter: brightness(0.9);
 }

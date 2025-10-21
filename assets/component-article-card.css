@@ -79,17 +79,17 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 10px 24px;
-  background-color: #636DCF;
-  color: #FFFFFF;
-  text-decoration: none;
-  border-radius: 8px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.36;
-  transition: all 0.3s ease;
+  background: none;
   border: none;
+  border-radius: 0;
+  padding: 0;
+  color: #636DCF;
+  text-decoration: none;
+  font-family: var(--font-body-family);
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 1.36;
+  transition: color 0.3s ease;
   cursor: pointer;
 }
 
@@ -101,7 +101,23 @@
 }
 
 .article-card__read-more:hover {
-  background-color: #505ABC !important;
+  background: none;
+  color: #4A52B8;
+}
+
+/* Remove global button border hover effect */
+.article-card__read-more:hover::after {
+  display: none !important;
+}
+
+/* Arrow animation on hover */
+.article-card__read-more .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.article-card__read-more:hover .arrow {
+  transform: translateX(4px);
 }
 
 /* Disable border hover effect on blog post images */
@@ -118,6 +134,7 @@
 .article-card__excerpt {
   width: 100%;
   margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
@@ -185,5 +202,18 @@
     .articles-wrapper.grid {
       margin-bottom: 7rem;
     }
+  }
+}
+
+/* Responsive styling for article card read more button */
+@media screen and (max-width: 750px) {
+  .article-card__read-more {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .article-card__read-more {
+    font-size: 1.4rem;
   }
 }

@@ -10,11 +10,7 @@
     padding: 0 1.5rem;
   }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}__container {
-      padding: 0 5rem;
-    }
-  }
+  
 
   @media screen and (min-width: 990px) {
     .section-{{ section.id }}__container {
@@ -61,11 +57,6 @@
     max-width: 60rem; /* 600px - using rem */
   }
 
-  @media screen and (max-width: 750px) {
-    .section-{{ section.id }}__text {
-      max-width: 100%; /* Remove fixed width on mobile */
-    }
-  }
 
   .section-{{ section.id }}__features {
     display: flex;
@@ -76,31 +67,27 @@
 
   .section-{{ section.id }}__feature {
     flex: 1;
-    max-width: 32.8rem; /* 320px total */
+    max-width: 30rem; /* 320px total */
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xsmall); /* 8px - using variable */
     align-items: flex-start;
     text-align: left;
     background-color: #FFFFFF; /* White card background */
-    border: 1.5px solid #6149A2; /* Purple border */
-    border-radius: 1.6rem; /* 16px border radius */
-    padding: 1.6rem; /* 16px padding on all sides */
   }
 
   .section-{{ section.id }}__feature-header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-bottom: 32px;
+    padding-bottom: 16px;
   }
 
   .section-{{ section.id }}__feature-icon {
     width: 60px;
     height: 60px;
     background-color: #EDECFE;
-    border: 1px solid #6149A2; /* Purple border on icon */
-    border-radius: 1.6rem; /* 16px border radius to match card */
+    border-radius: 60px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,8 +96,8 @@
 
   .section-{{ section.id }}__feature-icon svg,
   .section-{{ section.id }}__feature-icon img {
-    width: 32px !important;
-    height: 32px !important;
+    width: 32px;
+    height: 32px;
     color: #6149A2;
     fill: #6149A2;
   }
@@ -165,6 +152,13 @@
   }
 
   @media screen and (max-width: 750px) {
+    .section-{{ section.id }}__text {
+      max-width: 100%; /* Remove fixed width on mobile */
+    }
+    .section-{{ section.id }}__container {
+      padding: 0 1.5rem;
+    }
+
     .section-{{ section.id }}__heading {
       font-size: 2.8rem; /* 28px on mobile */
     }
@@ -180,62 +174,73 @@
     .section-{{ section.id }}__feature-text {
       font-size: 1.4rem; /* 14px on mobile */
     }
+
+    .section-{{ section.id }}__cta-link {
+      font-size: 1.6rem; /* 16px on mobile */
+    }
+
+    .section-{{ section.id }}__feature-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .section-{{ section.id }}__feature-icon svg,
+  .section-{{ section.id }}__feature-icon img {
+    width: 24px;
+    height: 24px;
+  }
+
+
+
+
+
   }
 
   @media screen and (max-width: 650px) {
     .section-{{ section.id }}__feature-header {
-      padding-bottom: 16px;
+      padding-bottom: 8px;
     }
-  }
-
-
-  .section-{{ section.id }}__feature-icon {
+     .section-{{ section.id }}__feature-icon {
       width: 4rem; /* Reduce from 5rem to 4rem */
       height: 4rem; /* Reduce from 5rem to 4rem */
       border-radius: 1.2rem;
     }
 
-    .section-{{ section.id }}__feature-icon img {
-      width: 2.2rem !important; /* Force override hardcoded width */
-      height: 2.2rem !important; /* Force override hardcoded height */
+     .section-{{ section.id }}__features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem; /* Increased gap for better vertical spacing */
+      font-size: 3px;
+    }
+    
+    .section-{{ section.id }}__cta-link {
+      font-size: 1.6rem !important; /* 14px on small mobile */
     }
 
+     .section-{{ section.id }}__cta {
+      text-align: left;
+      padding-top: 0;
+      font-size: 3px;
+  }
 
-
-  @media screen and (max-width: 480px) {
-    .section-{{ section.id }}__heading {
-      font-size: 2.4rem; /* 24px on small mobile */
-    }
-
-    .section-{{ section.id }}__text {
-      font-size: 1.4rem; /* 14px on small mobile */
-    }
-
-    .section-{{ section.id }}__feature-title {
-      font-size: 1.4rem; /* 14px on small mobile */
-    }
-
-    .section-{{ section.id }}__feature-text {
-      font-size: 1.2rem; /* 12px on small mobile */
-    }
 
     .section-{{ section.id }}__feature {
-      padding: 1.2rem; /* Reduce padding from 1.6rem to 1.2rem */
+      width: 100%;
+      max-width: 288px;
+      gap: 4px;
+      padding-bottom: 16px;
     }
-
-    .section-{{ section.id }}__feature-icon {
-      width: 4rem; /* Reduce from 5rem to 4rem */
-      height: 4rem; /* Reduce from 5rem to 4rem */
-      border-radius: 1.2rem;
-    }
-
-    .section-{{ section.id }}__feature-icon img {
-      width: 2.2rem !important; /* Force override hardcoded width */
-      height: 2.2rem !important; /* Force override hardcoded height */
+    
+    /* Show mobile CTA below features */
+    .section-{{ section.id }}__cta--mobile {
+      display: flex;
+      margin-top: 1rem;
     }
 
 
   }
+
+  
 
   /* Hide mobile CTA by default */
   .section-{{ section.id }}__cta--mobile {
@@ -248,36 +253,8 @@
     }
   }
 
-  @media screen and (max-width: 650px) {
-    .section-{{ section.id }}__features {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem; /* Increased gap for better vertical spacing */
-    }
-    
-    .section-{{ section.id }}__cta-link {
-      font-size: 1.4rem; /* 14px on small mobile */
-    }
-
-
-    .section-{{ section.id }}__feature {
-      width: 100%;
-      max-width: 328px;
-      padding: 2rem; /* Increased padding for better spacing */
-    }
-    
-    /* Show mobile CTA below features */
-    .section-{{ section.id }}__cta--mobile {
-      display: flex;
-      margin-top: 1rem;
-    }
-
-    
-  }
-
   .section-{{ section.id }}__cta {
     text-align: left;
-    margin-top: 2.4rem; /* 32px spacing from features */
     padding-top: 0;
   }
 
@@ -294,6 +271,16 @@
     color: #4A52B8; /* Slightly darker on hover */
   }
 
+  /* Arrow animation on hover */
+  .section-{{ section.id }}__cta-link .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .section-{{ section.id }}__cta-link:hover .arrow {
+    transform: translateX(4px);
+  }
+
   /* Reduce bottom margin on small screens */
   @media screen and (max-width: 450px) {
     .section-{{ section.id }} .title-wrapper-with-link {
@@ -301,16 +288,7 @@
     }
   }
 
-  @media screen and (max-width: 750px) {
-    .section-{{ section.id }}__cta-link {
-      font-size: 1.6rem; /* 16px on mobile */
-    }
-  }
 
-  @media screen and (max-width: 480px) {
-    
-    }
-  }
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}">
@@ -371,7 +349,7 @@
 
       <div class="section-{{ section.id }}__cta section-{{ section.id }}__cta--desktop">
         <a href="/collections/all" class="section-{{ section.id }}__cta-link">
-          Learn More →
+          Learn More <span class="arrow">→</span>
         </a>
       </div>
     </div>

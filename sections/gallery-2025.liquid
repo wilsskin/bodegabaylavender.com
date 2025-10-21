@@ -17,12 +17,32 @@
     background-color: {{ section.settings.background_color | default: '#ffffff' }};
   }
 
+  /* Custom container that allows full bleed */
+  .gallery-{{ section.id }}__container {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding-left: 48px;
+  }
+
   .gallery-{{ section.id }}__grid {
     display: flex;
-    gap: 1.5rem;
+    gap: 48px;
     list-style: none;
     padding: 0;
     margin: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .gallery-{{ section.id }}__grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .gallery-{{ section.id }}__grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   .gallery-{{ section.id }}__item {
@@ -36,180 +56,92 @@
     object-fit: cover;
     border-radius: 8px;
     display: block;
-    transition: transform 0.3s ease;
   }
 
-  .gallery-{{ section.id }}__item:hover .gallery-{{ section.id }}__image {
-    transform: scale(1.02);
-  }
+  
 
   /* Portrait: 3:4 ratio */
   .gallery-{{ section.id }}__item--portrait {
-    width: 450px;
-    height: 600px;
+    width: clamp(200px, 50vw, 346px);
+    height: clamp(267px, calc(50vw * 4/3), 450px);
   }
 
   /* Square: 4:4 ratio */
   .gallery-{{ section.id }}__item--square {
-    width: 600px;
-    height: 600px;
+    width: clamp(200px, 50vw, 450px);
+    height: clamp(200px, 50vw, 450px);
   }
 
   /* Landscape: 4:3 ratio */
   .gallery-{{ section.id }}__item--landscape {
-    width: 600px;
-    height: 450px;
+    width: clamp(250px, 50vw, 450px);
+    height: clamp(188px, calc(50vw * 3/4), 346px);
   }
 
-  /* Desktop: Traditional carousel with multiple images visible */
-  @media screen and (min-width: 650px) {
-    .gallery-{{ section.id }}__grid {
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-
-    .gallery-{{ section.id }}__grid::-webkit-scrollbar {
-      display: none;
-    }
-
-    .gallery-{{ section.id }}__item--portrait {
-      width: 450px;
-      height: 600px;
-      max-width: 450px;
-    }
-
-    .gallery-{{ section.id }}__item--square {
-      width: 600px;
-      height: 600px;
-      max-width: 600px;
-    }
-
-    .gallery-{{ section.id }}__item--landscape {
-      width: 600px;
-      height: 450px;
-      max-width: 600px;
-    }
-
-    /* Ensure images hang off the right side */
-    .gallery-{{ section.id }}__grid:after {
-      content: '';
-      flex-shrink: 0;
-      width: 1.5rem;
-    }
+  /* Shop Now Button - matching hero-2025 styling */
+  .gallery-{{ section.id }}__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 40px;
+    background-color: {{ section.settings.button_color | default: '#636DCF' }};
+    color: {{ section.settings.button_text_color | default: '#ffffff' }};
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.36;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-top: 2rem;
   }
 
-  /* Mobile: Single image slider */
-  @media screen and (max-width: 649px) {
+  .gallery-{{ section.id }}__button:hover {
+    background-color: #505ABC;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Mobile adjustments at 990px and below */
+  @media screen and (max-width: 990px) {
+    .gallery-{{ section.id }}__container {
+      padding-left: 1.5rem;
+    }
+    
     .gallery-{{ section.id }}__grid {
-      overflow: hidden;
-    }
-
-    .gallery-{{ section.id }}__item {
-      width: 100%;
-    }
-
-    .gallery-{{ section.id }}__item--portrait {
-      width: 100%;
-      height: 400px;
-      max-height: 400px;
-    }
-
-    .gallery-{{ section.id }}__item--square {
-      width: 100%;
-      height: 350px;
-      max-height: 350px;
-    }
-
-    .gallery-{{ section.id }}__item--landscape {
-      width: 100%;
-      height: 280px;
-      max-height: 280px;
-    }
-
-    /* Slide transition for mobile */
-    .gallery-{{ section.id }}__grid.slider {
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .gallery-{{ section.id }}__item.slider__slide {
-      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      gap: 1.5rem;
     }
   }
 
   /* Responsive scaling for smaller screens */
+  @media screen and (max-width: 768px) {
+    .gallery-{{ section.id }}__item--portrait {
+      width: clamp(150px, 35vw, 300px);
+      height: clamp(200px, calc(35vw * 4/3), 400px);
+    }
+
+    .gallery-{{ section.id }}__item--square {
+      width: clamp(150px, 35vw, 300px);
+      height: clamp(150px, 35vw, 300px);
+    }
+
+    .gallery-{{ section.id }}__item--landscape {
+      width: clamp(200px, 35vw, 300px);
+      height: clamp(150px, calc(35vw * 3/4), 225px);
+    }
+
+    .gallery-{{ section.id }}__button {
+      padding: 10px 32px;
+      font-size: 16px;
+    }
+  }
+
   @media screen and (max-width: 480px) {
-    .gallery-{{ section.id }}__item--portrait {
-      height: 350px;
-    }
-
-    .gallery-{{ section.id }}__item--square {
-      height: 300px;
-    }
-
-    .gallery-{{ section.id }}__item--landscape {
-      height: 240px;
-    }
-  }
-
-  @media screen and (max-width: 375px) {
-    .gallery-{{ section.id }}__item--portrait {
-      height: 320px;
-    }
-
-    .gallery-{{ section.id }}__item--square {
-      height: 280px;
-    }
-
-    .gallery-{{ section.id }}__item--landscape {
-      height: 220px;
-    }
-  }
-
-  /* Slider button styling to match featured-collection */
-  .gallery-{{ section.id }} .slider-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .gallery-{{ section.id }} .slider-button {
-    background: none;
-    border: 1px solid rgba(var(--color-foreground), 0.1);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: rgb(var(--color-foreground));
-  }
-
-  .gallery-{{ section.id }} .slider-button:hover {
-    background-color: rgba(var(--color-foreground), 0.05);
-    border-color: rgba(var(--color-foreground), 0.2);
-  }
-
-  .gallery-{{ section.id }} .slider-button svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .gallery-{{ section.id }} .slider-counter {
-    font-size: 14px;
-    color: rgba(var(--color-foreground), 0.6);
-    font-family: var(--font-body-family);
-  }
-
-  /* Hide slider buttons on desktop carousel */
-  @media screen and (min-width: 650px) {
-    .gallery-{{ section.id }} .slider-buttons {
-      display: none !important;
+    .gallery-{{ section.id }}__button {
+      padding: 8px 24px;
+      font-size: 14px;
     }
   }
 {%- endstyle -%}
@@ -222,13 +154,14 @@
       </div>
     {%- endif -%}
 
-    <slider-component class="slider-mobile-gutter">
-      <ul 
-        id="Gallery-{{ section.id }}"
-        class="gallery-{{ section.id }}__grid{% if section.blocks.size > 1 %} slider{% if section.blocks.size > 1 %} slider--tablet grid--peek{% endif %}{% endif %}"
-        role="list"
-        aria-label="Gallery images"
-      >
+    <div class="gallery-{{ section.id }}__container">
+      <slider-component class="slider-mobile-gutter">
+        <ul 
+          id="Gallery-{{ section.id }}"
+          class="gallery-{{ section.id }}__grid{% if section.blocks.size > 1 %} slider{% if section.blocks.size > 1 %} slider--tablet grid--peek{% endif %}{% endif %}"
+          role="list"
+          aria-label="Gallery images"
+        >
         {%- for block in section.blocks -%}
           <li 
             id="Slide-{{ section.id }}-{{ forloop.index }}"
@@ -291,7 +224,17 @@
           </button>
         </div>
       {%- endif -%}
-    </slider-component>
+      </slider-component>
+    </div>
+
+    <!-- Shop Now Button -->
+    {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="{{ section.settings.button_link }}" class="gallery-{{ section.id }}__button">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -374,6 +317,34 @@
       "unit": "px",
       "label": "Bottom Padding",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Color",
+      "default": "#636DCF"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
     }
   ],
   "blocks": [
@@ -393,6 +364,7 @@
     {
       "name": "Gallery 2025",
       "blocks": [
+        { "type": "gallery_image" },
         { "type": "gallery_image" },
         { "type": "gallery_image" },
         { "type": "gallery_image" },

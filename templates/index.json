@@ -31,7 +31,7 @@
       "name": "About 2025",
       "settings": {
         "background_color": "#edecfe",
-        "heading": "About Us",
+        "heading": "ABOUT US",
         "heading_size": "text-h3",
         "text": "<p>We are a family-owned and operated lavender farm located in the town of Bodega Bay, situated along the Sonoma coast in Northern California.</p>",
         "text_style": "text-h3",
@@ -42,8 +42,8 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "collection": "mists",
-        "products_to_show": 3,
+        "collection": "best-sellers-1",
+        "products_to_show": 4,
         "title": "Best Sellers",
         "heading_size": "h2",
         "description": "",
@@ -110,19 +110,19 @@
         "featured_collection_NHJYNp": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "new-home"
           }
         },
         "featured_collection_c9Mfem": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "new-wellness"
           }
         },
         "featured_collection_KJcpz6": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "new-culinary"
           }
         }
       },
@@ -173,7 +173,7 @@
         "text_MUKfQm": {
           "type": "text",
           "settings": {
-            "text": "<p>We love opening our home up to people and allowing them to experience the beauty of Bodega Bay. We offer rental stays, group events, retreats, and learning sessions.   <br/><br/>Visit our <strong>stay with us</strong> page to learn more!</p>",
+            "text": "<p>We love opening our home up to people and allowing them to experience the beauty of Bodega Bay. We offer rental stays, group events, retreats, and learning sessions.   <br/><br/>Visit our <a href=\"/pages/stay-with-us\" title=\"Stay With Us\"><strong>stay with us</strong></a> page or contact us for a <a href=\"https://docs.google.com/forms/u/0/\" target=\"_blank\" title=\"https://docs.google.com/forms/u/0/\"><strong>lunch & learn!</strong></a></p>",
             "text_style": "body"
           }
         }
@@ -217,6 +217,65 @@
         "padding_bottom": 80
       }
     },
+    "video_TX8Ygg": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/bbl-video.mov",
+        "video_url": "",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "padding_top": 40,
+        "padding_bottom": 64
+      }
+    },
+    "gallery_2025_QeKMRR": {
+      "type": "gallery-2025",
+      "blocks": {
+        "gallery_image_AmQULX": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_7588.jpg"
+          }
+        },
+        "gallery_image_zB4Mtx": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_0373.jpg"
+          }
+        },
+        "gallery_image_Gtjzgh": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/48CC285C-EA49-478E-8312-69E0A1FDE047.jpg"
+          }
+        },
+        "gallery_image_tEy9Pm": {
+          "type": "gallery_image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "gallery_image_AmQULX",
+        "gallery_image_zB4Mtx",
+        "gallery_image_Gtjzgh",
+        "gallery_image_tEy9Pm"
+      ],
+      "name": "Gallery 2025",
+      "settings": {
+        "background_color": "#ffffff",
+        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "heading": "",
+        "heading_size": "h2",
+        "image_size": "square",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "newsletter_iTBiza": {
       "type": "newsletter",
       "blocks": {
@@ -254,6 +313,8 @@
     "why_lavender_2025_q3arH3",
     "image_with_text_p3ACVm",
     "featured_blog_Ac9YWU",
+    "video_TX8Ygg",
+    "gallery_2025_QeKMRR",
     "newsletter_iTBiza"
   ]
 }

@@ -35,6 +35,10 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+
+    .collection .grid {
+      gap: 2rem;
+    }
   }
 
   /* Override global title styles for this section */
@@ -62,10 +66,34 @@
     padding-top: 0 !important;
   }
 
-  /* Shrink individual product cards when carousel activates below 990px */
-  @media screen and (max-width: 989px) {
-    .grid__item {
-      max-width: 28rem; /* 300px - smaller individual cards */
+  /* Desktop grid layout - 4 items at 252px with 32px gaps */
+  @media screen and (min-width: 991px) {
+    .collection .grid {
+      gap: 32px;
+      max-width: 1200px;
+      padding-left: 48px;
+      padding-right: 48px;
+      margin: 0 auto;
+    }
+    
+    .collection .grid__item {
+      max-width: 252px;
+    }
+    
+    /* Remove gap from last child - only 3 gaps between 4 items */
+    .collection .grid__item:last-child {
+      margin-right: -32px;
+    }
+
+    /* Override slider margin for first item */
+    .collection .slider--desktop .slider__slide:first-child {
+      margin-left: 0;
+      scroll-margin-left: 0;
+    }
+    
+    /* Hide carousel arrows above 990px */
+    .collection .slider-buttons {
+      display: none;
     }
   }
 
@@ -74,6 +102,7 @@
     .full-unstyled-link {
       font-size: 16px !important;
       font-weight: 700px !important;
+      
     }
     
     .card__information {
