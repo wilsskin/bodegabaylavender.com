@@ -2,7 +2,7 @@
   .hero-2025 {
     position: relative;
     width: 100%;
-    height: 600px;
+    height: {% if template contains 'collection' %}300px{% else %}600px{% endif %};
     overflow: hidden;
     display: flex;
     align-items: center;

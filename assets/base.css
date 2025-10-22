@@ -879,6 +879,11 @@ summary::-webkit-details-marker {
   flex-wrap: wrap;
 }
 
+/* Exception: Featured blog title wrapper - left aligned */
+.blog .title-wrapper-with-link {
+  justify-content: flex-start !important;
+}
+
 .title--primary {
   margin: 4rem 0;
 }

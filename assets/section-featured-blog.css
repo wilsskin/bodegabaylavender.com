@@ -58,3 +58,12 @@
     }
   }
 }
+
+/* Featured blog specific styling */
+.blog .card__heading {
+  font-weight: 600 !important;
+}
+
+.blog .full-unstyled-link {
+  font-weight: 600 !important;
+}

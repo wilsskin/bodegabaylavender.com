@@ -15,6 +15,7 @@
 
   .gallery-{{ section.id }}__wrapper {
     background-color: {{ section.settings.background_color | default: '#ffffff' }};
+    overflow-x: hidden;
   }
 
   /* Custom container that allows full bleed */
@@ -22,6 +23,7 @@
     width: 100vw;
     margin-left: calc(50% - 50vw);
     padding-left: 48px;
+    overflow: hidden;
   }
 
   .gallery-{{ section.id }}__grid {
@@ -30,10 +32,11 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    overflow-x: auto;
+    overflow-x: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    width: max-content;
   }
   
   .gallery-{{ section.id }}__grid::-webkit-scrollbar {
@@ -240,6 +243,60 @@
 
 <script src="{{ 'slider-component.js' | asset_url }}" defer="defer"></script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const gallery = document.getElementById('Gallery-{{ section.id }}');
+  if (!gallery) return;
+  
+  // Clone the gallery items to create seamless loop
+  const originalItems = Array.from(gallery.children);
+  const clonedItems = originalItems.map(item => item.cloneNode(true));
+  
+  // Append cloned items to create seamless loop
+  clonedItems.forEach(item => {
+    gallery.appendChild(item);
+  });
+  
+  let isPaused = false;
+  let currentPosition = 0;
+  const speed = 0.5; // pixels per frame - smooth movement
+  
+  function animate() {
+    if (!isPaused) {
+      currentPosition -= speed;
+      
+      // Calculate the width of the original set (before cloning)
+      const firstItem = originalItems[0];
+      if (firstItem) {
+        const itemWidth = firstItem.offsetWidth + 48; // width + gap
+        const originalSetWidth = itemWidth * originalItems.length;
+        
+        // Reset position when we've moved past the original set
+        if (Math.abs(currentPosition) >= originalSetWidth) {
+          currentPosition = 0;
+        }
+      }
+      
+      gallery.style.transform = `translateX(${currentPosition}px)`;
+    }
+    
+    requestAnimationFrame(animate);
+  }
+  
+  // Pause on hover
+  gallery.addEventListener('mouseenter', () => {
+    isPaused = true;
+  });
+  
+  gallery.addEventListener('mouseleave', () => {
+    isPaused = false;
+  });
+  
+  // Start animation
+  animate();
+});
+</script>
+
 {% schema %}
 {
   "name": "Gallery 2025",
@@ -364,6 +421,7 @@
     {
       "name": "Gallery 2025",
       "blocks": [
+        { "type": "gallery_image" },
         { "type": "gallery_image" },
         { "type": "gallery_image" },
         { "type": "gallery_image" },

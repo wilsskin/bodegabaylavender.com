@@ -204,10 +204,10 @@
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
         "blog": "news",
-        "post_limit": 3,
+        "post_limit": 2,
         "heading": "Blog posts",
         "heading_size": "h2",
-        "columns_desktop": 3,
+        "columns_desktop": 2,
         "show_view_all": false,
         "show_image": true,
         "show_date": false,
@@ -256,7 +256,9 @@
         },
         "gallery_image_tEy9Pm": {
           "type": "gallery_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/home.webp"
+          }
         }
       },
       "block_order": [
@@ -271,9 +273,13 @@
         "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
         "heading": "",
         "heading_size": "h2",
-        "image_size": "square",
+        "image_size": "landscape",
         "padding_top": 80,
-        "padding_bottom": 80
+        "padding_bottom": 80,
+        "button_label": "Shop Lavender",
+        "button_link": "shopify://collections/all",
+        "button_color": "#636dcf",
+        "button_text_color": "#ffffff"
       }
     },
     "newsletter_iTBiza": {
