@@ -17,19 +17,18 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
-            "link": ""
+            "text": "Visit us on Nov. 8-9 at the Petaluma Bazaar!",
+            "link": "https://giving4life.org/"
           }
         }
       },
       "block_order": [
         "announcement-bar-0"
       ],
-      "disabled": true,
       "settings": {
         "auto_rotate": false,
         "change_slides_speed": 5,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-3fee48a8-cacd-4423-85c1-e0c37093c3be",
         "show_line_separator": true,
         "show_social": false,
         "enable_country_selector": false,

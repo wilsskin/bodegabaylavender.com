@@ -1,0 +1,42 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_2025_GQyERQ": {
+      "type": "hero-2025",
+      "name": "Hero 2025",
+      "settings": {
+        "image": "shopify://shop_images/staywithus-hero.webp",
+        "heading": "Stay With Us",
+        "heading_size": "h1",
+        "subtitle": "If you have a love for nature and the outdoors, this is the place for you!",
+        "subtitle_style": "h3",
+        "button_label": "View on Airbnb",
+        "button_link": "https://www.airbnb.com/rooms/754612993550394250?source_impression_id=p3_1761182621_P3HytfstkY-BeZ2b",
+        "text_color": "#ffffff",
+        "button_color": "#636dcf",
+        "button_text_color": "#ffffff",
+        "button_hover_color": "#334fb4"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_2025_GQyERQ"
+  ]
+}

@@ -1,0 +1,42 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_2025_4TwRQG": {
+      "type": "hero-2025",
+      "name": "Hero 2025",
+      "settings": {
+        "image": "shopify://shop_images/about-hero.webp",
+        "heading": "About Us",
+        "heading_size": "h1",
+        "subtitle": "We are a family-owned and operated lavender farm located in the town of Bodega Bay",
+        "subtitle_style": "h3",
+        "button_label": "Shop Now",
+        "button_link": "",
+        "text_color": "#ffffff",
+        "button_color": "#52448C",
+        "button_text_color": "#ffffff",
+        "button_hover_color": "#6149A2"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_2025_4TwRQG"
+  ]
+}
