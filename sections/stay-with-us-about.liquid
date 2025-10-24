@@ -39,7 +39,7 @@
     align-items: center;
     gap: var(--spacing-medium); /* 24px - using our spacing variable */
     text-align: center;
-    max-width: 840px;
+    max-width: 600px;
     width: 100%;
     padding: 0;
     margin: 0;
@@ -47,9 +47,9 @@
 
   .section-{{ section.id }}__text h2 {
     font-family: var(--font-heading-family);
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 1.36;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.3;
     color: #000000;
     margin: 0;
     width: 100%;
@@ -59,9 +59,9 @@
 
   .section-{{ section.id }}__text .text-content {
     font-family: var(--font-body-family);
-    font-weight: 400;
+    font-weight: 500;
     font-size: 32px;
-    line-height: 1.36;
+    line-height: 1.3;
     color: #000000;
     margin: 0;
     width: 100%;
@@ -74,30 +74,6 @@
     padding: 0;
   }
 
-  .section-{{ section.id }}__text .text-story {
-    font-family: var(--font-body-family);
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.36;
-    color: #000000;
-    margin: 0;
-    width: 100%;
-    text-align: center;
-    padding: 0;
-  }
-
-  .section-{{ section.id }}__text .text-story p {
-    margin: 0;
-    padding: 0;
-  }
-
-
-  /* Tablet responsive */
-  @media screen and (max-width: 900px) {
-    .section-{{ section.id }}__text h2 {
-      width: 100%;
-    }
-  }
 
   /* Mobile responsive */
   @media screen and (max-width: 750px) {
@@ -106,12 +82,26 @@
     }
     
     .section-{{ section.id }}__text h2 {
-      font-size: 16px;
+      font-size: 18px;
       width: 100%;
     }
     
     .section-{{ section.id }}__text .text-content {
       font-size: 24px;
+    }
+  }
+
+
+  /* Mobile responsive */
+  @media screen and (max-width: 450px) {
+    
+    .section-{{ section.id }}__text h2 {
+      font-size: 16px;
+      width: 100%;
+    }
+    
+    .section-{{ section.id }}__text .text-content {
+      font-size: 20px;
     }
   }
 
@@ -133,10 +123,6 @@
             {{ section.settings.text }}
           </div>
         {%- endif -%}
-
-        <div class="text-story">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        </div>
       </div>
 
     </div>
@@ -145,7 +131,7 @@
 
 {% schema %}
 {
-  "name": "About Us 2025",
+  "name": "About 2025",
   "tag": "section",
   "class": "section",
   "settings": [

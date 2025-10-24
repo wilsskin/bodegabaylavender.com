@@ -29,14 +29,208 @@
         "button_label": "Shop Now",
         "button_link": "",
         "text_color": "#ffffff",
-        "button_color": "#52448C",
+        "button_color": "#52448c",
         "button_text_color": "#ffffff",
-        "button_hover_color": "#6149A2"
+        "button_hover_color": "#6149a2"
+      }
+    },
+    "about_us_2025_BV4x3c": {
+      "type": "about-us-2025",
+      "name": "About 2025",
+      "settings": {
+        "background_color": "#edecfe",
+        "heading": "OUR STORY",
+        "heading_size": "text-h3",
+        "text": "<p>We wanted to grow something that was <strong>beautiful, useful, and sustainable</strong></p>",
+        "text_style": "text-h3"
+      }
+    },
+    "gallery_2025_iWTpTX": {
+      "type": "gallery-2025",
+      "blocks": {
+        "gallery_image_yjyBgJ": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/FullSizeRender_e9f08f24-f071-4382-a315-6a8f6f86f9ba.heic"
+          }
+        },
+        "gallery_image_cciQUD": {
+          "type": "gallery_image",
+          "settings": {}
+        },
+        "gallery_image_FKgb3j": {
+          "type": "gallery_image",
+          "settings": {}
+        },
+        "gallery_image_KEHGr6": {
+          "type": "gallery_image",
+          "settings": {}
+        },
+        "gallery_image_XaKnKb": {
+          "type": "gallery_image",
+          "settings": {}
+        },
+        "gallery_image_wyH6kf": {
+          "type": "gallery_image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "gallery_image_yjyBgJ",
+        "gallery_image_cciQUD",
+        "gallery_image_FKgb3j",
+        "gallery_image_KEHGr6",
+        "gallery_image_XaKnKb",
+        "gallery_image_wyH6kf"
+      ],
+      "name": "Gallery 2025",
+      "settings": {
+        "background_color": "#e1e0f1",
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "heading": "",
+        "heading_size": "h2",
+        "image_size": "portrait",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "button_label": "",
+        "button_link": "shopify://collections/all",
+        "button_color": "#636DCF",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "about_timeline_YahP7L": {
+      "type": "about-timeline",
+      "blocks": {
+        "heading_waMdJH": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_68Egq6": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_waMdJH",
+        "text_68Egq6"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "about_timeline_6pmnif": {
+      "type": "about-timeline",
+      "blocks": {
+        "heading_bViVCh": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_hTqP8p": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bViVCh",
+        "text_hTqP8p"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "about_timeline_NeTaRN": {
+      "type": "about-timeline",
+      "blocks": {
+        "heading_YACHf3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_NgWg8J": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YACHf3",
+        "text_NgWg8J"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "about_fam_x7DyNF": {
+      "type": "about-fam",
+      "name": "About Family",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "Meet Our Family",
+        "image": "shopify://shop_images/WhatsApp_Image_2023-03-06_at_12.09.01_AM.jpg",
+        "text": "<p>Bodega Bay Lavender is owned and operated by the Breen-Wellbeloved Family. While Jami and Robert run the day to day operations, their oldest son, Danny manages the field, oversees the harvest and manages the distillation process. All the boys play an important role in the success of the farm from field work to sales to pitching new ideas to help Bodega Bay Lavender thrive.</p>"
       }
     }
   },
   "order": [
     "main",
-    "hero_2025_4TwRQG"
+    "hero_2025_4TwRQG",
+    "about_us_2025_BV4x3c",
+    "gallery_2025_iWTpTX",
+    "about_timeline_YahP7L",
+    "about_timeline_6pmnif",
+    "about_timeline_NeTaRN",
+    "about_fam_x7DyNF"
   ]
 }
