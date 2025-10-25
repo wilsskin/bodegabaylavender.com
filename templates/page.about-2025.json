@@ -51,28 +51,32 @@
         "gallery_image_yjyBgJ": {
           "type": "gallery_image",
           "settings": {
-            "image": "shopify://shop_images/FullSizeRender_e9f08f24-f071-4382-a315-6a8f6f86f9ba.heic"
+            "image": "shopify://shop_images/about-1.webp"
           }
         },
         "gallery_image_cciQUD": {
           "type": "gallery_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/about-2.webp"
+          }
         },
         "gallery_image_FKgb3j": {
           "type": "gallery_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/about-3.webp"
+          }
         },
         "gallery_image_KEHGr6": {
           "type": "gallery_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/about-4.webp"
+          }
         },
         "gallery_image_XaKnKb": {
           "type": "gallery_image",
-          "settings": {}
-        },
-        "gallery_image_wyH6kf": {
-          "type": "gallery_image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/about-5.webp"
+          }
         }
       },
       "block_order": [
@@ -80,8 +84,7 @@
         "gallery_image_cciQUD",
         "gallery_image_FKgb3j",
         "gallery_image_KEHGr6",
-        "gallery_image_XaKnKb",
-        "gallery_image_wyH6kf"
+        "gallery_image_XaKnKb"
       ],
       "name": "Gallery 2025",
       "settings": {
@@ -94,34 +97,18 @@
         "padding_bottom": 36,
         "button_label": "",
         "button_link": "shopify://collections/all",
-        "button_color": "#636DCF",
+        "button_color": "#636dcf",
         "button_text_color": "#ffffff"
       }
     },
     "about_timeline_YahP7L": {
       "type": "about-timeline",
-      "blocks": {
-        "heading_waMdJH": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "heading_size": "h1"
-          }
-        },
-        "text_68Egq6": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "heading_waMdJH",
-        "text_68Egq6"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "About Timeline",
       "settings": {
+        "time_text": "February 2022",
+        "timeline_header": "Our Lavender Journey Began!",
+        "timeline_desc": "With help from family and friends, we planted 5,100 lavender plants on 2.5 acres. The lavender grew so quickly that we had our first harvest in September that same year.",
+        "image": "shopify://shop_images/timeline-1.webp",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -138,28 +125,12 @@
     },
     "about_timeline_6pmnif": {
       "type": "about-timeline",
-      "blocks": {
-        "heading_bViVCh": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
-          }
-        },
-        "text_hTqP8p": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "heading_bViVCh",
-        "text_hTqP8p"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "About Timeline",
       "settings": {
+        "time_text": "September 2024",
+        "timeline_header": "We Harvested 12,000+ Lavender Bushels",
+        "timeline_desc": "We steam distilled the majority of our lavender to create essential oil and lavender hydrosol. Our hand-made, organic products made customers calm and happy.",
+        "image": "shopify://shop_images/timeline-2.webp",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -176,28 +147,12 @@
     },
     "about_timeline_NeTaRN": {
       "type": "about-timeline",
-      "blocks": {
-        "heading_YACHf3": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
-          }
-        },
-        "text_NgWg8J": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "heading_YACHf3",
-        "text_NgWg8J"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "About Timeline",
       "settings": {
+        "time_text": "Today",
+        "timeline_header": "Growing and Thriving",
+        "timeline_desc": "Our lavender is beginning to mature as we continue to learn and grow ourselves. Our customers have helped us immensely by sharing new ideas and giving us feedback on how they use and enjoy our products.",
+        "image": "shopify://shop_images/timeline-3.webp",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -219,7 +174,7 @@
         "background_color": "#ffffff",
         "heading": "Meet Our Family",
         "image": "shopify://shop_images/WhatsApp_Image_2023-03-06_at_12.09.01_AM.jpg",
-        "text": "<p>Bodega Bay Lavender is owned and operated by the Breen-Wellbeloved Family. While Jami and Robert run the day to day operations, their oldest son, Danny manages the field, oversees the harvest and manages the distillation process. All the boys play an important role in the success of the farm from field work to sales to pitching new ideas to help Bodega Bay Lavender thrive.</p>"
+        "text": "<p>Bodega Bay Lavender is owned and operated by the Breen-Wellbeloved Family. While Jami and Robert run the day-to-day operations, their oldest son, Danny manages the field, oversees the harvest and manages the distillation process. All the boys play an important role in the success of the farm from field work to sales to pitching new ideas to help Bodega Bay Lavender thrive.</p>"
       }
     }
   },

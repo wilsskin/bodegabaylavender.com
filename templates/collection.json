@@ -21,9 +21,9 @@
         "button_label": "Shop Now",
         "button_link": "",
         "text_color": "#ffffff",
-        "button_color": "#52448C",
+        "button_color": "#52448c",
         "button_text_color": "#ffffff",
-        "button_hover_color": "#6149A2"
+        "button_hover_color": "#6149a2"
       }
     },
     "banner": {

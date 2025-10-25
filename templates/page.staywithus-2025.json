@@ -33,10 +33,143 @@
         "button_text_color": "#ffffff",
         "button_hover_color": "#334fb4"
       }
+    },
+    "stay_with_us_about_y8hjaY": {
+      "type": "stay-with-us-about",
+      "name": "About 2025",
+      "settings": {
+        "background_color": "#EDECFE",
+        "heading": "Ready for a get away? Relax and unwind with privacy and spectacular views",
+        "heading_size": "text-h3",
+        "text": "<p>⭐ 4.99 on Airbnb  </p>",
+        "text_style": "text-h3"
+      }
+    },
+    "gallery_2025_jFiaLL": {
+      "type": "gallery-2025",
+      "blocks": {
+        "gallery_image_7TLNxf": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/stay-1.webp"
+          }
+        },
+        "gallery_image_kyMdgi": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/stay-2.webp"
+          }
+        },
+        "gallery_image_LBdhyk": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/stay-3.webp"
+          }
+        },
+        "gallery_image_KyF4fe": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/stay-4.webp"
+          }
+        },
+        "gallery_image_8NWLQY": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/stay-5.webp"
+          }
+        }
+      },
+      "block_order": [
+        "gallery_image_7TLNxf",
+        "gallery_image_kyMdgi",
+        "gallery_image_LBdhyk",
+        "gallery_image_KyF4fe",
+        "gallery_image_8NWLQY"
+      ],
+      "name": "Gallery 2025",
+      "settings": {
+        "background_color": "#e1e0f1",
+        "color_scheme": "",
+        "heading": "",
+        "heading_size": "h2",
+        "image_size": "landscape",
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "button_label": "",
+        "button_link": "shopify://collections/all",
+        "button_color": "#636DCF",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "stay_with_us_quotes_mWcqwK": {
+      "type": "stay-with-us-quotes",
+      "name": "Stay With Us Quotes",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "Guest Reviews",
+        "feature_1_title": "Sarah M.",
+        "feature_1_text": "The most peaceful and beautiful stay. The lavender fields are stunning!",
+        "feature_2_title": "John D.",
+        "feature_2_text": "A truly magical experience. We'll definitely be coming back!",
+        "feature_3_title": "Emily R.",
+        "feature_3_text": "The perfect getaway. Beautiful property and wonderful hosts."
+      }
+    },
+    "stay_with_us_info_nLy4Xy": {
+      "type": "stay-with-us-info",
+      "blocks": {
+        "heading_aKFcJj": {
+          "type": "heading",
+          "settings": {
+            "heading": "A Stay For Every Occasion",
+            "heading_size": "h1"
+          }
+        },
+        "text_rLTQeb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Perfect for weekend getaways, retreats, and family gatherings with plenty of privacy and stunning views.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_MKBpti": {
+          "type": "button",
+          "settings": {
+            "button_label": "View on Airbnb",
+            "button_link": "https://www.airbnb.com/rooms/754612993550394250?source_impression_id=p3_1761182621_P3HytfstkY-BeZ2b",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_aKFcJj",
+        "text_rLTQeb",
+        "button_MKBpti"
+      ],
+      "name": "Stay With Us Info",
+      "settings": {
+        "image": "shopify://shop_images/stay-with-us-info.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
-    "hero_2025_GQyERQ"
+    "hero_2025_GQyERQ",
+    "stay_with_us_about_y8hjaY",
+    "gallery_2025_jFiaLL",
+    "stay_with_us_quotes_mWcqwK",
+    "stay_with_us_info_nLy4Xy"
   ]
 }

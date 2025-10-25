@@ -27,7 +27,7 @@
       }
     },
     "about_2025_WUiYAc": {
-      "type": "about-2025",
+      "type": "home-about-2025",
       "name": "About 2025",
       "settings": {
         "background_color": "#edecfe",
@@ -230,55 +230,69 @@
         "full_width": false,
         "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
         "padding_top": 0,
-        "padding_bottom": 40
+        "padding_bottom": 48
       }
     },
-    "gallery_2025_QeKMRR": {
+    "gallery_2025_Mjcffb": {
       "type": "gallery-2025",
       "blocks": {
-        "gallery_image_AmQULX": {
+        "gallery_image_wi6Len": {
           "type": "gallery_image",
           "settings": {
-            "image": "shopify://shop_images/IMG_7588.jpg"
+            "image": "shopify://shop_images/home-1.webp"
           }
         },
-        "gallery_image_zB4Mtx": {
+        "gallery_image_VPxETM": {
           "type": "gallery_image",
           "settings": {
-            "image": "shopify://shop_images/IMG_0373.jpg"
+            "image": "shopify://shop_images/home-2.webp"
           }
         },
-        "gallery_image_Gtjzgh": {
+        "gallery_image_PD4jLP": {
           "type": "gallery_image",
           "settings": {
-            "image": "shopify://shop_images/48CC285C-EA49-478E-8312-69E0A1FDE047.jpg"
+            "image": "shopify://shop_images/home-3.webp"
           }
         },
-        "gallery_image_tEy9Pm": {
+        "gallery_image_rRagpU": {
           "type": "gallery_image",
           "settings": {
-            "image": "shopify://shop_images/home.webp"
+            "image": "shopify://shop_images/home-4.webp"
+          }
+        },
+        "gallery_image_K6UtKd": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/home-5.webp"
+          }
+        },
+        "gallery_image_HwGBkU": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/home-6.webp"
           }
         }
       },
       "block_order": [
-        "gallery_image_AmQULX",
-        "gallery_image_zB4Mtx",
-        "gallery_image_Gtjzgh",
-        "gallery_image_tEy9Pm"
+        "gallery_image_wi6Len",
+        "gallery_image_VPxETM",
+        "gallery_image_PD4jLP",
+        "gallery_image_rRagpU",
+        "gallery_image_K6UtKd",
+        "gallery_image_HwGBkU"
       ],
       "name": "Gallery 2025",
       "settings": {
         "background_color": "#ffffff",
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "",
         "heading": "",
         "heading_size": "h2",
         "image_size": "landscape",
-        "padding_top": 64,
-        "padding_bottom": 80,
+        "padding_top": 48,
+        "padding_bottom": 64,
         "button_label": "Shop Lavender",
         "button_link": "shopify://collections/all",
-        "button_color": "#636dcf",
+        "button_color": "#636DCF",
         "button_text_color": "#ffffff"
       }
     },
@@ -288,7 +302,7 @@
         "heading_DDiqzG": {
           "type": "heading",
           "settings": {
-            "heading": "Subscribe to our emails",
+            "heading": "Subscribe to our emails!",
             "heading_size": "h1"
           }
         },
@@ -320,7 +334,7 @@
     "image_with_text_p3ACVm",
     "featured_blog_Ac9YWU",
     "video_TX8Ygg",
-    "gallery_2025_QeKMRR",
+    "gallery_2025_Mjcffb",
     "newsletter_iTBiza"
   ]
 }
