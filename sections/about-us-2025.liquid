@@ -134,9 +134,11 @@
           </div>
         {%- endif -%}
 
-        <div class="text-story">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        </div>
+        {%- if section.settings.story_text != blank -%}
+          <div class="text-story">
+            {{ section.settings.story_text }}
+          </div>
+        {%- endif -%}
       </div>
 
     </div>
@@ -206,6 +208,12 @@
         }
       ],
       "default": "text-h3"
+    },
+    {
+      "type": "richtext",
+      "id": "story_text",
+      "label": "Story Text",
+      "default": "<p>Since lavender is such a versatile plant with a range of potential health benefits, we couldn’t help but be intrigued. Lavender was already thriving in the garden year after year, so why not plant it in mass?</p>"
     },
   ],
   "presets": [
