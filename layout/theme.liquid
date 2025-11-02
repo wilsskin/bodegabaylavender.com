@@ -188,7 +188,7 @@
         --spacing-sections-mobile: {% if settings.spacing_sections < 24 %}{{ settings.spacing_sections | divided_by: 10.0 }}{% else %}{{ settings.spacing_sections | times: 0.7 | round | at_least: 20 | divided_by: 10.0 }}{% endif %}rem;
 
         --grid-desktop-vertical-spacing: {{ settings.spacing_grid_vertical | divided_by: 10.0 }}rem;
-        --grid-desktop-horizontal-spacing: 5rem; /* Match page-width padding */
+        --grid-desktop-horizontal-spacing: 3.2rem; /* Match page-width padding */
         --grid-mobile-vertical-spacing: {{ settings.spacing_grid_vertical | divided_by: 20.0 }}rem;
         --grid-mobile-horizontal-spacing: 1.5rem; /* Match page-width padding */
 

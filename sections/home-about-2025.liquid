@@ -150,7 +150,6 @@
       gap: var(--spacing-xsmall);
       align-items: center;
       flex: 0 0 auto;
-      max-width: 140px;
     }
 
     .section-{{ section.id }}__feature-text {
@@ -168,14 +167,14 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
-      gap: var(--spacing-xlarge);
-      flex-wrap: wrap;
+      gap: clamp(8px, 2.5vw, 24px);
+      flex-wrap: nowrap;
     }
     
     .section-{{ section.id }}__feature {
-      flex: 0 0 auto;
+      flex: 1 1 0;
       min-width: 0;
-      max-width: 95px;
+      max-width: none;
     }
     
     .section-{{ section.id }}__feature-text {
@@ -196,21 +195,23 @@
     }
   }
 
-  /* Extra small mobile - 2x2 grid layout */
-  @media screen and (max-width: 530px) {
-    .section-{{ section.id }}__features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-large);
-      justify-items: center;
-      padding: 0 var(--spacing-medium)
+  @media screen and (max-width: 450px) {
+    .section-{{ section.id }}__feature-text {
+      font-size: 12px;
     }
-    
+
+    .section-{{ section.id }}__feature-icon {
+      width: 28px;
+      height: 28px;
+    }
+
     .section-{{ section.id }}__feature {
-      max-width: 150px;
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: 85px;
     }
-    
   }
+
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}">

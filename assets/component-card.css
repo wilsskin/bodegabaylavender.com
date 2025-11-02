@@ -490,11 +490,11 @@
 }
 
 .card-information > .price {
-  color: rgb(var(--color-foreground));
+  color: #4D4D62;
 }
 
 .card--horizontal .card-information > .price {
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(77, 77, 98, 0.75); /* #4D4D62 with 75% opacity */
 }
 
 .card-information > .rating {

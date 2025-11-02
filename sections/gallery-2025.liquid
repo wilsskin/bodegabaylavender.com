@@ -23,7 +23,15 @@
     width: 100vw;
     margin-left: calc(50% - 50vw);
     padding-left: 48px;
+    padding-right: 48px;
     overflow: hidden;
+  }
+
+  @media screen and (max-width: 989px) {
+    .gallery-{{ section.id }}__container {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
   }
 
   .gallery-{{ section.id }}__grid {
@@ -37,6 +45,13 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     width: max-content;
+  }
+
+  /* Allow scrolling on smaller screens where slider is active */
+  @media screen and (max-width: 989px) {
+    .gallery-{{ section.id }}__grid {
+      overflow-x: auto;
+    }
   }
   
   .gallery-{{ section.id }}__grid::-webkit-scrollbar {
@@ -81,6 +96,24 @@
     height: clamp(188px, calc(50vw * 3/4), 346px);
   }
 
+  /* Adjust sizes for tablet screens */
+  @media screen and (max-width: 989px) and (min-width: 769px) {
+    .gallery-{{ section.id }}__item--portrait {
+      width: clamp(180px, 40vw, 320px);
+      height: clamp(240px, calc(40vw * 4/3), 426px);
+    }
+
+    .gallery-{{ section.id }}__item--square {
+      width: clamp(180px, 40vw, 320px);
+      height: clamp(180px, 40vw, 320px);
+    }
+
+    .gallery-{{ section.id }}__item--landscape {
+      width: clamp(220px, 40vw, 320px);
+      height: clamp(165px, calc(40vw * 3/4), 240px);
+    }
+  }
+
   /* Shop Now Button - matching hero-2025 styling */
   .gallery-{{ section.id }}__button {
     display: inline-flex;
@@ -107,18 +140,15 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
-  /* Mobile adjustments at 990px and below */
-  @media screen and (max-width: 990px) {
-    .gallery-{{ section.id }}__container {
-      padding-left: 1.5rem;
-    }
-    
+
+  /* Responsive scaling for tablets and smaller screens */
+  @media screen and (max-width: 989px) {
     .gallery-{{ section.id }}__grid {
-      gap: 1.5rem;
+      gap: 24px;
     }
   }
 
-  /* Responsive scaling for smaller screens */
+  /* Responsive scaling for mobile screens */
   @media screen and (max-width: 768px) {
     .gallery-{{ section.id }}__item--portrait {
       width: clamp(150px, 35vw, 300px);
@@ -160,7 +190,7 @@
     <div class="gallery-{{ section.id }}__container">
       <slider-component class="slider-mobile-gutter">
         <ul 
-          id="Gallery-{{ section.id }}"
+          id="Slider-{{ section.id }}"
           class="gallery-{{ section.id }}__grid{% if section.blocks.size > 1 %} slider{% if section.blocks.size > 1 %} slider--tablet grid--peek{% endif %}{% endif %}"
           role="list"
           aria-label="Gallery images"
@@ -202,7 +232,7 @@
             class="slider-button slider-button--prev"
             name="previous"
             aria-label="Previous image"
-            aria-controls="Gallery-{{ section.id }}"
+            aria-controls="Slider-{{ section.id }}"
           >
             <span class="svg-wrapper">
               {{- 'icon-caret.svg' | inline_asset_content -}}
@@ -219,7 +249,7 @@
             class="slider-button slider-button--next"
             name="next"
             aria-label="Next image"
-            aria-controls="Gallery-{{ section.id }}"
+            aria-controls="Slider-{{ section.id }}"
           >
             <span class="svg-wrapper">
               {{- 'icon-caret.svg' | inline_asset_content -}}
@@ -245,55 +275,94 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const gallery = document.getElementById('Gallery-{{ section.id }}');
+  const gallery = document.getElementById('Slider-{{ section.id }}');
   if (!gallery) return;
   
-  // Clone the gallery items to create seamless loop
-  const originalItems = Array.from(gallery.children);
-  const clonedItems = originalItems.map(item => item.cloneNode(true));
-  
-  // Append cloned items to create seamless loop
-  clonedItems.forEach(item => {
-    gallery.appendChild(item);
-  });
-  
-  let isPaused = false;
-  let currentPosition = 0;
-  const speed = 0.5; // pixels per frame - smooth movement
-  
-  function animate() {
-    if (!isPaused) {
-      currentPosition -= speed;
-      
-      // Calculate the width of the original set (before cloning)
-      const firstItem = originalItems[0];
-      if (firstItem) {
-        const itemWidth = firstItem.offsetWidth + 48; // width + gap
-        const originalSetWidth = itemWidth * originalItems.length;
-        
-        // Reset position when we've moved past the original set
-        if (Math.abs(currentPosition) >= originalSetWidth) {
-          currentPosition = 0;
-        }
-      }
-      
-      gallery.style.transform = `translateX(${currentPosition}px)`;
-    }
-    
-    requestAnimationFrame(animate);
+  // Check if we should animate (above 990px)
+  function isDesktop() {
+    return window.innerWidth >= 990;
   }
   
-  // Pause on hover
-  gallery.addEventListener('mouseenter', () => {
-    isPaused = true;
-  });
-  
-  gallery.addEventListener('mouseleave', () => {
-    isPaused = false;
-  });
-  
-  // Start animation
-  animate();
+  // Only run animation on desktop screens
+  if (isDesktop()) {
+    // Clone the gallery items to create seamless loop
+    const originalItems = Array.from(gallery.children);
+    const clonedItems = originalItems.map(item => item.cloneNode(true));
+    
+    // Append cloned items to create seamless loop
+    clonedItems.forEach(item => {
+      gallery.appendChild(item);
+    });
+    
+    let isPaused = false;
+    let currentPosition = 0;
+    const speed = 0.5; // pixels per frame - smooth movement
+    
+    function animate() {
+      // Re-check screen size in case window was resized
+      if (!isDesktop()) {
+        gallery.style.transform = '';
+        return;
+      }
+      
+      if (!isPaused) {
+        currentPosition -= speed;
+        
+        // Calculate the width of the original set (before cloning)
+        const firstItem = originalItems[0];
+        if (firstItem) {
+          const itemWidth = firstItem.offsetWidth + 48; // width + gap
+          const originalSetWidth = itemWidth * originalItems.length;
+          
+          // Reset position when we've moved past the original set
+          if (Math.abs(currentPosition) >= originalSetWidth) {
+            currentPosition = 0;
+          }
+        }
+        
+        gallery.style.transform = `translateX(${currentPosition}px)`;
+      }
+      
+      requestAnimationFrame(animate);
+    }
+    
+    // Pause on hover
+    gallery.addEventListener('mouseenter', () => {
+      isPaused = true;
+    });
+    
+    gallery.addEventListener('mouseleave', () => {
+      isPaused = false;
+    });
+    
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (!isDesktop()) {
+          // Remove clones when below 990px
+          while (gallery.children.length > originalItems.length) {
+            gallery.removeChild(gallery.lastChild);
+          }
+          gallery.style.transform = '';
+          isPaused = true;
+        } else {
+          // Add clones back if they were removed
+          if (gallery.children.length === originalItems.length) {
+            const newClones = originalItems.map(item => item.cloneNode(true));
+            newClones.forEach(item => {
+              gallery.appendChild(item);
+            });
+          }
+          isPaused = false;
+        }
+      }, 250);
+    });
+    
+    // Start animation
+    animate();
+  }
 });
 </script>
 

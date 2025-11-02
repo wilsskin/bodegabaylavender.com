@@ -633,8 +633,14 @@ hr {
   color: currentColor;
   display: block;
   font-family: var(--font-body-family);
-  font-size: 1.8rem;
-  font-weight: 400;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 450px) {
+  .full-unstyled-link {
+    font-size: 1.4rem !important;
+  }
 }
 
 .placeholder {

@@ -23,12 +23,6 @@
     }
   }
 
-  /* Shrink individual collection cards when carousel activates below 990px */
-  @media screen and (max-width: 989px) {
-    .grid__item {
-      max-width: 28rem; /* 300px - smaller individual cards */
-    }
-  }
 
   /* Override global title styles for this section */
   .title-wrapper-with-link {
@@ -94,6 +88,14 @@
     
     .collection-list-wrapper #Slider-{{ section.id }} .collection-list__item {
       max-width: 28rem; /* Smaller cards on mobile */
+    }
+  }
+
+  /* Styling for full-unstyled-link on larger screens - only for collection-list section */
+  @media screen and (min-width: 750px) {
+    .collection-list-wrapper .full-unstyled-link {
+      font-size: 1.8rem;
+      text-align: center;
     }
   }
 {%- endstyle -%}
