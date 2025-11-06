@@ -12,6 +12,83 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Button styling - matching gallery-2025 */
+  .section-{{ section.id }}-padding .rich-text__buttons .rich-text-button,
+  .section-{{ section.id }}-padding a.rich-text-button,
+  .rich-text .rich-text-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 40px;
+    background-color: #636DCF;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.36;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    min-width: auto;
+    min-height: auto;
+  }
+
+  .section-{{ section.id }}-padding .rich-text__buttons .rich-text-button:hover,
+  .section-{{ section.id }}-padding a.rich-text-button:hover,
+  .rich-text .rich-text-button:hover {
+    background-color: #505ABC;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+   @media screen and (max-width: 950px) {
+    .section-{{ section.id }}-padding .rich-text__buttons,
+    .rich-text .rich-text__buttons,
+    .rich-text__wrapper .rich-text__buttons,
+    .rich-text__blocks .rich-text__buttons,
+    .rich-text__blocks.center .rich-text__buttons {
+      justify-content: flex-start;
+    }
+    
+    .rich-text__blocks.center {
+      text-align: left;
+    }
+    
+    .rich-text__wrapper {
+      justify-content: flex-start;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-padding .rich-text__buttons .rich-text-button,
+    .section-{{ section.id }}-padding a.rich-text-button,
+    .rich-text .rich-text-button {
+      padding: 10px 32px;
+      font-size: 16px;
+    }
+    
+    .section-{{ section.id }}-padding .page-width,
+    .rich-text .page-width {
+      margin: 0;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .section-{{ section.id }}-padding .rich-text__buttons .rich-text-button,
+    .section-{{ section.id }}-padding a.rich-text-button,
+    .rich-text .rich-text-button {
+      padding: 8px 24px;
+      font-size: 14px;
+    }
+  }
+
+ 
 {%- endstyle -%}
 
 <div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
@@ -69,7 +146,7 @@
                     {% else %}
                       href="{{ block.settings.button_link }}"
                     {% endif %}
-                    class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                    class="rich-text-button"
                   >
                     {{- block.settings.button_label | escape -}}
                   </a>
@@ -81,7 +158,7 @@
                     {% else %}
                       href="{{ block.settings.button_link_2 }}"
                     {% endif %}
-                    class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
+                    class="rich-text-button"
                   >
                     {{- block.settings.button_label_2 | escape -}}
                   </a>
@@ -289,12 +366,6 @@
           "label": "t:sections.rich-text.blocks.buttons.settings.button_link_1.label"
         },
         {
-          "type": "checkbox",
-          "id": "button_style_secondary",
-          "default": false,
-          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_1.label"
-        },
-        {
          "type": "header",
          "content": "t:sections.rich-text.blocks.buttons.settings.header_button2.content"
         },          
@@ -308,12 +379,6 @@
           "type": "url",
           "id": "button_link_2",
           "label": "t:sections.rich-text.blocks.buttons.settings.button_link_2.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary_2",
-          "default": false,
-          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_2.label"
         }
       ]
     }

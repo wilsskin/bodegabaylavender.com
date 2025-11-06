@@ -16,7 +16,7 @@
         "image": "shopify://shop_images/home-hero-1.webp",
         "heading": "Bodega Bay Lavender",
         "heading_size": "h1",
-        "subtitle": "Coastal Lavender, From Our Home to Yours",
+        "subtitle": "From Our Fields to Your Home",
         "subtitle_style": "h3",
         "button_label": "Shop Now",
         "button_link": "shopify://collections/all",
@@ -292,7 +292,7 @@
         "padding_bottom": 64,
         "button_label": "Shop Lavender",
         "button_link": "shopify://collections/all",
-        "button_color": "#636DCF",
+        "button_color": "#636dcf",
         "button_text_color": "#ffffff"
       }
     },

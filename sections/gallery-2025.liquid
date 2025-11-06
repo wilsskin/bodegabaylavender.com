@@ -13,6 +13,14 @@
     }
   }
 
+  @media screen and (max-width: 990px) {
+    .section-{{ section.id }}-padding {
+      padding-top: 24px;
+    }
+  }
+
+
+
   .gallery-{{ section.id }}__wrapper {
     background-color: {{ section.settings.background_color | default: '#ffffff' }};
     overflow-x: hidden;
@@ -30,7 +38,7 @@
   @media screen and (max-width: 989px) {
     .gallery-{{ section.id }}__container {
       padding-left: 24px;
-      padding-right: 24px;
+      padding-right: 0px;
     }
   }
 
@@ -132,7 +140,7 @@
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    margin-top: 2rem;
+    margin-top: 80px;
   }
 
   .gallery-{{ section.id }}__button:hover {
@@ -154,6 +162,23 @@
       width: clamp(150px, 35vw, 300px);
       height: clamp(200px, calc(35vw * 4/3), 400px);
     }
+
+    @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: 1.5rem;
+    }
+    
+     .gallery-{{ section.id }}__container {
+      padding-left: 1.5rem;
+    }
+
+    .gallery-{{ section.id }}__grid {
+      gap: 1.5rem;
+    }
+    .gallery-{{ section.id }}__button {
+          margin-top: 48px;
+    }
+  }
 
     .gallery-{{ section.id }}__item--square {
       width: clamp(150px, 35vw, 300px);
@@ -235,7 +260,7 @@
             aria-controls="Slider-{{ section.id }}"
           >
             <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
+              {{- 'icon-arrow-left.svg' | inline_asset_content -}}
             </span>
           </button>
           <div class="slider-counter caption">
@@ -252,7 +277,7 @@
             aria-controls="Slider-{{ section.id }}"
           >
             <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
+              {{- 'icon-arrow-right.svg' | inline_asset_content -}}
             </span>
           </button>
         </div>
@@ -262,7 +287,7 @@
 
     <!-- Shop Now Button -->
     {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-      <div style="text-align: center; margin-top: 2rem;">
+      <div style="text-align: center;">
         <a href="{{ section.settings.button_link }}" class="gallery-{{ section.id }}__button">
           {{ section.settings.button_label }}
         </a>

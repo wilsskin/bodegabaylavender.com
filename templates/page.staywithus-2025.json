@@ -21,7 +21,7 @@
       "type": "hero-2025",
       "name": "Hero 2025",
       "settings": {
-        "image": "shopify://shop_images/staywithus-hero.webp",
+        "image": "shopify://shop_images/stay-with-us-hero.webp",
         "heading": "Stay With Us",
         "heading_size": "h1",
         "subtitle": "If you have a love for nature and the outdoors, this is the place for you!",
@@ -38,7 +38,7 @@
       "type": "stay-with-us-about",
       "name": "About 2025",
       "settings": {
-        "background_color": "#EDECFE",
+        "background_color": "#edecfe",
         "heading": "Ready for a get away? Relax and unwind with privacy and spectacular views",
         "heading_size": "text-h3",
         "text": "<p>⭐ 4.99 on Airbnb  </p>",
@@ -97,7 +97,7 @@
         "padding_bottom": 48,
         "button_label": "",
         "button_link": "shopify://collections/all",
-        "button_color": "#636DCF",
+        "button_color": "#636dcf",
         "button_text_color": "#ffffff"
       }
     },
@@ -107,12 +107,12 @@
       "settings": {
         "background_color": "#ffffff",
         "heading": "Guest Reviews",
-        "feature_1_title": "Sarah M.",
-        "feature_1_text": "The most peaceful and beautiful stay. The lavender fields are stunning!",
-        "feature_2_title": "John D.",
-        "feature_2_text": "A truly magical experience. We'll definitely be coming back!",
-        "feature_3_title": "Emily R.",
-        "feature_3_text": "The perfect getaway. Beautiful property and wonderful hosts."
+        "feature_1_title": "One of the best Airbnb's we've stayed in. What a location- lavender fields, wildlife, and spectacular views.",
+        "feature_1_text": "– Heidi",
+        "feature_2_title": "Our family had one of the best stays ever at Bodega Bay! We truly loved the property! The home was so nice.",
+        "feature_2_text": "– Jill",
+        "feature_3_title": "We had a such a wonderful stay at Robert’s house. The place is so quiet and peaceful. Everything was perfect!",
+        "feature_3_text": "– Solenne"
       }
     },
     "stay_with_us_info_nLy4Xy": {
@@ -131,20 +131,11 @@
             "text": "<p>Perfect for weekend getaways, retreats, and family gatherings with plenty of privacy and stunning views.</p>",
             "text_style": "body"
           }
-        },
-        "button_MKBpti": {
-          "type": "button",
-          "settings": {
-            "button_label": "View on Airbnb",
-            "button_link": "https://www.airbnb.com/rooms/754612993550394250?source_impression_id=p3_1761182621_P3HytfstkY-BeZ2b",
-            "button_style_secondary": false
-          }
         }
       },
       "block_order": [
         "heading_aKFcJj",
-        "text_rLTQeb",
-        "button_MKBpti"
+        "text_rLTQeb"
       ],
       "name": "Stay With Us Info",
       "settings": {
@@ -159,8 +150,36 @@
         "mobile_content_alignment": "left",
         "section_color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
         "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "rich_text_DWG4Qk": {
+      "type": "rich-text",
+      "blocks": {
+        "button_adm6Eb": {
+          "type": "button",
+          "settings": {
+            "button_label": "View on Airbnb",
+            "button_link": "https://www.airbnb.com/rooms/754612993550394250?source_impression_id=p3_1761182621_P3HytfstkY-BeZ2b",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "button_adm6Eb"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "full_width": true,
+        "padding_top": 16,
+        "padding_bottom": 80
       }
     }
   },
@@ -170,6 +189,7 @@
     "stay_with_us_about_y8hjaY",
     "gallery_2025_jFiaLL",
     "stay_with_us_quotes_mWcqwK",
-    "stay_with_us_info_nLy4Xy"
+    "stay_with_us_info_nLy4Xy",
+    "rich_text_DWG4Qk"
   ]
 }

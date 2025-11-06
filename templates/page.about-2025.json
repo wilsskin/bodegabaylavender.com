@@ -42,7 +42,8 @@
         "heading": "OUR STORY",
         "heading_size": "text-h3",
         "text": "<p>We wanted to grow something that was <strong>beautiful, useful, and sustainable</strong></p>",
-        "text_style": "text-h3"
+        "text_style": "text-h3",
+        "story_text": "<p>Since lavender is such a versatile plant with a range of potential health benefits, we couldn’t help but be intrigued. Lavender was already thriving in the garden year after year, so why not plant it in mass?</p>"
       }
     },
     "gallery_2025_iWTpTX": {
@@ -128,7 +129,7 @@
       "name": "About Timeline",
       "settings": {
         "time_text": "September 2024",
-        "timeline_header": "We Harvested 12,000+ Lavender Bushels",
+        "timeline_header": "We Harvested 10,000+ Lavender Bushels",
         "timeline_desc": "We steam distilled the majority of our lavender to create essential oil and lavender hydrosol. Our hand-made, organic products made customers calm and happy.",
         "image": "shopify://shop_images/timeline-2.webp",
         "height": "adapt",

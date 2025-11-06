@@ -80,10 +80,7 @@
       max-width: 252px;
     }
     
-    /* Remove gap from last child - only 3 gaps between 4 items */
-    .collection .grid__item:last-child {
-      margin-right: -32px;
-    }
+ 
 
     /* Override slider margin for first item */
     .collection .slider--desktop .slider__slide:first-child {
@@ -94,6 +91,18 @@
     /* Hide carousel arrows above 990px */
     .collection .slider-buttons {
       display: none;
+    }
+  }
+
+  /* Set max-width to 252px for product cards below 990px */
+  @media screen and (max-width: 990px) {
+    .collection .grid__item {
+      max-width: 252px;
+    }
+    
+    /* Hide slider buttons below 990px */
+    .collection .slider-buttons {
+      display: none !important;
     }
   }
 
@@ -246,7 +255,7 @@
             aria-controls="Slider-{{ section.id }}"
           >
             <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
+              {{- 'icon-arrow-left.svg' | inline_asset_content -}}
             </span>
           </button>
           <div class="slider-counter caption">
@@ -263,7 +272,7 @@
             aria-controls="Slider-{{ section.id }}"
           >
             <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
+              {{- 'icon-arrow-right.svg' | inline_asset_content -}}
             </span>
           </button>
         </div>
