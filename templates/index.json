@@ -63,6 +63,7 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
+        "anchor_id": "",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -80,7 +81,7 @@
         "text_raEQYd": {
           "type": "text",
           "settings": {
-            "text": "Every bundle of lavender is hand-harvested and distilled by our family in Bodega Bay.",
+            "text": "Every bundle of lavender is hand-harvested and distilled by our family in Bodega Bay",
             "text_style": "body"
           }
         }
@@ -91,7 +92,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/home-image1.jpg",
+        "image": "shopify://shop_images/danny-jami.webp",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "image_behavior": "none",
@@ -217,22 +218,6 @@
         "padding_bottom": 48
       }
     },
-    "video_TX8Ygg": {
-      "type": "video",
-      "name": "t:sections.video.presets.name",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": true,
-        "video": "shopify://files/videos/bbl-video.mov",
-        "video_url": "",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
-        "padding_top": 0,
-        "padding_bottom": 48
-      }
-    },
     "gallery_2025_Mjcffb": {
       "type": "gallery-2025",
       "blocks": {
@@ -289,11 +274,28 @@
         "heading_size": "h2",
         "image_size": "landscape",
         "padding_top": 48,
-        "padding_bottom": 64,
+        "padding_bottom": 80,
         "button_label": "Shop Lavender",
         "button_link": "shopify://collections/all",
         "button_color": "#636dcf",
         "button_text_color": "#ffffff"
+      }
+    },
+    "video_TX8Ygg": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/bbl-video.mov",
+        "video_url": "",
+        "cover_image": "shopify://shop_images/stay-with-us.png",
+        "description": "Bodega Bay Drone Video",
+        "full_width": false,
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "newsletter_iTBiza": {
@@ -302,7 +304,7 @@
         "heading_DDiqzG": {
           "type": "heading",
           "settings": {
-            "heading": "Subscribe to our emails!",
+            "heading": "Subscribe to our newsletter!",
             "heading_size": "h1"
           }
         },
@@ -333,8 +335,8 @@
     "why_lavender_2025_q3arH3",
     "image_with_text_p3ACVm",
     "featured_blog_Ac9YWU",
-    "video_TX8Ygg",
     "gallery_2025_Mjcffb",
+    "video_TX8Ygg",
     "newsletter_iTBiza"
   ]
 }

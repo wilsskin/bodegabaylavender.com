@@ -33,12 +33,47 @@
     padding-left: 48px;
     padding-right: 48px;
     overflow: hidden;
+    position: relative;
   }
+  .gallery-{{ section.id }}__next-button {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 
   @media screen and (max-width: 989px) {
     .gallery-{{ section.id }}__container {
       padding-left: 24px;
       padding-right: 0px;
+    }
+    .gallery-{{ section.id }}__next-button {
+      display: none;
+    }
+    .gallery-{{ section.id }}__controls {
+      padding-right: 24px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .gallery-{{ section.id }}__controls {
+      display: none;
+    }
+    .gallery-{{ section.id }}__next-button {
+      width: 40px;
+      height: 40px;
+    }
+    .gallery-{{ section.id }}__next-button .svg-wrapper {
+      width: 15px;
+      height: 15px;
+    }
+    .gallery-{{ section.id }}__next-button .icon {
+      height: 12px;
     }
   }
 
@@ -144,8 +179,7 @@
   }
 
   .gallery-{{ section.id }}__button:hover {
-    background-color: #505ABC;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #636DCF;
   }
 
 
@@ -178,6 +212,9 @@
     .gallery-{{ section.id }}__button {
           margin-top: 48px;
     }
+    .gallery-{{ section.id }}__controls {
+      padding-right: 1.5rem;
+    }
   }
 
     .gallery-{{ section.id }}__item--square {
@@ -196,12 +233,7 @@
     }
   }
 
-  @media screen and (max-width: 480px) {
-    .gallery-{{ section.id }}__button {
-      padding: 8px 24px;
-      font-size: 14px;
-    }
-  }
+  
 {%- endstyle -%}
 
 <div class="gallery-{{ section.id }}__wrapper color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
@@ -251,7 +283,20 @@
       </ul>
 
       {%- if section.blocks.size > 1 -%}
-        <div class="slider-buttons">
+        <button
+          type="button"
+          class="slider-button slider-button--next gallery-{{ section.id }}__next-button"
+          aria-label="Next image"
+          data-desktop-control="true"
+        >
+          <span class="svg-wrapper">
+            {{- 'icon-arrow-right.svg' | inline_asset_content -}}
+          </span>
+        </button>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 1 -%}
+        <div class="slider-buttons gallery-{{ section.id }}__controls">
           <button
             type="button"
             class="slider-button slider-button--prev"
@@ -322,6 +367,15 @@ document.addEventListener('DOMContentLoaded', function() {
     let isPaused = false;
     let currentPosition = 0;
     const speed = 0.5; // pixels per frame - smooth movement
+    const desktopNextButton = document.querySelector('.gallery-{{ section.id }}__next-button');
+
+    function getItemStep() {
+      const firstItem = originalItems[0];
+      if (!firstItem) return 0;
+      const computedStyles = window.getComputedStyle(gallery);
+      const gapValue = parseFloat(computedStyles.columnGap || computedStyles.gap || '0') || 0;
+      return firstItem.offsetWidth + gapValue;
+    }
     
     function animate() {
       // Re-check screen size in case window was resized
@@ -334,11 +388,10 @@ document.addEventListener('DOMContentLoaded', function() {
         currentPosition -= speed;
         
         // Calculate the width of the original set (before cloning)
-        const firstItem = originalItems[0];
-        if (firstItem) {
-          const itemWidth = firstItem.offsetWidth + 48; // width + gap
-          const originalSetWidth = itemWidth * originalItems.length;
-          
+        const step = getItemStep();
+        if (step > 0) {
+          const originalSetWidth = step * originalItems.length;
+
           // Reset position when we've moved past the original set
           if (Math.abs(currentPosition) >= originalSetWidth) {
             currentPosition = 0;
@@ -349,6 +402,41 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       requestAnimationFrame(animate);
+    }
+
+    if (desktopNextButton) {
+      desktopNextButton.removeAttribute('disabled');
+      desktopNextButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        const step = getItemStep();
+        if (step === 0) return;
+
+        isPaused = true;
+        currentPosition -= step;
+
+        const originalSetWidth = step * originalItems.length;
+        if (Math.abs(currentPosition) >= originalSetWidth) {
+          currentPosition = 0;
+        }
+
+        gallery.style.transform = `translateX(${currentPosition}px)`;
+
+        setTimeout(() => {
+          if (!gallery.matches(':hover') && !desktopNextButton.matches(':hover')) {
+            isPaused = false;
+          }
+        }, 200);
+      });
+
+      desktopNextButton.addEventListener('mouseenter', () => {
+        isPaused = true;
+      });
+
+      desktopNextButton.addEventListener('mouseleave', () => {
+        if (!gallery.matches(':hover')) {
+          isPaused = false;
+        }
+      });
     }
     
     // Pause on hover

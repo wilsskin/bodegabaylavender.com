@@ -113,7 +113,7 @@
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 450px) {
      .hero-2025 {
       height: {% if template contains 'collection' %}125px{% else %}300px{% endif %};
     }
@@ -123,15 +123,20 @@
     }
     
     .hero-2025__heading {
-      font-size: 30px;
+      font-size: 28px;
     }
     
     .hero-2025__subtitle {
       font-size: 16px;
     }
     
+    .hero-2025__content {
+      gap: 16px;
+    }
+    .hero-2025__text-group {
+      gap: 4px;
+    }
     .hero-2025__button {
-      padding: 8px 24px;
       font-size: 14px;
     }
   }

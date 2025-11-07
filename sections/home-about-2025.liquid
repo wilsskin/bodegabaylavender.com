@@ -58,6 +58,7 @@
     width: 100%;
     text-align: center;
     padding: 0;
+    letter-spacing: -0.1px;
   }
 
   .section-{{ section.id }}__text .text-content {
@@ -193,6 +194,12 @@
     .section-{{ section.id }}__text .text-content {
       font-size: 20px;
     }
+
+    .section-{{ section.id }} {
+      padding: 64px 0px;
+    }
+
+
   }
 
   @media screen and (max-width: 450px) {
@@ -210,6 +217,20 @@
       min-width: 0;
       max-width: 85px;
     }
+
+    .section-{{ section.id }}__text .text-content {
+      font-size: 16px;
+    }
+    .section-{{ section.id }}__text {
+      gap: 16px;
+    }
+    .section-{{ section.id }}__content {
+      gap: 32px;
+    }
+    .section-{{ section.id }} {
+      padding: 48px 0px;
+    }
+
   }
 
 {%- endstyle -%}

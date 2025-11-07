@@ -4,25 +4,36 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | round: 0 }}px;
   }
 
-  /* Override page-width padding for screens 750px and below */
+  @media screen and (max-width: 989px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+  }
+
   @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
+    }
+
+    /* Override page-width padding for screens 750px and below */
     .collection-list-wrapper.page-width {
       padding-left: 16px !important;
       padding-right: 16px !important;
     }
   }
 
-  @media screen and (min-width: 750px) {
+  @media screen and (max-width: 450px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
     }
   }
-
 
   /* Override global title styles for this section */
   .title-wrapper-with-link {

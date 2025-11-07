@@ -1,0 +1,263 @@
+{%- style -%}
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .section-{{ section.id }} {
+    background-color: #EDECFE;
+    padding: var(--spacing-section-small) 0;
+  }
+
+  .section-{{ section.id }}__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 5rem; /* desktop default */
+  }
+
+  /* Tagline styling */
+  .section-{{ section.id }}__tagline {
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+    margin: 0 0 16px 0;
+  }
+
+  /* Navigation layout */
+  .section-{{ section.id }}__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* Link styling - default state (button style) */
+  .section-{{ section.id }}__link {
+    display: inline-block;
+    color: #000000;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.33;
+    text-transform: uppercase;
+    padding: 8px 32px;
+    border-radius: 24px;
+    border: 2px solid #6149A2;
+    background-color: transparent;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  /* Link styling - hover state */
+  .section-{{ section.id }}__link:hover:not(.active) {
+    background-color: #D0C8E3;
+    color: #000000;
+  }
+
+  /* Link styling - active state */
+  .section-{{ section.id }}__link.active {
+    background-color: #6149A2;
+    border: 2px solid #6149A2;
+    color: #ffffff;
+  }
+  
+  /* Active state should stay purple with white text even on hover */
+  .section-{{ section.id }}__link.active:hover {
+    background-color: #6149A2;
+    color: #ffffff;
+  }
+
+  /* Responsive padding */
+  @media screen and (max-width: 990px) {
+    .section-{{ section.id }}__container {
+      padding-inline: 5rem;
+    }
+  .section-{{ section.id }}__link {
+      padding: 6px 24px;
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}__container {
+      padding-inline: 5rem;
+    }
+    .section-{{ section.id }}__link {
+      padding: 5px 20px;
+      font-size: 14px;
+    }
+    .section-{{ section.id }}__nav {
+    gap: 12px;
+  }
+    .section-{{ section.id }} {
+      padding: 48px 0px;
+    }
+    .section-{{ section.id }}__tagline {
+    font-size: 18px;
+    margin: 0 0 12px 0;
+  }
+  }
+
+  /* Allow horizontal scrolling on very small screens if needed */
+  @media screen and (max-width: 450px) {
+    .section-{{ section.id }}__nav {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .section-{{ section.id }}__nav::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    .section-{{ section.id }}__container {
+      padding-inline: 1.5rem;
+    }
+    .section-{{ section.id }}__link {
+      padding: 4px 16px;
+      font-size: 12px;
+    }
+    .section-{{ section.id }}__nav {
+      gap: 8px;
+    }
+    .section-{{ section.id }} {
+      padding: 32px 0px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="section-{{ section.id }}" aria-labelledby="section-{{ section.id }}-tagline">
+  <div class="section-{{ section.id }}__container">
+    <h2 id="section-{{ section.id }}-tagline" class="section-{{ section.id }}__tagline">
+      {{ section.settings.tagline | default: "Let a little lavender in!" }}
+    </h2>
+
+    <nav class="section-{{ section.id }}__nav" aria-label="Shop category shortcuts">
+      <ul class="list-unstyled" style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 0; padding: 0; list-style: none;">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.label != blank and block.settings.anchor_id != blank and block.settings.anchor_id != 'section-id' -%}
+            <li>
+              <a href="#{{ block.settings.anchor_id }}" class="section-{{ section.id }}__link{% if block.settings.label == 'All' %} active{% endif %}" data-anchor="{{ block.settings.anchor_id }}">
+                {{ block.settings.label }}
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<script>
+  (function() {
+    const sectionId = '{{ section.id }}';
+    const navLinks = document.querySelectorAll('.section-' + sectionId + '__link');
+    
+    // Function to remove active class from all links
+    function removeActiveClass() {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+      });
+    }
+    
+    // Function to add active class to clicked link
+    function setActiveLink(clickedLink) {
+      removeActiveClass();
+      clickedLink.classList.add('active');
+    }
+    
+    // Add click event listeners to all links
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        setActiveLink(this);
+      });
+    });
+    
+    // Set "All" link as active by default on page load (only if no link is already active)
+    if (document.querySelector('.section-' + sectionId + '__link.active') === null) {
+      const allLink = Array.from(navLinks).find(link => link.textContent.trim() === 'All');
+      if (allLink) {
+        allLink.classList.add('active');
+      }
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Shop category nav",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Let a little lavender in!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Category"
+        },
+        {
+          "type": "text",
+          "id": "anchor_id",
+          "label": "Anchor ID",
+          "default": "section-id",
+          "info": "The ID of the section to link to (without the # symbol)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop category nav",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "label": "All",
+            "anchor_id": "best-sellers"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "label": "Best Sellers",
+            "anchor_id": "best-sellers"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "label": "Home",
+            "anchor_id": "home"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "label": "Wellness",
+            "anchor_id": "wellness"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "label": "Culinary",
+            "anchor_id": "culinary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -508,3 +508,9 @@
     row-gap: var(--grid-desktop-vertical-spacing);
   }
 }
+
+@media screen and (max-width: 450px) {
+.image-with-text__grid {
+  gap: 32px !important;
+}
+}

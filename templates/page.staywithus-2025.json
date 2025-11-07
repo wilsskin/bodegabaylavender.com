@@ -107,7 +107,7 @@
       "settings": {
         "background_color": "#ffffff",
         "heading": "Guest Reviews",
-        "feature_1_title": "One of the best Airbnb's we've stayed in. What a location- lavender fields, wildlife, and spectacular views.",
+        "feature_1_title": "One of the best Airbnb's we've stayed in. What a location – lavender fields, wildlife, and spectacular views.",
         "feature_1_text": "– Heidi",
         "feature_2_title": "Our family had one of the best stays ever at Bodega Bay! We truly loved the property! The home was so nice.",
         "feature_2_text": "– Jill",
@@ -162,10 +162,8 @@
           "settings": {
             "button_label": "View on Airbnb",
             "button_link": "https://www.airbnb.com/rooms/754612993550394250?source_impression_id=p3_1761182621_P3HytfstkY-BeZ2b",
-            "button_style_secondary": false,
             "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_link_2": ""
           }
         }
       },
