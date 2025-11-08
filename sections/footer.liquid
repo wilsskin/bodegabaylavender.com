@@ -28,23 +28,30 @@
     padding: 0 var(--spacing-medium);
   }
 
+  .footer-2025__full {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 80px;
+  }
+
   .footer-2025__content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 120px;
+    gap: clamp(80px, 10vw, 120px);
+    width: 100%;
   }
 
   .footer-2025__left-section {
     display: flex;
-    gap: 8px;
+    gap: clamp(80px, 10vw, 120px);
   }
 
   .footer-2025__logo {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 154px;
   }
 
   .footer-2025__logo-link {
@@ -56,6 +63,11 @@
     width: 100px;
     height: 100px;
     object-fit: contain;
+  }
+
+  .footer-2025__bottom-footer {
+    display: flex;
+    align-items: flex-start;
   }
 
   .footer-2025__copyright {
@@ -187,14 +199,26 @@
       padding: 0 48px;
     }
 
+    .footer-2025__full {
+      gap: 48px;
+    }
+
     .footer-2025__content {
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
       gap: 48px;
     }
 
     .footer-2025__left-section {
       flex-direction: column;
       gap: 48px;
+      width: 100%;
+    }
+
+    .footer-2025__logo {
+      align-items: flex-start;
+      width: 100%;
     }
 
     .footer-2025__nav-columns {
@@ -211,42 +235,28 @@
     .footer-2025__contact {
       align-items: flex-start;
       text-align: left;
+      position: absolute;
+      right: 48px;
+      margin-top: 155px;
     }
 
     .footer-2025__social {
       justify-content: flex-start;
     }
 
-    .footer-2025__logo {
-      align-items: flex-start;
-      gap: 24px;
-    }
-
-    .footer-2025__copyright {
+    .footer-2025__contact .footer-2025__copyright-mobile {
       display: none;
     }
 
-    .footer-2025__copyright-mobile {
+    .footer-2025__copyright {
       display: block;
-    }
-  }
-
-  /* Small Mobile Layout - Below 575px */
-  @media screen and (max-width: 300px) {
-    .footer-2025__nav-columns {
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .footer-2025__column {
-      width: 100%;
     }
   }
 
   /* Small Mobile Responsive */
   @media screen and (max-width: 750px) {
     .footer-2025__container {
-      padding: 0 16px;
+      padding: 0 48px;
     }
 
     .footer-2025__content {
@@ -259,6 +269,11 @@
 
     .footer-2025__nav-columns {
       gap: 32px;
+    }
+
+    .footer-2025__contact {
+      right: 48px;
+      margin-top: 120px;
     }
 
     .footer-2025__logo img {
@@ -279,7 +294,47 @@
     }
 
     .footer-2025__email {
-      font-size: 14px;
+      font-size: 16px;
+    }
+  }
+
+  /* Small Mobile Layout - Below 615px */
+  @media screen and (max-width: 615px) {
+    .footer-2025__content {
+      flex-direction: column;
+    }
+
+    .footer-2025__contact {
+      position: static !important;
+      margin-top: 0px !important;
+      right: auto !important;
+    }
+  }
+
+  /* Small Mobile Layout - Below 450px */
+  @media screen and (max-width: 450px) {
+    .footer-2025__container {
+      padding: 0 48px;
+    }
+
+    .footer-2025__column-heading {
+      font-size: 16px;
+    }
+
+    .footer-2025__email {
+      font-size: 16px;
+    }
+  }
+
+  /* Extra Small Mobile Layout - Below 300px */
+  @media screen and (max-width: 300px) {
+    .footer-2025__nav-columns {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .footer-2025__column {
+      width: 100%;
     }
   }
 
@@ -300,20 +355,20 @@
 
 <footer class="footer-2025 color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   <div class="footer-2025__container">
-    <div class="footer-2025__content">
-      <!-- Left Section: Logo + Navigation -->
-      <div class="footer-2025__left-section">
-        <!-- Logo -->
-        <div class="footer-2025__logo">
-          <a href="{{ routes.root_url }}" class="footer-2025__logo-link">
-            <img 
-              src="{{ 'logo.png' | asset_url }}"
-              alt="{{ shop.name }}"
-                            loading="lazy"
-                          >
-          </a>
-          <p class="footer-2025__copyright">© 2025 Bodega Bay Lavender</p>
-                        </div>
+    <div class="footer-2025__full">
+      <div class="footer-2025__content">
+        <!-- Left Section: Logo + Navigation -->
+        <div class="footer-2025__left-section">
+          <!-- Logo -->
+          <div class="footer-2025__logo">
+            <a href="{{ routes.root_url }}" class="footer-2025__logo-link">
+              <img 
+                src="{{ 'logo.png' | asset_url }}"
+                alt="{{ shop.name }}"
+                loading="lazy"
+              >
+            </a>
+          </div>
 
         <!-- Navigation Columns -->
         <div class="footer-2025__nav-columns">
@@ -340,18 +395,24 @@
         </div>
       </div>
 
-      <!-- Right Section: Contact -->
-      <div class="footer-2025__contact">
-        <a href="mailto:Jami@bodegabaylavender.com" class="footer-2025__email">Jami@bodegabaylavender.com</a>
-        <div class="footer-2025__social">
-          <a href="{{ settings.social_facebook_link | default: '#' }}" target="_blank" rel="noopener">
-            <img src="{{ 'icon-facebook.svg' | asset_url }}" alt="Facebook" class="footer-2025__social-icon">
-          </a>
-          <a href="{{ settings.social_instagram_link | default: '#' }}" target="_blank" rel="noopener">
-            <img src="{{ 'icon-instagram.svg' | asset_url }}" alt="Instagram" class="footer-2025__social-icon">
-          </a>
+        <!-- Right Section: Contact -->
+        <div class="footer-2025__contact">
+          <a href="mailto:Jami@bodegabaylavender.com" class="footer-2025__email">Jami@bodegabaylavender.com</a>
+          <div class="footer-2025__social">
+            <a href="{{ settings.social_facebook_link | default: '#' }}" target="_blank" rel="noopener">
+              <img src="{{ 'icon-facebook.svg' | asset_url }}" alt="Facebook" class="footer-2025__social-icon">
+            </a>
+            <a href="{{ settings.social_instagram_link | default: '#' }}" target="_blank" rel="noopener">
+              <img src="{{ 'icon-instagram.svg' | asset_url }}" alt="Instagram" class="footer-2025__social-icon">
+            </a>
+          </div>
+          <p class="footer-2025__copyright-mobile">© 2025 Bodega Bay Lavender</p>
         </div>
-        <p class="footer-2025__copyright-mobile">© 2025 Bodega Bay Lavender</p>
+      </div>
+
+      <!-- Bottom Footer: Copyright -->
+      <div class="footer-2025__bottom-footer">
+        <p class="footer-2025__copyright">© 2025 Bodega Bay Lavender</p>
       </div>
     </div>
   </div>

@@ -9,21 +9,14 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
 
   /* Blog text alignment - left aligned, no padding */
-  .section-{{ section.id }} .blog__title {
+  .section-{{ section.id }} .blog__title,
+  .blog .blog__title {
     text-align: left !important;
+    font-weight: 600 !important;
   }
 
-  .section-{{ section.id }} .title-wrapper-with-link {
-    justify-content: flex-start !important;
-  }
 
   .section-{{ section.id }} .card__content {
     text-align: left !important;
@@ -38,6 +31,38 @@
   .section-{{ section.id }} .article-card__excerpt {
     text-align: left !important;
   }
+
+  /* Remove top padding from blog post list items */
+  .section-{{ section.id }} .blog__post {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* Set max width on blog post cards */
+  .section-{{ section.id }} .article-card-wrapper {
+    max-width: 320px;
+  }
+
+  /* Responsive text sizing for 650px and below */
+  @media screen and (max-width: 650px) {
+    .section-{{ section.id }} .article-card__excerpt {
+      font-size: 12px !important;
+    }
+
+     .section-{{ section.id }} .article-card-wrapper {
+    max-width: 320px;
+  }
+
+    .section-{{ section.id }} .article-card__read-more {
+      font-size: 12px !important;
+      padding: 6px 12px !important;
+    }
+
+    .section-{{ section.id }} .card__heading {
+      font-size: 16px !important;
+      font-weight: 500 !important;
+    }
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -50,7 +75,7 @@
 <div class="blog color-{{ section.settings.color_scheme }} gradient{% if section.settings.heading == blank %} no-heading{% endif %}">
   <div class="page-width-desktop isolate{% if posts_displayed < 3 %} page-width-tablet{% endif %} section-{{ section.id }}-padding">
     {%- unless section.settings.heading == blank -%}
-      <div class="title-wrapper-with-link{% if posts_displayed > 2 %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
+      <div class="title-wrapper-with-link">
         <h2
           id="SectionHeading-{{ section.id }}"
           class="blog__title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -75,12 +100,11 @@
       </div>
     {%- endunless -%}
 
-    <slider-component class="slider-mobile-gutter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-      <ul
-        id="Slider-{{ section.id }}"
-        class="blog__posts articles-wrapper contains-card contains-card--article{% if settings.blog_card_style == 'standard' %} contains-card--standard{% endif %} grid grid--peek grid--2-col-tablet grid--{{ section.settings.columns_desktop }}-col-desktop slider {% if posts_displayed > 2 %}slider--tablet{% else %}slider--mobile{% endif %}"
-        role="list"
-      >
+    <ul
+      id="Slider-{{ section.id }}"
+      class="blog__posts articles-wrapper contains-card contains-card--article{% if settings.blog_card_style == 'standard' %} contains-card--standard{% endif %} grid grid--peek grid--2-col-tablet grid--{{ section.settings.columns_desktop }}-col-desktop slider {% if posts_displayed > 2 %}slider--tablet{% else %}slider--mobile{% endif %}"
+      role="list"
+    >
         {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
           {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
             <li
@@ -160,38 +184,7 @@
             </li>
           {%- endfor -%}
         {%- endif -%}
-      </ul>
-      {%- if posts_exceed_limit -%}
-        <div class="slider-buttons{% if section.settings.post_limit < 3 %} medium-hide{% endif %}{% if section.settings.post_limit < 2 %} small-hide{% endif %}">
-          <button
-            type="button"
-            class="slider-button slider-button--prev"
-            name="previous"
-            aria-label="{{ 'general.slider.previous_slide' | t }}"
-          >
-            <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
-            </span>
-          </button>
-          <div class="slider-counter caption">
-            <span class="slider-counter--current">1</span>
-            <span aria-hidden="true"> / </span>
-            <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-            <span class="slider-counter--total">{{ section.settings.post_limit }}</span>
-          </div>
-          <button
-            type="button"
-            class="slider-button slider-button--next"
-            name="next"
-            aria-label="{{ 'general.slider.next_slide' | t }}"
-          >
-            <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
-            </span>
-          </button>
-        </div>
-      {%- endif -%}
-    </slider-component>
+    </ul>
 
     {%- if section.settings.show_view_all and section.settings.post_limit < section.settings.blog.articles_count -%}
       <div

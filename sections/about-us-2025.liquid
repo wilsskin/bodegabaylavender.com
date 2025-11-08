@@ -1,0 +1,295 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | round: 0 }}px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+    }
+  }
+
+  .section-{{ section.id }} {
+    background-color: {{ section.settings.background_color | default: '#EDECFE' }};
+  }
+
+  .section-{{ section.id }}__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Responsive padding following theme pattern */
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}__container {
+      padding: 0 5rem;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .section-{{ section.id }}__container {
+      padding: 0 5rem;
+    }
+  }
+
+  /* Main content layout - matching Figma structure */
+  .section-{{ section.id }}__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xlarge); /* 64px - using our spacing variable */
+  }
+
+  /* Text content styling - matching Figma typography */
+  .section-{{ section.id }}__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-medium); /* 24px - using our spacing variable */
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .section-{{ section.id }}__text h2 {
+    font-family: var(--font-heading-family);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.36;
+    color: #000000;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    letter-spacing: -0.1px;
+
+  }
+
+  .section-{{ section.id }}__text .text-content {
+    font-family: var(--font-body-family);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.36;
+    color: #000000;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  .section-{{ section.id }}__text .text-content p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .section-{{ section.id }}__text .text-content strong,
+  .section-{{ section.id }}__text .text-story strong {
+    color: #6149A2;
+  }
+
+  .section-{{ section.id }}__text .text-story {
+    font-family: var(--font-body-family);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.36;
+    color: #000000;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  .section-{{ section.id }}__text .text-story p {
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* Tablet responsive */
+  @media screen and (max-width: 900px) {
+    .section-{{ section.id }}__text h2 {
+      width: 100%;
+    }
+  }
+
+  /* Mobile responsive */
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}__text {
+      max-width: 600px;
+    }
+    
+    .section-{{ section.id }}__text h2 {
+      font-size: 16px;
+      width: 100%;
+    }
+    .section-{{ section.id }}__text .text-story {
+      font-size: 16px;
+    }
+    
+    .section-{{ section.id }}__text .text-content {
+      font-size: 24px;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .section-{{ section.id }}__text {
+      max-width: 600px;
+    }
+    
+    .section-{{ section.id }}__text h2 {
+      font-size: 14px;
+      width: 100%;
+    }
+    .section-{{ section.id }}__text .text-story {
+      font-size: 14px;
+    }
+    
+    .section-{{ section.id }}__text .text-content {
+      font-size: 18px;
+    }
+    .section-{{ section.id }}__text {
+      gap: 18px;
+    }
+  }
+
+
+
+{%- endstyle -%}
+
+<div class="section-{{ section.id }} section-{{ section.id }}-padding">
+  <div class="section-{{ section.id }}__container">
+    <div class="section-{{ section.id }}__content">
+      <!-- Text Content -->
+      <div class="section-{{ section.id }}__text">
+        {%- if section.settings.heading != blank -%}
+          <h2>
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="text-content">
+            {{ section.settings.text }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.story_text != blank -%}
+          <div class="text-story">
+            {{ section.settings.story_text }}
+          </div>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Us 2025",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#EDECFE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "About Us"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        {
+          "value": "text-h1",
+          "label": "H1"
+        },
+        {
+          "value": "text-h2",
+          "label": "H2"
+        },
+        {
+          "value": "text-h3",
+          "label": "H3"
+        }
+      ],
+      "default": "text-h3"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>We are a family-owned and operated lavender farm located in Bodega Bay, situated along the Sonoma coast in Northern California.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "label": "Text Style",
+      "options": [
+        {
+          "value": "text-body",
+          "label": "Body"
+        },
+        {
+          "value": "text-h3",
+          "label": "H3"
+        },
+        {
+          "value": "text-tag",
+          "label": "Tag"
+        }
+      ],
+      "default": "text-h3"
+    },
+    {
+      "type": "richtext",
+      "id": "story_text",
+      "label": "Story Text",
+      "default": "<p>Since lavender is such a versatile plant with a range of potential health benefits, we couldn’t help but be intrigued. Lavender was already thriving in our garden year after year, so why not plant it in mass?</p>"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "About 2025"
+    }
+  ]
+}
+{% endschema %}

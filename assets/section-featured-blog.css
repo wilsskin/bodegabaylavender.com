@@ -27,8 +27,27 @@
 }
 
 @media screen and (max-width: 749px) {
+  /* Add 1.5rem padding on left and right for container */
+  .blog .page-width-desktop.page-width-tablet {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  /* Force 2-column grid layout for blog posts */
+  .blog__posts.articles-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+  
+  /* Override the base .grid column-gap to get our custom gap working */
+  .blog__posts.articles-wrapper.grid {
+    column-gap: 16px !important;
+    row-gap: 16px !important;
+  }
+
   .blog__post.article {
-    width: calc(100% - 3rem - var(--grid-mobile-horizontal-spacing));
+    width: 100% !important;
+    margin: 0 !important;
   }
 }
 
@@ -57,4 +76,13 @@
       margin-left: var(--grid-desktop-horizontal-spacing);
     }
   }
+}
+
+/* Featured blog specific styling */
+.blog .card__heading {
+  font-weight: 600 !important;
+}
+
+.blog .full-unstyled-link {
+  font-weight: 600 !important;
 }

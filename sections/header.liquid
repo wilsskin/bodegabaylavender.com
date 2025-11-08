@@ -65,7 +65,7 @@
     text-decoration: none;
     padding-bottom: 1rem;
     padding-top: 1rem;
-    line-height: calc(1 + 0.8 / var(--font-body-scale));
+    line-height: calc(1 + 0.5 / var(--font-body-scale));
   }
 
   @media screen and (min-width: 750px) {
@@ -107,10 +107,6 @@
   .header .mega-menu__link:hover,
   .header summary.header__menu-item:hover > span {
     color: #505ABC;
-    text-decoration: underline;
-    text-decoration-color: #505ABC;
-    text-decoration-thickness: 2px;
-    text-underline-offset: calc(0.3rem + 4px);
   }
 
   /* Preserve thicker underline on hover for active states */
@@ -158,6 +154,12 @@
     gap: 12px;
   }
 
+  @media screen and (max-width: 749px) {
+    .header__icons {
+      gap: 4px;
+    }
+  }
+
   /* Header background and container alignment */
   .header-wrapper {
     background-color: #E1E0F1;
@@ -166,6 +168,19 @@
   .header.page-width {
     max-width: 1200px;
     padding: 8px 48px;
+  }
+
+  @media screen and (max-width: 450px) {
+    .header.page-width {
+      padding: 4px 16px;
+    }
+
+    .header__heading-logo,
+    .header__heading-logo img,
+    .header__heading-logo svg {
+      width: 70px;
+      height: 70px;
+    }
   }
 
   /* Remove logo padding and ensure proper alignment */

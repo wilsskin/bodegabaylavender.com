@@ -1,6 +1,15 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
+{%- style -%}
+  /* Ensure announcement bar text uses Open Sans font */
+  .announcement-bar__message,
+  .announcement-bar__link,
+  .utility-bar {
+    font-family: 'Open Sans', sans-serif !important;
+  }
+{%- endstyle -%}
+
 {%- liquid
   assign social_icons = true
   if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
@@ -66,7 +75,7 @@
             aria-controls="Slider-{{ section.id }}"
           >
             <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
+              {{- 'icon-arrow-left.svg' | inline_asset_content -}}
             </span>
           </button>
           <div
@@ -121,7 +130,7 @@
             aria-controls="Slider-{{ section.id }}"
           >
             <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
+              {{- 'icon-arrow-right.svg' | inline_asset_content -}}
             </span>
           </button>
         </div>

@@ -1,0 +1,192 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_2025_4TwRQG": {
+      "type": "hero-2025",
+      "name": "Hero 2025",
+      "settings": {
+        "image": "shopify://shop_images/about-hero.webp",
+        "heading": "About Us",
+        "heading_size": "h1",
+        "subtitle": "We are a family-owned and operated lavender farm located in the town of Bodega Bay",
+        "subtitle_style": "h3",
+        "button_label": "Shop Now",
+        "button_link": "",
+        "text_color": "#ffffff",
+        "button_color": "#52448c",
+        "button_text_color": "#ffffff",
+        "button_hover_color": "#6149a2"
+      }
+    },
+    "about_us_2025_BV4x3c": {
+      "type": "about-us-2025",
+      "name": "About 2025",
+      "settings": {
+        "background_color": "#edecfe",
+        "heading": "OUR STORY",
+        "heading_size": "text-h3",
+        "text": "<p>We wanted to grow something that was <strong>beautiful, useful, and sustainable</strong></p>",
+        "text_style": "text-h3",
+        "story_text": "<p>Since lavender is such a versatile plant with a range of potential health benefits, we couldn’t help but be intrigued. Lavender was already thriving in the garden year after year, so why not plant it in mass?</p>"
+      }
+    },
+    "gallery_2025_iWTpTX": {
+      "type": "gallery-2025",
+      "blocks": {
+        "gallery_image_yjyBgJ": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/about-1.webp"
+          }
+        },
+        "gallery_image_cciQUD": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/about-2.webp"
+          }
+        },
+        "gallery_image_FKgb3j": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/about-3.webp"
+          }
+        },
+        "gallery_image_KEHGr6": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/about-4.webp"
+          }
+        },
+        "gallery_image_XaKnKb": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/about-5.webp"
+          }
+        }
+      },
+      "block_order": [
+        "gallery_image_yjyBgJ",
+        "gallery_image_cciQUD",
+        "gallery_image_FKgb3j",
+        "gallery_image_KEHGr6",
+        "gallery_image_XaKnKb"
+      ],
+      "name": "Gallery 2025",
+      "settings": {
+        "background_color": "#e1e0f1",
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "heading": "",
+        "heading_size": "h2",
+        "image_size": "portrait",
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "button_label": "",
+        "button_link": "shopify://collections/all",
+        "button_color": "#636dcf",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "about_timeline_YahP7L": {
+      "type": "about-timeline",
+      "name": "About Timeline",
+      "settings": {
+        "time_text": "February 2022",
+        "timeline_header": "Our Lavender Journey Began!",
+        "timeline_desc": "With help from family and friends, we planted 5,100 lavender plants on 2.5 acres. The lavender grew so quickly that we had our first harvest in September that same year.",
+        "image": "shopify://shop_images/timeline-1.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "about_timeline_6pmnif": {
+      "type": "about-timeline",
+      "name": "About Timeline",
+      "settings": {
+        "time_text": "September 2024",
+        "timeline_header": "We Harvested 10,000+ Lavender Bushels",
+        "timeline_desc": "We steam distilled the majority of our lavender to create essential oil and lavender hydrosol. Our hand-made, organic products made customers calm and happy.",
+        "image": "shopify://shop_images/timeline-2.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "about_timeline_NeTaRN": {
+      "type": "about-timeline",
+      "name": "About Timeline",
+      "settings": {
+        "time_text": "Today",
+        "timeline_header": "Growing and Thriving",
+        "timeline_desc": "Our lavender is beginning to mature as we continue to learn and grow ourselves. Our customers have helped us immensely by sharing new ideas and giving us feedback on how they use and enjoy our products.",
+        "image": "shopify://shop_images/timeline-3.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "about_fam_x7DyNF": {
+      "type": "about-fam",
+      "name": "About Family",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading": "Meet Our Family",
+        "image": "shopify://shop_images/WhatsApp_Image_2023-03-06_at_12.09.01_AM.jpg",
+        "text": "<p>Bodega Bay Lavender is owned and operated by the Breen-Wellbeloved Family. While Jami and Robert run the day-to-day operations, their oldest son, Danny manages the field, oversees the harvest and manages the distillation process. All the boys play an important role in the success of the farm from field work to sales to pitching new ideas to help Bodega Bay Lavender thrive.</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_2025_4TwRQG",
+    "about_us_2025_BV4x3c",
+    "gallery_2025_iWTpTX",
+    "about_timeline_YahP7L",
+    "about_timeline_6pmnif",
+    "about_timeline_NeTaRN",
+    "about_fam_x7DyNF"
+  ]
+}

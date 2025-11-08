@@ -48,7 +48,12 @@
   right: var(--inputs-border-width);
   top: 0;
   height: 100%;
+  min-height: 4.4rem;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 8px 8px 0;
 }
 
 .newsletter-form__button:focus-visible {
@@ -62,8 +67,8 @@
 }
 
 .newsletter-form__button:not(:focus-visible):not(.focused) {
-  box-shadow: inherit;
-  background-color: inherit;
+  box-shadow: none;
+  background-color: #636DCF;
 }
 
 .newsletter-form__button .icon {

@@ -1,9 +1,10 @@
 .price {
-  font-size: 1.6rem;
+  font-size: 1.4rem; /* 14px on mobile */
   font-family: var(--font-body-family);
   letter-spacing: 0.05rem;
-  line-height: calc(1 + 0.3 / var(--font-body-scale));
-  color: rgb(var(--color-foreground));
+  line-height: 130%;
+  color: #4D4D62;
+  fill: #4D4D62;
 }
 
 .price > * {
@@ -35,18 +36,14 @@
 @media screen and (min-width: 750px) {
   .price {
     margin-bottom: 0;
+    font-size: 1.6rem; /* 24px on desktop */
   }
 }
 
 .price--large {
-  font-size: 1.6rem;
-  line-height: calc(1 + 0.5 / var(--font-body-scale));
-}
-
-@media screen and (min-width: 750px) {
-  .price--large {
-    font-size: 1.8rem;
-  }
+  font-size: 1.8rem; /* 24px - consistent sizing */
+  line-height: 130%;
+  color: #4D4D62;
 }
 
 .price--sold-out .price__availability,

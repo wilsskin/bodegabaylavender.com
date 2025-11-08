@@ -369,18 +369,32 @@
 
 /* Override heading sizes for specific sections */
 .image-with-text__heading.h1 {
-  font-size: 3.2rem !important;
+  font-size: 2.4rem !important;
   font-weight: 600 !important;
 }
 
 .image-with-text__heading.h2 {
-  font-size: 3.2rem !important;
+  font-size: 2.4rem !important;
   font-weight: 600 !important;
 }
 
 .image-with-text__heading.h3 {
-  font-size: 3.2rem !important;
+  font-size: 2.4rem !important;
   font-weight: 600 !important;
+}
+
+@media screen and (min-width: 750px) {
+  .image-with-text__heading.h1 {
+    font-size: 3.2rem !important;
+  }
+
+  .image-with-text__heading.h2 {
+    font-size: 3.2rem !important;
+  }
+
+  .image-with-text__heading.h3 {
+    font-size: 3.2rem !important;
+  }
 }
 
 /* Override image width for specific sections - 50/50 split with 64px gap */
@@ -414,6 +428,34 @@
 .image-with-text__grid .grid__item {
   width: calc(50% - var(--spacing-large) / 2) !important;
   max-width: calc(50% - var(--spacing-large) / 2) !important;
+}
+
+/* Fix responsiveness at 950px and below */
+@media screen and (max-width: 950px) {
+  .image-with-text .grid {
+    flex-direction: column;
+  }
+  
+  .image-with-text__grid .grid__item {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .image-with-text__media-item--medium {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    aspect-ratio: 16/9;
+  }
+  
+  .image-with-text__text-item {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .image-with-text__text {
+    max-width: 500px;
+  }
 }
 
 
@@ -465,4 +507,10 @@
   .multirow__inner {
     row-gap: var(--grid-desktop-vertical-spacing);
   }
+}
+
+@media screen and (max-width: 450px) {
+.image-with-text__grid {
+  gap: 32px !important;
+}
 }

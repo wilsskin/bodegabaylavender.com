@@ -13,10 +13,10 @@
       "type": "hero-2025",
       "name": "Hero 2025",
       "settings": {
-        "image": "shopify://shop_images/hero-image.jpg",
+        "image": "shopify://shop_images/home-hero-1.webp",
         "heading": "Bodega Bay Lavender",
         "heading_size": "h1",
-        "subtitle": "Coastal Lavender, From Our Home to Yours",
+        "subtitle": "From Our Fields to Your Home",
         "subtitle_style": "h3",
         "button_label": "Shop Now",
         "button_link": "shopify://collections/all",
@@ -27,11 +27,11 @@
       }
     },
     "about_2025_WUiYAc": {
-      "type": "about-2025",
+      "type": "home-about-2025",
       "name": "About 2025",
       "settings": {
         "background_color": "#edecfe",
-        "heading": "About Us",
+        "heading": "ABOUT US",
         "heading_size": "text-h3",
         "text": "<p>We are a family-owned and operated lavender farm located in the town of Bodega Bay, situated along the Sonoma coast in Northern California.</p>",
         "text_style": "text-h3",
@@ -42,8 +42,8 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "collection": "mists",
-        "products_to_show": 3,
+        "collection": "best-sellers-1",
+        "products_to_show": 4,
         "title": "Best Sellers",
         "heading_size": "h2",
         "description": "",
@@ -63,6 +63,7 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
+        "anchor_id": "",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -80,7 +81,7 @@
         "text_raEQYd": {
           "type": "text",
           "settings": {
-            "text": "Every bundle of lavender is hand-harvested and distilled by our family in Bodega Bay.",
+            "text": "Every bundle of lavender is hand-harvested and distilled by our family in Bodega Bay",
             "text_style": "body"
           }
         }
@@ -91,7 +92,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/jami-danny.png",
+        "image": "shopify://shop_images/danny-jami.webp",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "image_behavior": "none",
@@ -110,61 +111,54 @@
         "featured_collection_NHJYNp": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "new-home"
           }
         },
         "featured_collection_c9Mfem": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "new-wellness"
           }
         },
         "featured_collection_KJcpz6": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
-          }
-        },
-        "featured_collection_mGHQkK": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
+            "collection": "new-culinary"
           }
         }
       },
       "block_order": [
         "featured_collection_NHJYNp",
         "featured_collection_c9Mfem",
-        "featured_collection_KJcpz6",
-        "featured_collection_mGHQkK"
+        "featured_collection_KJcpz6"
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "Shop by Category",
         "heading_size": "h2",
         "image_ratio": "square",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
         "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
         "padding_top": 80,
         "padding_bottom": 80
       }
     },
-    "why_lavender_2025_pMpeJw": {
+    "why_lavender_2025_q3arH3": {
       "type": "why-lavender-2025",
       "name": "Why Lavender 2025",
       "settings": {
         "background_color": "#ffffff",
-        "heading": "Why Lavender?",
+        "heading": "Why Use Lavender?",
         "text": "Beyond the popular use cases like stress relief, aromatherapy, and floral beauty, there are many ways to use lavender!",
-        "feature_1_title": "Treat burn wounds",
-        "feature_1_text": "I always keep 100% pure lavender essential oil in the kitchen in case I burn myself.",
-        "feature_2_title": "Repel insects",
-        "feature_2_text": "We use lavender hydrosol as a mosquito repellent everyday when we are in Kauai.",
-        "feature_3_title": "Natural glass cleaner",
-        "feature_3_text": "Lavender hydrosol is the best non-chemical glass cleaner I have ever used."
+        "feature_1_title": "Treat burn wounds effectively",
+        "feature_1_text": "I always keep lavender essential oil in the kitchen in case I burn myself",
+        "feature_2_title": "Repel insects (and smell great!)",
+        "feature_2_text": "We use lavender hydrosol as a mosquito repellent everyday in Kauai",
+        "feature_3_title": "Clean glass without chemicals",
+        "feature_3_text": "Lavender hydrosol is the best non-chemical glass cleaner I’ve ever used"
       }
     },
     "image_with_text_p3ACVm": {
@@ -180,7 +174,7 @@
         "text_MUKfQm": {
           "type": "text",
           "settings": {
-            "text": "<p>We love opening our home up to people and allowing them to experience the beauty of Bodega Bay. We offer rental stays, group events, retreats, and learning sessions.   <br/><br/>Visit our <strong>stay with us</strong> page to learn more!</p>",
+            "text": "<p>We love opening our home up to people and allowing them to experience the beauty of Bodega Bay. We offer rental stays, group events, retreats, and learning sessions.   <br/><br/>Visit our <a href=\"/pages/stay-with-us\" title=\"Stay With Us\"><strong>stay with us</strong></a> page or contact us for a <a href=\"https://docs.google.com/forms/u/0/\" target=\"_blank\" title=\"https://docs.google.com/forms/u/0/\"><strong>lunch & learn!</strong></a></p>",
             "text_style": "body"
           }
         }
@@ -211,17 +205,97 @@
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
         "blog": "news",
-        "post_limit": 3,
-        "heading": "Blog posts",
+        "post_limit": 2,
+        "heading": "Learn More",
         "heading_size": "h2",
-        "columns_desktop": 3,
+        "columns_desktop": 2,
         "show_view_all": false,
         "show_image": true,
         "show_date": false,
         "show_author": false,
         "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 8,
+        "padding_bottom": 48
+      }
+    },
+    "gallery_2025_Mjcffb": {
+      "type": "gallery-2025",
+      "blocks": {
+        "gallery_image_wi6Len": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/home-1.webp"
+          }
+        },
+        "gallery_image_VPxETM": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/home-2.webp"
+          }
+        },
+        "gallery_image_PD4jLP": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/home-3.webp"
+          }
+        },
+        "gallery_image_rRagpU": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/home-4.webp"
+          }
+        },
+        "gallery_image_K6UtKd": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/home-5.webp"
+          }
+        },
+        "gallery_image_HwGBkU": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/home-6.webp"
+          }
+        }
+      },
+      "block_order": [
+        "gallery_image_wi6Len",
+        "gallery_image_VPxETM",
+        "gallery_image_PD4jLP",
+        "gallery_image_rRagpU",
+        "gallery_image_K6UtKd",
+        "gallery_image_HwGBkU"
+      ],
+      "name": "Gallery 2025",
+      "settings": {
+        "background_color": "#ffffff",
+        "color_scheme": "",
+        "heading": "",
+        "heading_size": "h2",
+        "image_size": "landscape",
+        "padding_top": 48,
+        "padding_bottom": 80,
+        "button_label": "Shop Lavender",
+        "button_link": "shopify://collections/all",
+        "button_color": "#636dcf",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "video_TX8Ygg": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/bbl-video.mov",
+        "video_url": "",
+        "cover_image": "shopify://shop_images/stay-with-us.png",
+        "description": "Bodega Bay Drone Video",
+        "full_width": false,
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "newsletter_iTBiza": {
@@ -230,14 +304,8 @@
         "heading_DDiqzG": {
           "type": "heading",
           "settings": {
-            "heading": "Subscribe to our emails",
+            "heading": "Subscribe to our newsletter!",
             "heading_size": "h1"
-          }
-        },
-        "paragraph_xdUewM": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
           }
         },
         "email_form_AtzNrq": {
@@ -247,7 +315,6 @@
       },
       "block_order": [
         "heading_DDiqzG",
-        "paragraph_xdUewM",
         "email_form_AtzNrq"
       ],
       "name": "t:sections.newsletter.presets.name",
@@ -265,9 +332,11 @@
     "featured_collection",
     "image_banner_pJEhUQ",
     "collection_list_MCdawP",
-    "why_lavender_2025_pMpeJw",
+    "why_lavender_2025_q3arH3",
     "image_with_text_p3ACVm",
     "featured_blog_Ac9YWU",
+    "gallery_2025_Mjcffb",
+    "video_TX8Ygg",
     "newsletter_iTBiza"
   ]
 }

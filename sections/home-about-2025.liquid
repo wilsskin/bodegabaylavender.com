@@ -11,7 +11,20 @@
   .section-{{ section.id }}__container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 1.5rem;
+  }
+
+  /* Responsive padding following theme pattern */
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}__container {
+      padding: 0 5rem;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .section-{{ section.id }}__container {
+      padding: 0 5rem;
+    }
   }
 
   /* Main content layout - matching Figma structure */
@@ -29,7 +42,7 @@
     align-items: center;
     gap: var(--spacing-medium); /* 24px - using our spacing variable */
     text-align: center;
-    max-width: 800px;
+    max-width: 840px;
     width: 100%;
     padding: 0;
     margin: 0;
@@ -45,6 +58,7 @@
     width: 100%;
     text-align: center;
     padding: 0;
+    letter-spacing: -0.1px;
   }
 
   .section-{{ section.id }}__text .text-content {
@@ -122,23 +136,25 @@
     text-align: center;
   }
 
-  /* Mobile responsive - adapting to smaller screens */
+  /* Tablet responsive - single row with max-width constraints */
   @media screen and (max-width: 900px) {
     .section-{{ section.id }}__features {
-      flex-direction: column;
-      gap: var(--spacing-medium);
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-large);
       max-width: 100%;
+      align-items: flex-start;
     }
 
     .section-{{ section.id }}__feature {
-      flex-direction: row;
-      gap: var(--spacing-small);
-      justify-content: flex-start;
-      width: 100%;
+      flex-direction: column;
+      gap: var(--spacing-xsmall);
+      align-items: center;
+      flex: 0 0 auto;
     }
 
     .section-{{ section.id }}__feature-text {
-      text-align: left;
+      text-align: center;
     }
     
     .section-{{ section.id }}__text h2 {
@@ -146,9 +162,28 @@
     }
   }
 
+  /* Mobile responsive - all 4 features in one row, centered */
   @media screen and (max-width: 750px) {
     .section-{{ section.id }}__features {
-      gap: var(--spacing-small);
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: clamp(8px, 2.5vw, 24px);
+      flex-wrap: nowrap;
+    }
+    
+    .section-{{ section.id }}__feature {
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: none;
+    }
+    
+    .section-{{ section.id }}__feature-text {
+      font-size: 14px;
+    }
+    
+    .section-{{ section.id }}__text {
+      max-width: 600px;
     }
     
     .section-{{ section.id }}__text h2 {
@@ -159,7 +194,45 @@
     .section-{{ section.id }}__text .text-content {
       font-size: 20px;
     }
+
+    .section-{{ section.id }} {
+      padding: 64px 0px;
+    }
+
+
   }
+
+  @media screen and (max-width: 450px) {
+    .section-{{ section.id }}__feature-text {
+      font-size: 12px;
+    }
+
+    .section-{{ section.id }}__feature-icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .section-{{ section.id }}__feature {
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: 85px;
+    }
+
+    .section-{{ section.id }}__text .text-content {
+      font-size: 16px;
+    }
+    .section-{{ section.id }}__text {
+      gap: 16px;
+    }
+    .section-{{ section.id }}__content {
+      gap: 32px;
+    }
+    .section-{{ section.id }} {
+      padding: 48px 0px;
+    }
+
+  }
+
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}">

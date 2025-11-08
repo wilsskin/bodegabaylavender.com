@@ -1,0 +1,616 @@
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+    .section-{{ section.id }}-padding {
+      padding-top: 24px;
+    }
+  }
+
+
+
+  .gallery-{{ section.id }}__wrapper {
+    background-color: {{ section.settings.background_color | default: '#ffffff' }};
+    overflow-x: hidden;
+  }
+
+  /* Custom container that allows full bleed */
+  .gallery-{{ section.id }}__container {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding-left: 48px;
+    padding-right: 48px;
+    overflow: hidden;
+    position: relative;
+  }
+  .gallery-{{ section.id }}__next-button {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  @media screen and (max-width: 989px) {
+    .gallery-{{ section.id }}__container {
+      padding-left: 24px;
+      padding-right: 0px;
+    }
+    .gallery-{{ section.id }}__next-button {
+      display: none;
+    }
+    .gallery-{{ section.id }}__controls {
+      padding-right: 24px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .gallery-{{ section.id }}__controls {
+      display: none;
+    }
+    .gallery-{{ section.id }}__next-button {
+      width: 40px;
+      height: 40px;
+    }
+    .gallery-{{ section.id }}__next-button .svg-wrapper {
+      width: 15px;
+      height: 15px;
+    }
+    .gallery-{{ section.id }}__next-button .icon {
+      height: 12px;
+    }
+  }
+
+  .gallery-{{ section.id }}__grid {
+    display: flex;
+    gap: 48px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: max-content;
+  }
+
+  /* Allow scrolling on smaller screens where slider is active */
+  @media screen and (max-width: 989px) {
+    .gallery-{{ section.id }}__grid {
+      overflow-x: auto;
+    }
+  }
+  
+  .gallery-{{ section.id }}__grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .gallery-{{ section.id }}__grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .gallery-{{ section.id }}__item {
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .gallery-{{ section.id }}__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+
+  
+
+  /* Portrait: 3:4 ratio */
+  .gallery-{{ section.id }}__item--portrait {
+    width: clamp(200px, 50vw, 346px);
+    height: clamp(267px, calc(50vw * 4/3), 450px);
+  }
+
+  /* Square: 4:4 ratio */
+  .gallery-{{ section.id }}__item--square {
+    width: clamp(200px, 50vw, 450px);
+    height: clamp(200px, 50vw, 450px);
+  }
+
+  /* Landscape: 4:3 ratio */
+  .gallery-{{ section.id }}__item--landscape {
+    width: clamp(250px, 50vw, 450px);
+    height: clamp(188px, calc(50vw * 3/4), 346px);
+  }
+
+  /* Adjust sizes for tablet screens */
+  @media screen and (max-width: 989px) and (min-width: 769px) {
+    .gallery-{{ section.id }}__item--portrait {
+      width: clamp(180px, 40vw, 320px);
+      height: clamp(240px, calc(40vw * 4/3), 426px);
+    }
+
+    .gallery-{{ section.id }}__item--square {
+      width: clamp(180px, 40vw, 320px);
+      height: clamp(180px, 40vw, 320px);
+    }
+
+    .gallery-{{ section.id }}__item--landscape {
+      width: clamp(220px, 40vw, 320px);
+      height: clamp(165px, calc(40vw * 3/4), 240px);
+    }
+  }
+
+  /* Shop Now Button - matching hero-2025 styling */
+  .gallery-{{ section.id }}__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 40px;
+    background-color: {{ section.settings.button_color | default: '#636DCF' }};
+    color: {{ section.settings.button_text_color | default: '#ffffff' }};
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.36;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-top: 80px;
+  }
+
+  .gallery-{{ section.id }}__button:hover {
+    background-color: #636DCF;
+  }
+
+
+  /* Responsive scaling for tablets and smaller screens */
+  @media screen and (max-width: 989px) {
+    .gallery-{{ section.id }}__grid {
+      gap: 24px;
+    }
+  }
+
+  /* Responsive scaling for mobile screens */
+  @media screen and (max-width: 768px) {
+    .gallery-{{ section.id }}__item--portrait {
+      width: clamp(150px, 35vw, 300px);
+      height: clamp(200px, calc(35vw * 4/3), 400px);
+    }
+
+    @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: 1.5rem;
+    }
+    
+     .gallery-{{ section.id }}__container {
+      padding-left: 1.5rem;
+    }
+
+    .gallery-{{ section.id }}__grid {
+      gap: 1.5rem;
+    }
+    .gallery-{{ section.id }}__button {
+          margin-top: 48px;
+    }
+    .gallery-{{ section.id }}__controls {
+      padding-right: 1.5rem;
+    }
+  }
+
+    .gallery-{{ section.id }}__item--square {
+      width: clamp(150px, 35vw, 300px);
+      height: clamp(150px, 35vw, 300px);
+    }
+
+    .gallery-{{ section.id }}__item--landscape {
+      width: clamp(200px, 35vw, 300px);
+      height: clamp(150px, calc(35vw * 3/4), 225px);
+    }
+
+    .gallery-{{ section.id }}__button {
+      padding: 10px 32px;
+      font-size: 16px;
+    }
+  }
+
+  
+{%- endstyle -%}
+
+<div class="gallery-{{ section.id }}__wrapper color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="title-wrapper title-wrapper--no-top-margin" style="margin-bottom: 3rem;">
+        <h2 class="title {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    <div class="gallery-{{ section.id }}__container">
+      <slider-component class="slider-mobile-gutter">
+        <ul 
+          id="Slider-{{ section.id }}"
+          class="gallery-{{ section.id }}__grid{% if section.blocks.size > 1 %} slider{% if section.blocks.size > 1 %} slider--tablet grid--peek{% endif %}{% endif %}"
+          role="list"
+          aria-label="Gallery images"
+        >
+        {%- for block in section.blocks -%}
+          <li 
+            id="Slide-{{ section.id }}-{{ forloop.index }}"
+            class="gallery-{{ section.id }}__item gallery-{{ section.id }}__item--{{ section.settings.image_size }}{% if section.blocks.size > 1 %} slider__slide{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.image != blank -%}
+              <img 
+                src="{{ block.settings.image | image_url: width: 1200 }}"
+                srcset="{{ block.settings.image | image_url: width: 400 }} 400w,
+                        {{ block.settings.image | image_url: width: 600 }} 600w,
+                        {{ block.settings.image | image_url: width: 800 }} 800w,
+                        {{ block.settings.image | image_url: width: 1000 }} 1000w,
+                        {{ block.settings.image | image_url: width: 1200 }} 1200w"
+                sizes="(max-width: 649px) 100vw, 600px"
+                alt="{{ block.settings.image.alt | escape | default: 'Gallery image' }}"
+                class="gallery-{{ section.id }}__image"
+                loading="{% if forloop.index <= 2 %}eager{% else %}lazy{% endif %}"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+              >
+            {%- else -%}
+              <div class="gallery-{{ section.id }}__placeholder" style="background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #999;">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- if section.blocks.size > 1 -%}
+        <button
+          type="button"
+          class="slider-button slider-button--next gallery-{{ section.id }}__next-button"
+          aria-label="Next image"
+          data-desktop-control="true"
+        >
+          <span class="svg-wrapper">
+            {{- 'icon-arrow-right.svg' | inline_asset_content -}}
+          </span>
+        </button>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 1 -%}
+        <div class="slider-buttons gallery-{{ section.id }}__controls">
+          <button
+            type="button"
+            class="slider-button slider-button--prev"
+            name="previous"
+            aria-label="Previous image"
+            aria-controls="Slider-{{ section.id }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-arrow-left.svg' | inline_asset_content -}}
+            </span>
+          </button>
+          <div class="slider-counter caption">
+            <span class="slider-counter--current">1</span>
+            <span aria-hidden="true"> / </span>
+            <span class="visually-hidden">of</span>
+            <span class="slider-counter--total">{{ section.blocks.size }}</span>
+          </div>
+          <button
+            type="button"
+            class="slider-button slider-button--next"
+            name="next"
+            aria-label="Next image"
+            aria-controls="Slider-{{ section.id }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-arrow-right.svg' | inline_asset_content -}}
+            </span>
+          </button>
+        </div>
+      {%- endif -%}
+      </slider-component>
+    </div>
+
+    <!-- Shop Now Button -->
+    {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+      <div style="text-align: center;">
+        <a href="{{ section.settings.button_link }}" class="gallery-{{ section.id }}__button">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script src="{{ 'slider-component.js' | asset_url }}" defer="defer"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const gallery = document.getElementById('Slider-{{ section.id }}');
+  if (!gallery) return;
+  
+  // Check if we should animate (above 990px)
+  function isDesktop() {
+    return window.innerWidth >= 990;
+  }
+  
+  // Only run animation on desktop screens
+  if (isDesktop()) {
+    // Clone the gallery items to create seamless loop
+    const originalItems = Array.from(gallery.children);
+    const clonedItems = originalItems.map(item => item.cloneNode(true));
+    
+    // Append cloned items to create seamless loop
+    clonedItems.forEach(item => {
+      gallery.appendChild(item);
+    });
+    
+    let isPaused = false;
+    let currentPosition = 0;
+    const speed = 0.5; // pixels per frame - smooth movement
+    const desktopNextButton = document.querySelector('.gallery-{{ section.id }}__next-button');
+
+    function getItemStep() {
+      const firstItem = originalItems[0];
+      if (!firstItem) return 0;
+      const computedStyles = window.getComputedStyle(gallery);
+      const gapValue = parseFloat(computedStyles.columnGap || computedStyles.gap || '0') || 0;
+      return firstItem.offsetWidth + gapValue;
+    }
+    
+    function animate() {
+      // Re-check screen size in case window was resized
+      if (!isDesktop()) {
+        gallery.style.transform = '';
+        return;
+      }
+      
+      if (!isPaused) {
+        currentPosition -= speed;
+        
+        // Calculate the width of the original set (before cloning)
+        const step = getItemStep();
+        if (step > 0) {
+          const originalSetWidth = step * originalItems.length;
+
+          // Reset position when we've moved past the original set
+          if (Math.abs(currentPosition) >= originalSetWidth) {
+            currentPosition = 0;
+          }
+        }
+        
+        gallery.style.transform = `translateX(${currentPosition}px)`;
+      }
+      
+      requestAnimationFrame(animate);
+    }
+
+    if (desktopNextButton) {
+      desktopNextButton.removeAttribute('disabled');
+      desktopNextButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        const step = getItemStep();
+        if (step === 0) return;
+
+        isPaused = true;
+        currentPosition -= step;
+
+        const originalSetWidth = step * originalItems.length;
+        if (Math.abs(currentPosition) >= originalSetWidth) {
+          currentPosition = 0;
+        }
+
+        gallery.style.transform = `translateX(${currentPosition}px)`;
+
+        setTimeout(() => {
+          if (!gallery.matches(':hover') && !desktopNextButton.matches(':hover')) {
+            isPaused = false;
+          }
+        }, 200);
+      });
+
+      desktopNextButton.addEventListener('mouseenter', () => {
+        isPaused = true;
+      });
+
+      desktopNextButton.addEventListener('mouseleave', () => {
+        if (!gallery.matches(':hover')) {
+          isPaused = false;
+        }
+      });
+    }
+    
+    // Pause on hover
+    gallery.addEventListener('mouseenter', () => {
+      isPaused = true;
+    });
+    
+    gallery.addEventListener('mouseleave', () => {
+      isPaused = false;
+    });
+    
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (!isDesktop()) {
+          // Remove clones when below 990px
+          while (gallery.children.length > originalItems.length) {
+            gallery.removeChild(gallery.lastChild);
+          }
+          gallery.style.transform = '';
+          isPaused = true;
+        } else {
+          // Add clones back if they were removed
+          if (gallery.children.length === originalItems.length) {
+            const newClones = originalItems.map(item => item.cloneNode(true));
+            newClones.forEach(item => {
+              gallery.appendChild(item);
+            });
+          }
+          isPaused = false;
+        }
+      }, 250);
+    });
+    
+    // Start animation
+    animate();
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Gallery 2025",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Gallery"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "image_size",
+      "label": "Image Size & Ratio",
+      "options": [
+        { "value": "portrait", "label": "Portrait (3:4)" },
+        { "value": "square", "label": "Square (4:4)" },
+        { "value": "landscape", "label": "Landscape (4:3)" }
+      ],
+      "default": "square",
+      "info": "All images in the gallery will use this size and aspect ratio"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Color",
+      "default": "#636DCF"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gallery_image",
+      "name": "Gallery Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gallery 2025",
+      "blocks": [
+        { "type": "gallery_image" },
+        { "type": "gallery_image" },
+        { "type": "gallery_image" },
+        { "type": "gallery_image" },
+        { "type": "gallery_image" },
+        { "type": "gallery_image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

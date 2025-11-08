@@ -136,7 +136,7 @@
 
 .card__information {
   grid-row-start: 2;
-  padding: 1.3rem 1rem;
+  padding: 0.8rem .5rem; /* Slightly more top padding on mobile */
 }
 
 .card:not(.ratio) > .card__content {
@@ -265,8 +265,8 @@
 
 @media screen and (min-width: 750px) {
   .card__information {
-    padding-bottom: 1.7rem;
-    padding-top: 1.7rem;
+    padding-bottom: 1.2rem; /* Match spacing between name and price */
+    padding-top: 1.2rem; /* Match spacing between name and price */
   }
 }
 
@@ -303,6 +303,7 @@
 .card__heading {
   margin-top: 0;
   margin-bottom: 0;
+  font-size: 1.8rem; /* 24px - match price size */
 }
 
 .card__heading:last-child {
@@ -380,43 +381,45 @@
   outline: 0;
 }
 
+/* Card hover effects - work on all screen sizes */
+.card .media.media--hover-effect > img:only-child,
+.card-wrapper .media.media--hover-effect > img:only-child {
+  transition: transform var(--duration-long) ease;
+}
+
+.card:hover .media.media--hover-effect > img:first-child:only-child,
+.card-wrapper:hover .media.media--hover-effect > img:first-child:only-child {
+  /* Disabled zoom effect */
+  transform: scale(1);
+}
+
+.card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
+  opacity: 0;
+}
+
+.card-wrapper:hover .media.media--hover-effect > img + img {
+  opacity: 1;
+  transition: transform var(--duration-long) ease;
+  /* Disabled zoom effect */
+  transform: scale(1);
+}
+
+/* Add transition to default state */
+.card__media img {
+  border-radius: var(--border-radius);
+  transition: border-color 0.15s ease-out, filter 0.3s ease-out !important;
+  border: 1px solid #ffffff;
+}
+
+/* Border color change on hover */
+.card-wrapper:hover .card__media img {
+  border: 1px solid #636DCF;
+  border-color: #636DCF;
+  filter: brightness(0.95);
+}
+
 @media screen and (min-width: 990px) {
-  .card .media.media--hover-effect > img:only-child,
-  .card-wrapper .media.media--hover-effect > img:only-child {
-    transition: transform var(--duration-long) ease;
-  }
-
-  .card:hover .media.media--hover-effect > img:first-child:only-child,
-  .card-wrapper:hover .media.media--hover-effect > img:first-child:only-child {
-    /* Disabled zoom effect */
-    transform: scale(1);
-  }
-
-  
-
-  .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
-    opacity: 0;
-  }
-
-  .card-wrapper:hover .media.media--hover-effect > img + img {
-    opacity: 1;
-    transition: transform var(--duration-long) ease;
-    /* Disabled zoom effect */
-    transform: scale(1);
-  }
-
-  /* Add transition to default state */
-  .card__media img {
-    border: 0;
-    border-radius: var(--border-radius);
-    transition: border 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-  }
-
-  /* Simple border around image on hover */
-  .card-wrapper:hover .card__media img {
-    border: 3px solid rgba(204, 204, 204, .6);
-  }
-
+  /* Desktop-specific hover effects can go here if needed */
 }
 
 .card--standard.card--media .card__inner .card__information,
@@ -487,11 +490,11 @@
 }
 
 .card-information > .price {
-  color: rgb(var(--color-foreground));
+  color: #4D4D62;
 }
 
 .card--horizontal .card-information > .price {
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(77, 77, 98, 0.75); /* #4D4D62 with 75% opacity */
 }
 
 .card-information > .rating {

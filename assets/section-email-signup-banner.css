@@ -3,6 +3,13 @@
   display: inline-block;
 }
 
+/* Ensure all text uses Open Sans font */
+.email-signup-banner__heading,
+.email-signup-banner .newsletter__subheading,
+.email-signup-banner .field__input {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
 @media only screen and (min-width: 750px) {
   .email-signup-banner:not(.banner--desktop-transparent) .email-signup-banner__box {
     width: 100%;
