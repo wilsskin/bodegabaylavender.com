@@ -370,15 +370,54 @@
             </a>
           </div>
 
-        <!-- Navigation Columns -->
+<!-- Navigation Columns -->
+{%- liquid
+  assign footer_about_page = blank
+  assign footer_about_handles = 'new-about,about,about-us' | split: ','
+
+  for handle in footer_about_handles
+    if footer_about_page == blank and pages[handle] != blank
+      assign footer_about_page = pages[handle]
+    endif
+  endfor
+
+  assign footer_shipping_policy_url = blank
+
+  if shop.shipping_policy != blank and shop.shipping_policy.url != blank
+    assign footer_shipping_policy_url = shop.shipping_policy.url
+  elsif pages['shipping-policy'] != blank
+    assign footer_shipping_policy_url = pages['shipping-policy'].url
+  elsif pages['shipping-returns'] != blank
+    assign footer_shipping_policy_url = pages['shipping-returns'].url
+  endif
+
+  assign footer_privacy_policy_url = blank
+  if pages['privacy-policy'] != blank
+    assign footer_privacy_policy_url = pages['privacy-policy'].url
+  elsif shop.privacy_policy != blank and shop.privacy_policy.url != blank
+    assign footer_privacy_policy_url = shop.privacy_policy.url
+  endif
+
+  assign footer_terms_url = blank
+  if pages['terms-of-service'] != blank
+    assign footer_terms_url = pages['terms-of-service'].url
+  elsif shop.terms_of_service != blank and shop.terms_of_service.url != blank
+    assign footer_terms_url = shop.terms_of_service.url
+  endif
+-%}
         <div class="footer-2025__nav-columns">
           <!-- Browse Column -->
           <div class="footer-2025__column footer-2025__column--browse">
             <h3 class="footer-2025__column-heading">BROWSE</h3>
             <div class="footer-2025__column-links">
               <a href="{{ routes.root_url }}" class="footer-2025__link">Home</a>
-              <a href="{{ routes.all_products_collection_url }}" class="footer-2025__link">Shop All</a>
-              <a href="{{ pages.about.url | default: '#' }}" class="footer-2025__link">About Us</a>
+              <a href="/collections/best-sellers-1" class="footer-2025__link">Shop All</a>
+              <a
+                href="{% if footer_about_page != blank %}{{ footer_about_page.url }}{% else %}/pages/new-about{% endif %}"
+                class="footer-2025__link"
+              >
+                About Us
+              </a>
               <a href="{{ pages.stay-with-us.url | default: '#' }}" class="footer-2025__link">Stay With Us</a>
               </div>
           </div>
@@ -387,9 +426,14 @@
           <div class="footer-2025__column footer-2025__column--policies">
             <h3 class="footer-2025__column-heading">POLICIES</h3>
             <div class="footer-2025__column-links">
-              <a href="{{ pages.shipping-returns.url | default: '#' }}" class="footer-2025__link">Shipping & Returns</a>
-              <a href="{{ shop.privacy_policy.url | default: '#' }}" class="footer-2025__link">Privacy</a>
-              <a href="{{ shop.terms_of_service.url | default: '#' }}" class="footer-2025__link">Terms of Service</a>
+              <a
+                href="{{ footer_shipping_policy_url | default: '#' }}"
+                class="footer-2025__link"
+              >
+                Shipping & Returns
+              </a>
+              <a href="{{ footer_privacy_policy_url | default: '/pages/privacy-policy' }}" class="footer-2025__link">Privacy</a>
+              <a href="{{ footer_terms_url | default: '/pages/terms-of-service' }}" class="footer-2025__link">Terms of Service</a>
             </div>
             </div>
         </div>

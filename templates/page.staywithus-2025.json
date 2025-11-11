@@ -160,7 +160,7 @@
         "button_adm6Eb": {
           "type": "button",
           "settings": {
-            "button_label": "View on Airbnb",
+            "button_label": "Book on Airbnb",
             "button_link": "https://www.airbnb.com/rooms/754612993550394250?source_impression_id=p3_1761182621_P3HytfstkY-BeZ2b",
             "button_label_2": "",
             "button_link_2": ""
@@ -179,6 +179,36 @@
         "padding_top": 16,
         "padding_bottom": 80
       }
+    },
+    "newsletter_yMVjBA": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_eiDKhh": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our seasonal emails!",
+            "heading_size": "h1"
+          }
+        },
+        "email_form_iWME3V": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_eiDKhh",
+        "email_form_iWME3V"
+      ],
+      "custom_css": [
+        ".newsletter-2025 {background-color: #ffffff;}"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -188,6 +218,7 @@
     "gallery_2025_jFiaLL",
     "stay_with_us_quotes_mWcqwK",
     "stay_with_us_info_nLy4Xy",
-    "rich_text_DWG4Qk"
+    "rich_text_DWG4Qk",
+    "newsletter_yMVjBA"
   ]
 }

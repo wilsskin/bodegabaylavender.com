@@ -24,7 +24,7 @@
         "image": "shopify://shop_images/about-hero.webp",
         "heading": "About Us",
         "heading_size": "h1",
-        "subtitle": "We are a family-owned and operated lavender farm located in the town of Bodega Bay",
+        "subtitle": "We are a family-owned and operated lavender farm located in Bodega Bay",
         "subtitle_style": "h3",
         "button_label": "Shop Now",
         "button_link": "",
@@ -43,7 +43,9 @@
         "heading_size": "text-h3",
         "text": "<p>We wanted to grow something that was <strong>beautiful, useful, and sustainable</strong></p>",
         "text_style": "text-h3",
-        "story_text": "<p>Since lavender is such a versatile plant with a range of potential health benefits, we couldn’t help but be intrigued. Lavender was already thriving in the garden year after year, so why not plant it in mass?</p>"
+        "story_text": "<p>Since lavender is such a versatile plant with a range of potential health benefits, we couldn’t help but be intrigued. Lavender was already thriving in the garden year after year, so why not plant it in mass?</p>",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "gallery_2025_iWTpTX": {
@@ -175,7 +177,36 @@
         "background_color": "#ffffff",
         "heading": "Meet Our Family",
         "image": "shopify://shop_images/WhatsApp_Image_2023-03-06_at_12.09.01_AM.jpg",
-        "text": "<p>Bodega Bay Lavender is owned and operated by the Breen-Wellbeloved Family. While Jami and Robert run the day-to-day operations, their oldest son, Danny manages the field, oversees the harvest and manages the distillation process. All the boys play an important role in the success of the farm from field work to sales to pitching new ideas to help Bodega Bay Lavender thrive.</p>"
+        "text": "<p>Bodega Bay Lavender is owned and operated by the Breen-Wellbeloved Family. While Jami and Robert run the day-to-day operations, their oldest son, Danny manages the field, oversees the harvest and manages the distillation process. All the boys play an important role in the success of the farm from field work to sales to pitching new ideas to help Bodega Bay Lavender thrive.</p>",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "newsletter_nwUihT": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_Vi6G3Y": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our seasonal emails!",
+            "heading_size": "h1"
+          }
+        },
+        "email_form_DjXFLa": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_Vi6G3Y",
+        "email_form_DjXFLa"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
@@ -187,6 +218,7 @@
     "about_timeline_YahP7L",
     "about_timeline_6pmnif",
     "about_timeline_NeTaRN",
-    "about_fam_x7DyNF"
+    "about_fam_x7DyNF",
+    "newsletter_nwUihT"
   ]
 }
