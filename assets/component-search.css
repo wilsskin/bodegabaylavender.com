@@ -1,68 +1,133 @@
-.search__input.field__input {
-  padding-right: 9.8rem;
+.search-field {
+  border: 2px solid #cccccc;
+  border-radius: 9999px;
+  padding: 0;
+  box-shadow: none;
+  position: relative;
 }
 
-.search__button {
-  right: var(--inputs-border-width);
-  top: var(--inputs-border-width);
+.search-field:before,
+.search-field:after {
+  display: none;
 }
 
-.reset__button {
-  right: calc(var(--inputs-border-width) + 4.4rem);
-  top: var(--inputs-border-width);
+.search-field:focus-within {
+  border-color: #4D4D62;
 }
 
-.reset__button:not(:focus-visible)::after {
-  border-right: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  display: block;
-  height: calc(100% - 1.6rem);
-  content: '';
+.search-field .field__input {
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  border-radius: 9999px;
+  padding: 3.2rem 2.5rem 1.7rem 2rem;
+  line-height: 1.4;
+}
+
+.search-field .field__input:focus,
+.search-field .field__input:focus-visible {
+  box-shadow: none;
+  outline: none;
+}
+
+.search-field__icon {
   position: absolute;
-  right: 0;
+  left: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.4rem;
+  height: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(var(--color-foreground), 0.5);
 }
 
-.reset__button:not(:focus)::after {
-  border-right: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  display: block;
-  height: calc(100% - 1.8rem);
-  content: '';
+.search-field__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.search-field .reset__button {
+  display: none !important;
+}
+
+.search-field .search__button {
   position: absolute;
-  right: 0;
+  right: 1.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(var(--color-foreground), 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-out;
 }
 
-.search__button:focus-visible,
-.reset__button:focus-visible {
-  background-color: rgb(var(--color-background));
-  z-index: 4;
+.search-field .search__button .icon {
+  height: 1.2rem;
+  width: 1.2rem;
 }
 
-.search__button:focus,
-.reset__button:focus {
-  background-color: rgb(var(--color-background));
-  z-index: 4;
+.search-field .search__button:hover {
+  background-color: #636DCF;
 }
 
-.search__button:not(:focus-visible):not(.focused),
-.reset__button:not(:focus-visible):not(.focused) {
-  box-shadow: inherit;
-  background-color: inherit;
+.search-field .search__button:hover .icon {
+  color: #FFFFFF;
 }
 
-.search__button:hover .icon,
-.reset__button:hover .icon {
-  transform: scale(1.07);
+.search-field--modal .search__button {
+  right: 1.2rem;
 }
 
-.search__button .icon {
-  height: 1.8rem;
-  width: 1.8rem;
+.search-field--template .search__button {
+  right: 1.2rem;
 }
 
-.reset__button .icon.icon-close {
-  height: 1.8rem;
-  width: 1.8rem;
-  stroke-width: 0.1rem;
+.search-modal__close-button {
+  position: absolute;
+  right: 0rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
+.search-modal__close-button .svg-wrapper {
+  width: 2rem;
+  height: 2rem;
+}
+
+.search-modal__close-button .icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.search-modal__close-button .icon circle,
+.search-modal__close-button .icon path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media screen and (min-width: 990px) {
+  .search-modal__close-button {
+    right: 2rem;
+  }
+}
+
+.search__button:hover {
+  background-color: #636DCF;
+}
+
+.search__button:hover .icon {
+  color: #FFFFFF;
+}
+
 
 /* Remove extra spacing for search inputs in Safari */
 input::-webkit-search-decoration {

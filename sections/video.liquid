@@ -18,6 +18,14 @@
     border-radius: 16px !important;
     overflow: hidden !important;
   }
+
+  .video-section__caption {
+    max-width: 800px;
+    margin: 8px auto 0;
+    font-size: 14px;
+    text-align: center;
+    color: #4D4D62;
+  }
   
 {%- endstyle -%}
 
@@ -57,12 +65,18 @@
         </div>
       {%- endunless -%}
     </div>
+    {%- liquid
+      assign ratio_percent = 56.25
+      if section.settings.video != null and section.settings.video.aspect_ratio != null and section.settings.video.aspect_ratio != 0
+        assign ratio_percent = 1 | divided_by: section.settings.video.aspect_ratio | times: 100
+      elsif poster != null and poster.aspect_ratio != null and poster.aspect_ratio != 0
+        assign ratio_percent = 1 | divided_by: poster.aspect_ratio | times: 100
+      endif
+    -%}
     <deferred-media
       class="video-section__media deferred-media gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
       data-media-id="{{ video_id }}"
-      {% if poster != null %}
-        style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
-      {% endif %}
+      style="--ratio-percent: {{ ratio_percent }}%;"
     >
       <button
         id="Deferred-Poster-Modal-{{ video_id }}"
@@ -123,6 +137,7 @@
         {%- endif -%}
       </template>
     </deferred-media>
+    <p class="video-section__caption">Check out the ranch from above!</p>
   </div>
 </div>
 

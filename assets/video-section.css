@@ -1,7 +1,11 @@
 .video-section__media {
-  --ratio-percent: 56.25%;
   position: relative;
-  padding-bottom: calc(var(--ratio-percent) - var(--media-border-width));
+  width: min(100%, 800px);
+  aspect-ratio: 16 / 9;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 0 !important;
 }
 
 /* Needed for gradient continuity with or without animation so that transparent PNG images come up as we would expect */
@@ -35,14 +39,23 @@
 .video-section__media iframe,
 .video-section__media video {
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .video-section__media video {
   background: #000000;
 }
 
+/* Retain cover behavior when requested */
 .video-section__media.media-fit-cover video {
   object-fit: cover;
+}
+
+@media screen and (min-width: 1200px) {
+  .video-section__media {
+    --ratio-percent: calc(1 / (16 / 9) * 100%);
+  }
 }
