@@ -3,11 +3,11 @@
   display: inline-block;
 }
 
-/* Ensure all text uses Open Sans font */
+/* Ensure all text uses Lora font */
 .email-signup-banner__heading,
 .email-signup-banner .newsletter__subheading,
 .email-signup-banner .field__input {
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: 'Lora', serif !important;
 }
 
 @media only screen and (min-width: 750px) {

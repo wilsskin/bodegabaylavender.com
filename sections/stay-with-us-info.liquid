@@ -11,6 +11,7 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+
   }
 
   /* Apply Lora font to all text in this section */
@@ -35,6 +36,86 @@
   .section-{{ section.id }} .image-with-text__text p {
     color: #000000;
   }
+
+  /* Custom h2 styling */
+  .section-{{ section.id }} .image-with-text__heading {
+    font-size: 32px !important;
+  }
+
+  /* Info holder styling */
+  .section-{{ section.id }} .info-holder {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    width: fit-content;
+    margin-top: 2rem;
+  }
+
+  .section-{{ section.id }} .info-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-{{ section.id }} .info-item__icon {
+    max-width: 28px;
+    max-height: 28px;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    object-fit: contain;
+    color: #6149A2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section-{{ section.id }} .info-item__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .section-{{ section.id }} .info-item__text {
+    font-size: 1.6rem;
+    color: #000000;
+    font-weight: 500;
+    font-family: 'Lora', serif;
+    margin: 0;
+  }
+
+  /* Override max-height for image */
+  .section-{{ section.id }} .image-with-text__media-item--medium {
+    max-height: 400px !important;
+  }
+
+  /* Responsive styles for mobile */
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }} .info-item__text {
+      font-size: 1.5rem;
+    }
+    .section-{{ section.id }} .image-with-text__heading.h1,
+    .section-{{ section.id }} .image-with-text__heading.h2,
+    .section-{{ section.id }} .image-with-text__heading.h3 {
+      font-size: 28px !important;
+    }
+
+    .section-{{ section.id }} .info-item__icon {
+      width: 24px;
+      height: 24px;
+      max-width: 24px;
+      max-height: 24px;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .section-{{ section.id }} .image-with-text__heading.h1,
+    .section-{{ section.id }} .image-with-text__heading.h2,
+    .section-{{ section.id }} .image-with-text__heading.h3 {
+      font-size: 24px !important;
+    }
+    }
 {%- endstyle -%}
 
 {%- liquid
@@ -107,6 +188,45 @@
                   <div class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
                     {{ block.settings.text }}
                   </div>
+                {%- when 'info_items' -%}
+                  <div class="info-holder" {{ block.shopify_attributes }}>
+                    {%- assign text_1 = block.settings.text_1 | default: 'Sleeps 7 Guests with 4 Beds' -%}
+                    <div class="info-item">
+                      {%- if block.settings.icon_1 != blank -%}
+                        <img src="{{ block.settings.icon_1 | image_url: width: 56 }}" alt="" class="info-item__icon">
+                      {%- else -%}
+                        <div class="info-item__icon">{{ 'icon-bed.svg' | inline_asset_content }}</div>
+                      {%- endif -%}
+                      <p class="info-item__text">{{ text_1 }}</p>
+                    </div>
+                    {%- assign text_2 = block.settings.text_2 | default: 'Consectetur adipiscing elit' -%}
+                    <div class="info-item">
+                      {%- if block.settings.icon_2 != blank -%}
+                        <img src="{{ block.settings.icon_2 | image_url: width: 56 }}" alt="" class="info-item__icon">
+                      {%- else -%}
+                        <div class="info-item__icon">{{ 'icon-land.svg' | inline_asset_content }}</div>
+                      {%- endif -%}
+                      <p class="info-item__text">{{ text_2 }}</p>
+                    </div>
+                    {%- assign text_3 = block.settings.text_3 | default: 'Sed do eiusmod tempor incididunt' -%}
+                    <div class="info-item">
+                      {%- if block.settings.icon_3 != blank -%}
+                        <img src="{{ block.settings.icon_3 | image_url: width: 56 }}" alt="" class="info-item__icon">
+                      {%- else -%}
+                        <div class="info-item__icon">{{ 'icon-location.svg' | inline_asset_content }}</div>
+                      {%- endif -%}
+                      <p class="info-item__text">{{ text_3 }}</p>
+                    </div>
+                    {%- assign text_4 = block.settings.text_4 | default: 'Ut labore et dolore magna' -%}
+                    <div class="info-item">
+                      {%- if block.settings.icon_4 != blank -%}
+                        <img src="{{ block.settings.icon_4 | image_url: width: 56 }}" alt="" class="info-item__icon">
+                      {%- else -%}
+                        <div class="info-item__icon">{{ 'icon-weather.svg' | inline_asset_content }}</div>
+                      {%- endif -%}
+                      <p class="info-item__text">{{ text_4 }}</p>
+                    </div>
+                  </div>
                 {%- when 'button' -%}
                   {%- if block.settings.button_label != blank -%}
                     <a
@@ -123,6 +243,36 @@
                   {%- endif -%}
               {%- endcase -%}
             {%- endfor -%}
+            
+            {%- comment -%} Always show info items if no info_items block exists {%- endcomment -%}
+            {%- assign has_info_items_block = false -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'info_items' -%}
+                {%- assign has_info_items_block = true -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+            
+            {%- unless has_info_items_block -%}
+              <div class="info-holder">
+                <div class="info-item">
+                  <div class="info-item__icon">{{ 'icon-bed.svg' | inline_asset_content }}</div>
+                  <p class="info-item__text">Sleeps 7 Guests with 4 Beds</p>
+                </div>
+                <div class="info-item">
+                  <div class="info-item__icon">{{ 'icon-land.svg' | inline_asset_content }}</div>
+                  <p class="info-item__text">12 Acres of Private Land</p>
+                </div>
+                <div class="info-item">
+                  <div class="info-item__icon">{{ 'icon-location.svg' | inline_asset_content }}</div>
+                  <p class="info-item__text">Located 60 Miles North of SF</p>
+                </div>
+                <div class="info-item">
+                  <div class="info-item__icon">{{ 'icon-weather.svg' | inline_asset_content }}</div>
+                  <p class="info-item__text">Spectacular 360º Views</p>
+                </div>
+              </div>
+            {%- endunless -%}
           </div>
         </div>
       </div>
@@ -132,7 +282,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.image-with-text.name",
+  "name": "Stay With Us Info",
   "class": "section",
   "disabled_on": {
     "groups": ["header", "footer"]
@@ -200,7 +350,7 @@
           "label": "t:sections.image-with-text.settings.layout.options__2.label"
         }
       ],
-      "default": "image_first",
+      "default": "text_first",
       "label": "t:sections.image-with-text.settings.layout.label"
     },
     {
@@ -448,6 +598,73 @@
       ]
     },
     {
+      "type": "info_items",
+      "name": "Info Items",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Info Item 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_1",
+          "label": "Icon 1"
+        },
+        {
+          "type": "text",
+          "id": "text_1",
+          "label": "Description 1",
+          "default": "Sleeps 7 Guests with 4 Beds"
+        },
+        {
+          "type": "header",
+          "content": "Info Item 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_2",
+          "label": "Icon 2"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "Description 2",
+          "default": "Consectetur adipiscing elit"
+        },
+        {
+          "type": "header",
+          "content": "Info Item 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_3",
+          "label": "Icon 3"
+        },
+        {
+          "type": "text",
+          "id": "text_3",
+          "label": "Description 3",
+          "default": "Sed do eiusmod tempor incididunt"
+        },
+        {
+          "type": "header",
+          "content": "Info Item 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_4",
+          "label": "Icon 4"
+        },
+        {
+          "type": "text",
+          "id": "text_4",
+          "label": "Description 4",
+          "default": "Ut labore et dolore magna"
+        }
+      ]
+    },
+    {
       "type": "button",
       "name": "t:sections.image-with-text.blocks.button.name",
       "limit": 1,
@@ -475,13 +692,16 @@
   ],
   "presets": [
     {
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "Stay With Us Info",
       "blocks": [
         {
           "type": "heading"
         },
         {
           "type": "text"
+        },
+        {
+          "type": "info_items"
         },
         {
           "type": "button"

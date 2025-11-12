@@ -1,0 +1,319 @@
+{%- style -%}
+  .section-{{ section.id }} {
+    background-color: {{ section.settings.background_color | default: '#ffffff' }};
+    padding-top: 64px;
+    padding-bottom: 80px;
+  }
+
+  .section-{{ section.id }}__container {
+    max-width: 120rem; /* 1200px - using rem */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}__container {
+      padding: 0 5rem;
+    }
+  }
+
+  .section-{{ section.id }}__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem; /* 32px - default gap */
+  }
+
+  .section-{{ section.id }}__content > .section-{{ section.id }}__header + .section-{{ section.id }}__features {
+    margin-top: 3.2rem; /* Additional 32px to make total 64px between header and features */
+  }
+
+  .section-{{ section.id }}__header {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: left;
+    max-width: 60rem; /* 600px - using rem */
+    margin: 0;
+  }
+
+  .section-{{ section.id }}__heading {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.36;
+    color: #000000;
+    margin: 0;
+  }
+
+  .section-{{ section.id }}__features {
+    display: flex;
+    gap: 1rem; /* 10px - using rem */
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .section-{{ section.id }}__feature {
+    flex: 1;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xsmall); /* 8px - using variable */
+    align-items: flex-start;
+    text-align: left;
+    background-color: #FFFFFF; /* White card background */
+  }
+
+  .section-{{ section.id }}__feature-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 24px;
+  }
+
+  .section-{{ section.id }}__feature-header svg,
+  .section-{{ section.id }}__feature-header img {
+    width: 28px;
+    height: 28px;
+    color: #6149A2;
+    fill: #6149A2;
+  }
+
+  .section-{{ section.id }}__feature-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.6rem; /* 18px - matches design */
+    line-height: 1.5;
+    font-style: italic;
+    color: #000000;
+    margin: 0;
+    flex: 1;
+    text-shadow: 0.02em 0 0 rgba(0, 0, 0, 1); /* Adds subtle visual weight */
+
+  }
+
+  .section-{{ section.id }}__feature-text {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    font-size: 1.6rem; /* 16px - matches design */
+    line-height: 1.3;
+    color: #4D4D62;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .section-{{ section.id }}__features {
+      gap: 1.5rem; /* Increase gap on smaller screens */
+    }
+    
+    .section-{{ section.id }}__feature {
+      width: 30.4rem; /* 304px total (272px content + 32px padding) */
+      max-width: 30.4rem; /* 304px total */
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .section-{{ section.id }}__features {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+    
+    .section-{{ section.id }}__feature {
+      width: calc(50% - 0.5rem); /* 2 cards per row */
+      max-width: none;
+    }
+    
+    .section-{{ section.id }}__feature:nth-child(3) {
+      width: 100%; /* 3rd card full width below */
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}__container {
+      padding: 0 1.5rem;
+    }
+
+    .section-{{ section.id }}__heading {
+      font-size: 2.8rem; /* 28px on mobile */
+    }
+
+    .section-{{ section.id }}__feature-title {
+      font-size: 1.6rem; /* 16px on mobile */
+    }
+
+    .section-{{ section.id }}__feature-text {
+      font-size: 1.4rem; /* 14px on mobile */
+    }
+
+  .section-{{ section.id }}__feature-header svg,
+  .section-{{ section.id }}__feature-header img {
+    width: 24px;
+    height: 24px;
+  }
+
+  }
+
+  @media screen and (max-width: 650px) {
+    .section-{{ section.id }}__feature-header {
+      padding-bottom: 8px;
+    }
+
+     .section-{{ section.id }}__features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem; /* Increased gap for better vertical spacing */
+    }
+
+
+    .section-{{ section.id }}__feature {
+      width: 100%;
+      max-width: 288px;
+      gap: 4px;
+      padding-bottom: 16px;
+    }
+    
+  }
+
+    @media screen and (max-width: 450px) {
+    .section-{{ section.id }} {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .section-{{ section.id }}__content {
+      gap: 0px;
+    }
+    .section-{{ section.id }}__heading {
+      font-size: 24px;
+    }
+    }
+
+
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}">
+  <div class="section-{{ section.id }}__container">
+    <div class="section-{{ section.id }}__content">
+      <div class="section-{{ section.id }}__header">
+        <h2 class="section-{{ section.id }}__heading">
+          {{ section.settings.heading | default: 'Why Lavender?' }}
+        </h2>
+      </div>
+
+      <div class="section-{{ section.id }}__features">
+        <div class="section-{{ section.id }}__feature">
+          <div class="section-{{ section.id }}__feature-header">
+            {{ 'icon-quote.svg' | asset_url | img_tag: 'quote icon', 'width="22" height="22"' }}
+          </div>
+          <h3 class="section-{{ section.id }}__feature-title">
+            {{ section.settings.feature_1_title | default: 'Treat burn wounds' }}
+          </h3>
+          <p class="section-{{ section.id }}__feature-text">
+            – Heidi
+          </p>
+        </div>
+
+        <div class="section-{{ section.id }}__feature">
+          <div class="section-{{ section.id }}__feature-header">
+            {{ 'icon-quote.svg' | asset_url | img_tag: 'quote icon', 'width="22" height="22"' }}
+          </div>
+          <h3 class="section-{{ section.id }}__feature-title">
+            {{ section.settings.feature_2_title | default: 'Repel insects' }}
+          </h3>
+          <p class="section-{{ section.id }}__feature-text">
+            – Jill
+          </p>
+        </div>
+
+        <div class="section-{{ section.id }}__feature">
+          <div class="section-{{ section.id }}__feature-header">
+            {{ 'icon-quote.svg' | asset_url | img_tag: 'quote icon', 'width="22" height="22"' }}
+          </div>
+          <h3 class="section-{{ section.id }}__feature-title">
+            {{ section.settings.feature_3_title | default: 'Natural glass cleaner' }}
+          </h3>
+          <p class="section-{{ section.id }}__feature-text">
+            – Solenne 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Stay With Us Quotes",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Guest Reviews"
+    },
+    {
+      "type": "header",
+      "content": "Quote 1"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_title",
+      "label": "Guest Name 1",
+      "default": "Sarah M."
+    },
+    {
+      "type": "textarea",
+      "id": "feature_1_text",
+      "label": "Quote 1",
+      "default": "The most peaceful and beautiful stay. The lavender fields are stunning!"
+    },
+    {
+      "type": "header",
+      "content": "Quote 2"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Guest Name 2",
+      "default": "John D."
+    },
+    {
+      "type": "textarea",
+      "id": "feature_2_text",
+      "label": "Quote 2",
+      "default": "A truly magical experience. We'll definitely be coming back!"
+    },
+    {
+      "type": "header",
+      "content": "Quote 3"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Guest Name 3",
+      "default": "Emily R."
+    },
+    {
+      "type": "textarea",
+      "id": "feature_3_text",
+      "label": "Quote 3",
+      "default": "The perfect getaway. Beautiful property and wonderful hosts."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stay With Us Quotes"
+    }
+  ]
+}
+{% endschema %}
