@@ -25,7 +25,7 @@
   }
 
   .section-{{ section.id }}__content > .section-{{ section.id }}__header + .section-{{ section.id }}__features {
-    margin-top: 3.2rem; /* Additional 32px to make total 64px between header and features */
+    margin-top: 4rem; /* Additional 32px to make total 64px between header and features */
   }
 
   .section-{{ section.id }}__header {
@@ -49,7 +49,7 @@
   .section-{{ section.id }}__text {
     font-family: 'Lora', serif;
     font-weight: 400;
-    font-size: 1.6rem; /* 18px - matches design */
+    font-size: 1.8rem; /* 18px - matches design */
     line-height: 1.5;
     color: #000000;
     margin: 0;
@@ -209,7 +209,7 @@
      .section-{{ section.id }}__features {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem; /* Increased gap for better vertical spacing */
+      gap: 1.4rem; /* Increased gap for better vertical spacing */
       font-size: 3px;
     }
     
@@ -285,6 +285,28 @@
   @media screen and (max-width: 450px) {
     .section-{{ section.id }} .title-wrapper-with-link {
       margin-bottom: 2rem !important;
+    }
+
+    .section-{{ section.id }}__text {
+      font-size: 1.4rem; /* 16px on mobile */
+    }
+    .section-{{ section.id }}__heading {
+      font-size: 2.4rem;
+    }
+    .section-{{ section.id }}__cta-link {
+      font-size: 1.4rem !important; /* 14px on small mobile */
+    }
+    .section-{{ section.id }}__feature-title {
+      font-size: 1.4rem; /* 16px on mobile */
+    }
+    .section-{{ section.id }}__content {
+      gap: 1.2rem;
+    }
+    .section-{{ section.id }} {
+      padding: 40px 0px;
+    }
+    .section-{{ section.id }}__content > .section-{{ section.id }}__header + .section-{{ section.id }}__features {
+      margin-top: 3.2rem;
     }
   }
 

@@ -258,6 +258,19 @@ a.product__text {
   display: none;
 }
 
+/* Product title font sizes */
+.product__title h1,
+.product__title h2 {
+  font-size: 3.2rem; /* 32px default */
+}
+
+@media screen and (max-width: 749px) {
+  .product__title h1,
+  .product__title h2 {
+    font-size: 2.4rem; /* 24px on mobile */
+  }
+}
+
 .product__title + .product__text.caption-with-letter-spacing {
   margin-top: -1.5rem;
 }

@@ -35,6 +35,25 @@
   .section-{{ section.id }} .image-with-text__text p {
     color: #000000;
   }
+  .section-{{ section.id }} .image-with-text__text,
+    .section-{{ section.id }} .image-with-text__text p {
+      font-size: 1.8rem;
+      line-height: 1.5;
+    }
+
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }} .image-with-text__text,
+    .section-{{ section.id }} .image-with-text__text p {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .section-{{ section.id }} .image-with-text__text,
+    .section-{{ section.id }} .image-with-text__text p {
+      font-size: 1.4rem;
+    }
+  }
 {%- endstyle -%}
 
 {%- liquid
