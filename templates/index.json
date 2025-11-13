@@ -11,10 +11,13 @@
   "sections": {
     "hero_2025_WkhdLt": {
       "type": "hero-2025",
+      "custom_css": [
+        ".hero-2025__content{max-width: 800px;}"
+      ],
       "name": "Hero 2025",
       "settings": {
         "image": "shopify://shop_images/home-hero-1.webp",
-        "heading": "Bodega Bay Lavender",
+        "heading": "BODEGA BAY LAVENDER",
         "heading_size": "h1",
         "subtitle": "From Our Fields to Your Home",
         "subtitle_style": "h3",
@@ -114,19 +117,28 @@
         "featured_collection_NHJYNp": {
           "type": "featured_collection",
           "settings": {
-            "collection": "new-home"
+            "collection": "new-home",
+            "custom_title": "Home Goods",
+            "custom_description": "Fill your home with the soothing scent of lavender and a lasting sense of peacefulness",
+            "custom_button_label": "Shop Now"
           }
         },
         "featured_collection_c9Mfem": {
           "type": "featured_collection",
           "settings": {
-            "collection": "new-wellness"
+            "collection": "new-wellness",
+            "custom_title": "Wellness Products",
+            "custom_description": "Recenter your body and mind with pure lavender essentials that restore balance",
+            "custom_button_label": "Shop Now"
           }
         },
         "featured_collection_KJcpz6": {
           "type": "featured_collection",
           "settings": {
-            "collection": "new-culinary"
+            "collection": "new-culinary",
+            "custom_title": "Culinary Essentials",
+            "custom_description": "Savor the taste of tranquility with lavender blends made to elevate every bite",
+            "custom_button_label": "Shop Now"
           }
         }
       },

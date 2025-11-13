@@ -74,6 +74,40 @@
     padding: 0;
   }
 
+  .section-{{ section.id }}__text-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
+    gap: 4px;
+  }
+
+
+  .section-{{ section.id }}__rating-stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 0.4em;
+  }
+
+  .section-{{ section.id }}__rating-star {
+    display: inline-flex;
+    width: 2.2223em; /* ~40px at base font size */
+    height: 2.2223em;
+  }
+
+  .section-{{ section.id }}__rating-star img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
 
   /* Mobile responsive */
   @media screen and (max-width: 750px) {
@@ -88,6 +122,15 @@
     
     .section-{{ section.id }}__text .text-content {
       font-size: 24px;
+    }
+
+    .section-{{ section.id }}__rating-star {
+      display: inline-flex;
+      width: 26px; /* ~40px at base font size */
+      height: 26px;
+    }
+    .section-{{ section.id }}__rating-stars {
+      gap: 0px;
     }
   }
 
@@ -108,6 +151,7 @@
       padding-top: 48px !important;
       padding-bottom: 48px !important;
     }
+
   }
 
 {%- endstyle -%}
@@ -124,8 +168,17 @@
         {%- endif -%}
 
         {%- if section.settings.text != blank -%}
-          <div class="text-content">
-            {{ section.settings.text }}
+          <div class="section-{{ section.id }}__text-rating">
+            <div class="text-content">
+              {{ section.settings.text }}
+            </div>
+            <div class="section-{{ section.id }}__rating-stars" aria-hidden="true">
+              {%- for star in (1..5) -%}
+                <span class="section-{{ section.id }}__rating-star">
+                  <img src="{{ 'icon-star-new.svg' | asset_url }}" alt="" loading="lazy" decoding="async">
+                </span>
+              {%- endfor -%}
+            </div>
           </div>
         {%- endif -%}
       </div>
@@ -197,7 +250,7 @@
         }
       ],
       "default": "text-h3"
-    },
+    }
   ],
   "presets": [
     {
