@@ -282,12 +282,12 @@
           {%- if collection != blank -%}
             {%- assign card_link = collection.url -%}
             {%- case collection.handle -%}
-              {%- when 'new-home' -%}
-                {%- assign card_link = '/collections/new-home#home' -%}
-              {%- when 'new-wellness' -%}
-                {%- assign card_link = '/collections/new-wellness#wellness' -%}
-              {%- when 'new-culinary' -%}
-                {%- assign card_link = '/collections/new-culinary#culinary' -%}
+              {%- when 'home-goods' -%}
+                {%- assign card_link = '/collections/home-goods#home' -%}
+              {%- when 'wellness-products' -%}
+                {%- assign card_link = '/collections/wellness-products#wellness' -%}
+              {%- when 'culinary-essentials' -%}
+                {%- assign card_link = '/collections/culinary-essentials#culinary' -%}
             {%- endcase -%}
           {%- endif -%}
 

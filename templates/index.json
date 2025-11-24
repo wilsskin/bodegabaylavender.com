@@ -12,17 +12,17 @@
     "hero_2025_WkhdLt": {
       "type": "hero-2025",
       "custom_css": [
-        ".hero-2025__content{max-width: 800px;}"
+        ".hero-2025__content {max-width: 800px;}"
       ],
       "name": "Hero 2025",
       "settings": {
         "image": "shopify://shop_images/home-hero-1.webp",
         "heading": "BODEGA BAY LAVENDER",
         "heading_size": "h1",
-        "subtitle": "From Our Fields to Your Home",
+        "subtitle": "Organic Products to Enrich Your Home",
         "subtitle_style": "h3",
         "button_label": "Shop Now",
-        "button_link": "shopify://collections/best-sellers-1",
+        "button_link": "shopify://collections/featured-products",
         "text_color": "#ffffff",
         "button_color": "#636dcf",
         "button_text_color": "#ffffff",
@@ -48,7 +48,7 @@
         ".collection__title .title {text-align: center; padding-left: 0rem !important;}"
       ],
       "settings": {
-        "collection": "best-sellers-1",
+        "collection": "featured-products",
         "products_to_show": 4,
         "title": "Best Sellers",
         "heading_size": "h2",
@@ -117,7 +117,7 @@
         "featured_collection_NHJYNp": {
           "type": "featured_collection",
           "settings": {
-            "collection": "new-home",
+            "collection": "home-goods",
             "custom_title": "Home Goods",
             "custom_description": "Fill your home with the soothing scent of lavender and a lasting sense of peacefulness",
             "custom_button_label": "Shop Now"
@@ -126,7 +126,7 @@
         "featured_collection_c9Mfem": {
           "type": "featured_collection",
           "settings": {
-            "collection": "new-wellness",
+            "collection": "wellness-products",
             "custom_title": "Wellness Products",
             "custom_description": "Recenter your body and mind with pure lavender essentials that restore balance",
             "custom_button_label": "Shop Now"
@@ -135,7 +135,7 @@
         "featured_collection_KJcpz6": {
           "type": "featured_collection",
           "settings": {
-            "collection": "new-culinary",
+            "collection": "culinary-essentials",
             "custom_title": "Culinary Essentials",
             "custom_description": "Savor the taste of tranquility with lavender blends made to elevate every bite",
             "custom_button_label": "Shop Now"
@@ -189,7 +189,7 @@
         "text_MUKfQm": {
           "type": "text",
           "settings": {
-            "text": "<p>We love opening our home up to people and allowing them to experience the beauty of Bodega Bay. We offer rental stays, group events, retreats, and learning sessions.   <br/><br/>Visit our <a href=\"/pages/stay-with-us\" title=\"Stay With Us\"><strong>stay with us</strong></a> page or contact us for a <a href=\"https://docs.google.com/forms/u/0/\" target=\"_blank\" title=\"https://docs.google.com/forms/u/0/\"><strong>lunch & learn!</strong></a></p>",
+            "text": "<p>We love opening our home up to people and allowing them to experience the beauty of Bodega Bay. We offer rental stays, group events, retreats, and learning sessions.   <br/><br/>Visit our <a href=\"/pages/stay-with-us\" title=\"Stay With Us\"><strong>stay with us</strong></a> page or contact us for a <a href=\"mailto:Jami@bodegabaylavender.com\" target=\"_blank\" title=\"mailto:Jami@bodegabaylavender.com\"><strong>lunch & learn!</strong></a></p>",
             "text_style": "body"
           }
         }
@@ -291,7 +291,7 @@
         "padding_top": 48,
         "padding_bottom": 80,
         "button_label": "Shop Lavender",
-        "button_link": "shopify://collections/best-sellers-1",
+        "button_link": "shopify://collections/featured-products",
         "button_color": "#636dcf",
         "button_text_color": "#ffffff"
       }
