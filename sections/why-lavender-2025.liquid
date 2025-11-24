@@ -25,7 +25,7 @@
   }
 
   .section-{{ section.id }}__content > .section-{{ section.id }}__header + .section-{{ section.id }}__features {
-    margin-top: 3.2rem; /* Additional 32px to make total 64px between header and features */
+    margin-top: 4rem; /* Additional 32px to make total 64px between header and features */
   }
 
   .section-{{ section.id }}__header {
@@ -49,7 +49,7 @@
   .section-{{ section.id }}__text {
     font-family: 'Lora', serif;
     font-weight: 400;
-    font-size: 1.6rem; /* 18px - matches design */
+    font-size: 1.8rem; /* 18px - matches design */
     line-height: 1.5;
     color: #000000;
     margin: 0;
@@ -209,7 +209,7 @@
      .section-{{ section.id }}__features {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem; /* Increased gap for better vertical spacing */
+      gap: 1.4rem; /* Increased gap for better vertical spacing */
       font-size: 3px;
     }
     
@@ -286,6 +286,28 @@
     .section-{{ section.id }} .title-wrapper-with-link {
       margin-bottom: 2rem !important;
     }
+
+    .section-{{ section.id }}__text {
+      font-size: 1.4rem; /* 16px on mobile */
+    }
+    .section-{{ section.id }}__heading {
+      font-size: 2.4rem;
+    }
+    .section-{{ section.id }}__cta-link {
+      font-size: 1.4rem !important; /* 14px on small mobile */
+    }
+    .section-{{ section.id }}__feature-title {
+      font-size: 1.4rem; /* 16px on mobile */
+    }
+    .section-{{ section.id }}__content {
+      gap: 1.2rem;
+    }
+    .section-{{ section.id }} {
+      padding: 40px 0px;
+    }
+    .section-{{ section.id }}__content > .section-{{ section.id }}__header + .section-{{ section.id }}__features {
+      margin-top: 3.2rem;
+    }
   }
 
 
@@ -314,7 +336,7 @@
             {{ section.settings.feature_1_title | default: 'Treat burn wounds' }}
           </h3>
           <p class="section-{{ section.id }}__feature-text">
-            "I always keep <a href="#" style="color: #636DCF; text-decoration: underline;">lavender essential oil</a> in the kitchen in case I burn myself"
+            "I always keep <a href="/products/lavender-essential-oil" style="color: #636DCF; text-decoration: underline;">lavender essential oil</a> in the kitchen in case I burn myself"
           </p>
         </div>
 
@@ -328,7 +350,7 @@
             {{ section.settings.feature_2_title | default: 'Repel insects' }}
           </h3>
           <p class="section-{{ section.id }}__feature-text">
-            "We use <a href="#" style="color: #636DCF; text-decoration: underline;">lavender hydrosol</a> as a mosquito repellent everyday in Kauai"
+            "We use <a href="/products/lavender-pillow-mist" style="color: #636DCF; text-decoration: underline;">lavender hydrosol</a> as a mosquito repellent everyday in Kauai"
           </p>
         </div>
 
@@ -342,13 +364,13 @@
             {{ section.settings.feature_3_title | default: 'Natural glass cleaner' }}
           </h3>
           <p class="section-{{ section.id }}__feature-text">
-            "<a href="#" style="color: #636DCF; text-decoration: underline;">Lavender hydrosol</a> is the best non-chemical glass cleaner I've ever used"
+            "<a href="/products/lavender-pillow-mist" style="color: #636DCF; text-decoration: underline;">Lavender hydrosol</a> is the best non-chemical glass cleaner I've ever used"
           </p>
         </div>
       </div>
 
       <div class="section-{{ section.id }}__cta section-{{ section.id }}__cta--desktop">
-        <a href="/collections/all" class="section-{{ section.id }}__cta-link">
+        <a href="/blogs/news/advantages-of-lavender" class="section-{{ section.id }}__cta-link">
           Learn More <span class="arrow">→</span>
         </a>
       </div>

@@ -12,14 +12,14 @@
     "hero_2025_WkhdLt": {
       "type": "hero-2025",
       "custom_css": [
-        ".hero-2025__content{max-width: 800px;}"
+        ".hero-2025__content {max-width: 800px;}"
       ],
       "name": "Hero 2025",
       "settings": {
         "image": "shopify://shop_images/home-hero-1.webp",
         "heading": "BODEGA BAY LAVENDER",
         "heading_size": "h1",
-        "subtitle": "From Our Fields to Your Home",
+        "subtitle": "Organic Products to Enrich Your Home",
         "subtitle_style": "h3",
         "button_label": "Shop Now",
         "button_link": "shopify://collections/featured-products",
@@ -189,7 +189,7 @@
         "text_MUKfQm": {
           "type": "text",
           "settings": {
-            "text": "<p>We love opening our home up to people and allowing them to experience the beauty of Bodega Bay. We offer rental stays, group events, retreats, and learning sessions.   <br/><br/>Visit our <a href=\"/pages/stay-with-us\" title=\"Stay With Us\"><strong>stay with us</strong></a> page or contact us for a <a href=\"https://docs.google.com/forms/u/0/\" target=\"_blank\" title=\"https://docs.google.com/forms/u/0/\"><strong>lunch & learn!</strong></a></p>",
+            "text": "<p>We love opening our home up to people and allowing them to experience the beauty of Bodega Bay. We offer rental stays, group events, retreats, and learning sessions.   <br/><br/>Visit our <a href=\"/pages/stay-with-us\" title=\"Stay With Us\"><strong>stay with us</strong></a> page or contact us for a <a href=\"mailto:Jami@bodegabaylavender.com\" target=\"_blank\" title=\"mailto:Jami@bodegabaylavender.com\"><strong>lunch & learn!</strong></a></p>",
             "text_style": "body"
           }
         }

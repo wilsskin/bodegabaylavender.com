@@ -11,7 +11,7 @@
   "current": {
     "logo": "shopify://shop_images/logo.png",
     "logo_width": 90,
-    "favicon": "shopify://shop_images/logo.png",
+    "favicon": "shopify://shop_images/bbl-favicon_8617f59c-1a05-493a-8d77-f2aa56781f3a.png",
     "type_header_font": "lora_n4",
     "heading_scale": 100,
     "type_body_font": "lora_n4",
@@ -120,13 +120,13 @@
     "social_tumblr_link": "",
     "social_vimeo_link": "",
     "predictive_search_enabled": true,
-    "predictive_search_show_vendor": true,
-    "predictive_search_show_price": false,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": true,
     "currency_code_enabled": true,
-    "cart_type": "page",
-    "show_vendor": true,
-    "show_cart_note": true,
-    "cart_drawer_collection": "culinary-essentials",
+    "cart_type": "notification",
+    "show_vendor": false,
+    "show_cart_note": false,
+    "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
     "sections": {
       "main-password-header": {
@@ -143,6 +143,13 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {

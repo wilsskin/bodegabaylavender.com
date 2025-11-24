@@ -373,7 +373,7 @@
 <!-- Navigation Columns -->
 {%- liquid
   assign footer_about_page = blank
-  assign footer_about_handles = 'new-about,about,about-us' | split: ','
+  assign footer_about_handles = 'about' | split: ','
 
   for handle in footer_about_handles
     if footer_about_page == blank and pages[handle] != blank
@@ -411,12 +411,12 @@
             <h3 class="footer-2025__column-heading">BROWSE</h3>
             <div class="footer-2025__column-links">
               <a href="{{ routes.root_url }}" class="footer-2025__link">Home</a>
-              <a href="/collections/best-sellers-1" class="footer-2025__link">Shop All</a>
+              <a href="/collections/featured-products" class="footer-2025__link">Shop</a>
               <a
-                href="{% if footer_about_page != blank %}{{ footer_about_page.url }}{% else %}/pages/new-about{% endif %}"
+                href="{% if footer_about_page != blank %}{{ footer_about_page.url }}{% else %}/pages/about{% endif %}"
                 class="footer-2025__link"
               >
-                About Us
+                About
               </a>
               <a href="{{ pages.stay-with-us.url | default: '#' }}" class="footer-2025__link">Stay With Us</a>
               </div>
