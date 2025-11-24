@@ -142,7 +142,7 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "new-home",
+        "collection": "home-goods",
         "products_to_show": 25,
         "title": "Home",
         "heading_size": "h2",
