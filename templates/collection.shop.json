@@ -202,7 +202,7 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "new-culinary",
+        "collection": "culinary-essentials",
         "products_to_show": 15,
         "title": "Culinary",
         "heading_size": "h2",
