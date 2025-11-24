@@ -172,7 +172,7 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "new-wellness",
+        "collection": "wellness-products",
         "products_to_show": 25,
         "title": "Wellness",
         "heading_size": "h2",
