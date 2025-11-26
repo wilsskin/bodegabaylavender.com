@@ -6,19 +6,51 @@ if (!customElements.get('product-form')) {
         super();
 
         this.form = this.querySelector('form');
-        this.variantIdInput.disabled = false;
+        if (!this.form) {
+          console.error('ProductForm: Form not found in product-form element', this);
+          return;
+        }
+        
+        if (this.variantIdInput) {
+          this.variantIdInput.disabled = false;
+        }
+        
         this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
         this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
         this.submitButton = this.querySelector('[type="submit"]');
+        
+        if (!this.submitButton) {
+          console.error('ProductForm: Submit button not found in product-form element', this);
+          console.error('ProductForm: Available elements:', Array.from(this.querySelectorAll('*')).map(el => el.tagName + (el.type ? ' type=' + el.type : '')));
+          return;
+        }
+        
         this.submitButtonText = this.submitButton.querySelector('span');
+        
+        if (!this.submitButtonText) {
+          console.error('ProductForm: Submit button span not found', this.submitButton);
+        }
 
-        if (document.querySelector('cart-drawer')) this.submitButton.setAttribute('aria-haspopup', 'dialog');
+        if (document.querySelector('cart-drawer') && this.submitButton) {
+          this.submitButton.setAttribute('aria-haspopup', 'dialog');
+        }
 
         this.hideErrors = this.dataset.hideErrors === 'true';
+        
+        console.log('ProductForm: Successfully initialized', {
+          form: !!this.form,
+          submitButton: !!this.submitButton,
+          submitButtonText: !!this.submitButtonText,
+          cart: !!this.cart
+        });
       }
 
       onSubmitHandler(evt) {
         evt.preventDefault();
+        if (!this.submitButton) {
+          console.error('ProductForm: onSubmitHandler called but submitButton is null');
+          return;
+        }
         if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
 
         this.handleErrorMessage();
