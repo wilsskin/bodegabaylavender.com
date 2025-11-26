@@ -4,6 +4,7 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -36,15 +37,33 @@
 
     <div class="cart__warnings">
       <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="button">
-        {{ 'general.continue_shopping' | t }}
-      </a>
-
-      {%- if shop.customer_accounts_enabled and customer == null -%}
-        <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
-        <p class="cart__login-paragraph">
-          {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
-        </p>
+      <h2 class="cart__empty-subheader">Check out some of our best sellers</h2>
+      
+      {%- assign best_sellers_collection = collections['best-sellers'] -%}
+      {%- if best_sellers_collection == blank -%}
+        {%- assign best_sellers_collection = collections['best sellers'] -%}
+      {%- endif -%}
+      {%- if best_sellers_collection == blank -%}
+        {%- assign best_sellers_collection = collections['featured-products'] -%}
+      {%- endif -%}
+      
+      {%- if best_sellers_collection != blank -%}
+        <div class="cart__best-sellers">
+          <ul class="grid grid--2-col grid--4-col-desktop" role="list">
+            {%- for product in best_sellers_collection.products limit: 4 -%}
+              <li class="grid__item">
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: 'portrait',
+                  show_secondary_image: false,
+                  show_vendor: false,
+                  show_rating: false,
+                  lazy_load: false
+                %}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
       {%- endif -%}
     </div>
 
