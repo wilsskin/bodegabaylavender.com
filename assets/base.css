@@ -3879,6 +3879,8 @@ details-disclosure > details {
 
 .jdgm-write-rev-link:hover {
   background-color: #F3F3F8 !important;
+  color: #505ABC !important;
+  border-color: #505ABC !important;
 }
 
 .jdgm-row-actions {

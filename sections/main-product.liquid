@@ -70,11 +70,15 @@
       cursor: pointer;
       min-width: auto;
       min-height: auto;
+      pointer-events: auto;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
     #MainProduct-{{ section.id }} .product-form__submit:before,
     #MainProduct-{{ section.id }} .product-form__submit:after {
-      display: none;
+      display: none !important;
+      pointer-events: none !important;
     }
 
     #MainProduct-{{ section.id }} .product-form__submit:hover {
