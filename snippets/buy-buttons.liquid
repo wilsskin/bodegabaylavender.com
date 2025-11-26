@@ -97,6 +97,20 @@
             {{ form | payment_button }}
           {%- endif -%}
         </div>
+        <div class="product-form__info">
+          <div class="product-form__info-item">
+            <span class="product-form__info-icon">
+              {{- 'icon-package.svg' | inline_asset_content -}}
+            </span>
+            <span class="product-form__info-text">Free shipping over $50</span>
+          </div>
+          <div class="product-form__info-item">
+            <span class="product-form__info-icon">
+              {{- 'icon-free-return.svg' | inline_asset_content -}}
+            </span>
+            <span class="product-form__info-text">Free returns</span>
+          </div>
+        </div>
       {%- endform -%}
     </product-form>
   {%- else -%}
