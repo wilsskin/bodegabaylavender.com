@@ -37,10 +37,199 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
+
+    #MainProduct-{{ section.id }} .price__container,
+    #MainProduct-{{ section.id }} .price__regular,
+    #MainProduct-{{ section.id }} .price__sale,
+    #MainProduct-{{ section.id }} .price-item,
+    #MainProduct-{{ section.id }} .price-item--regular,
+    #MainProduct-{{ section.id }} .price-item--sale {
+      color: #000000;
+    }
+
+    #MainProduct-{{ section.id }} .price-per-item__container {
+      margin-top: 3.2rem;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 40px;
+      background-color: #636DCF;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.36;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      min-width: auto;
+      min-height: auto;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__submit:before,
+    #MainProduct-{{ section.id }} .product-form__submit:after {
+      display: none;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__submit:hover {
+      background-color: #505ABC;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    #MainProduct-{{ section.id }} .product-form__submit:focus-visible,
+    #MainProduct-{{ section.id }} .product-form__submit:focus {
+      outline: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    #MainProduct-{{ section.id }} .product-form__info {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      margin-top: 1.6rem;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__info-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__info-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    #MainProduct-{{ section.id }} .product-form__info-text {
+      font-size: 1.4rem;
+      line-height: 1.3;
+      color: #000000;
+      letter-spacing: 0rem;
+    }
+
+    #MainProduct-{{ section.id }} .product__description-accordion {
+      margin-top: 48px;
+      margin-bottom: 24px;
+    }
+
+    #MainProduct-{{ section.id }} .product__description-accordion + .product__description-accordion {
+      margin-top: 1.6rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      #MainProduct-{{ section.id }} .product__description-accordion {
+        margin-top: 32px;
+      }
+    }
+
+    #MainProduct-{{ section.id }} .product__description-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #MainProduct-{{ section.id }} .product__description-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    #MainProduct-{{ section.id }} .product__description-subheader {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #000000;
+      margin: 0;
+    }
+
+    #MainProduct-{{ section.id }} .product__description-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.2rem;
+      height: 1.2rem;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    #MainProduct-{{ section.id }} .product__description-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      color: #000000;
+      stroke: currentColor;
+      stroke-width: 0.5;
+      fill: none;
+    }
+
+    #MainProduct-{{ section.id }} .product__description-icon-plus,
+    #MainProduct-{{ section.id }} .product__description-icon-minus {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #MainProduct-{{ section.id }} .product__description-icon-minus {
+      opacity: 0;
+      transform: rotate(-90deg);
+    }
+
+    #MainProduct-{{ section.id }} details[open] .product__description-icon-plus {
+      opacity: 0;
+      transform: rotate(90deg);
+    }
+
+    #MainProduct-{{ section.id }} details[open] .product__description-icon-minus {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+
+    #MainProduct-{{ section.id }} .product__description-content {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+    }
+
+    #MainProduct-{{ section.id }} .product__description-content p {
+      margin-top: 0.8rem;
+      margin-bottom: 0;
+    }
+
+    #MainProduct-{{ section.id }} .product__description-content p:first-child {
+      margin-top: 0;
+    }
+
+    #MainProduct-{{ section.id }} details[open] .product__description-content p:last-child {
+      margin-bottom: 2.4rem;
+    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'judge-me-custom.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
@@ -197,9 +386,64 @@
                 </p>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
-                  <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                    {{ product.description }}
+                  <div class="product__description-accordion" {{ block.shopify_attributes }}>
+                    <details open>
+                      <summary class="product__description-summary">
+                        <div class="product__description-subheader">Description</div>
+                        <span class="product__description-icon">
+                          <span class="product__description-icon-plus">
+                            {{- 'icon-plus.svg' | inline_asset_content -}}
+                          </span>
+                          <span class="product__description-icon-minus">
+                            {{- 'icon-minus.svg' | inline_asset_content -}}
+                          </span>
+                        </span>
+                      </summary>
+                      <div class="product__description-content rte">
+                        {{ product.description }}
+                      </div>
+                    </details>
                   </div>
+                  {%- if product.metafields.custom.how_to_use != blank -%}
+                    <div class="product__description-accordion">
+                      <details>
+                        <summary class="product__description-summary">
+                          <div class="product__description-subheader">How to Use</div>
+                          <span class="product__description-icon">
+                            <span class="product__description-icon-plus">
+                              {{- 'icon-plus.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product__description-icon-minus">
+                              {{- 'icon-minus.svg' | inline_asset_content -}}
+                            </span>
+                          </span>
+                        </summary>
+                        <div class="product__description-content rte">
+                          {{ product.metafields.custom.how_to_use }}
+                        </div>
+                      </details>
+                    </div>
+                  {%- endif -%}
+                  {%- if product.metafields.custom.ingredients != blank -%}
+                    <div class="product__description-accordion">
+                      <details>
+                        <summary class="product__description-summary">
+                          <div class="product__description-subheader">Ingredients</div>
+                          <span class="product__description-icon">
+                            <span class="product__description-icon-plus">
+                              {{- 'icon-plus.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="product__description-icon-minus">
+                              {{- 'icon-minus.svg' | inline_asset_content -}}
+                            </span>
+                          </span>
+                        </summary>
+                        <div class="product__description-content rte">
+                          {{ product.metafields.custom.ingredients }}
+                        </div>
+                      </details>
+                    </div>
+                  {%- endif -%}
                 {%- endif -%}
               {%- when 'sku' -%}
                 <p
@@ -250,21 +494,6 @@
                       {{- 'products.product.quantity.label' | t -}}
                     {%- endif -%}
                   </span>
-                  <label
-                    class="quantity__label form__label"
-                    for="Quantity-{{ section.id }}"
-                    aria-labelledby="quantity-label-{{ section.id }}"
-                  >
-                    <span aria-hidden="true">{{ 'products.product.quantity.label' | t }}</span>
-                    <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}" aria-hidden="true">
-                      {%- render 'loading-spinner' -%}
-                      <span
-                        >(
-                        {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
-                        )</span
-                      >
-                    </span>
-                  </label>
                   <div class="price-per-item__container">
                     <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
                       <button class="quantity__button" name="minus" type="button">
