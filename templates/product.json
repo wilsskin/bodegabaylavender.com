@@ -125,11 +125,39 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "newsletter_EnDP6Y": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_pxTYAE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our seasonal emails",
+            "heading_size": "h1"
+          }
+        },
+        "email_form_8tzfjP": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_pxTYAE",
+        "email_form_8tzfjP"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
     "1763067968a1df69f5",
-    "related-products"
+    "related-products",
+    "newsletter_EnDP6Y"
   ]
 }

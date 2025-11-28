@@ -34,6 +34,33 @@ class CartItems extends HTMLElement {
       }
       return this.onCartUpdate();
     });
+
+    // Set up two-column layout
+    this.setupTwoColumnLayout();
+  }
+
+  setupTwoColumnLayout() {
+    // Only run on cart page, not in drawer
+    if (this.tagName === 'CART-DRAWER-ITEMS') {
+      return;
+    }
+
+    const layoutWrapper = document.querySelector('.cart-layout-wrapper');
+    const mainCartFooter = document.getElementById('main-cart-footer');
+
+    if (!layoutWrapper || !mainCartFooter) {
+      return;
+    }
+
+    // Check if footer is already in the wrapper
+    if (layoutWrapper.contains(mainCartFooter)) {
+      return;
+    }
+
+    // Move the footer into the wrapper
+    if (mainCartFooter && mainCartFooter.parentNode) {
+      layoutWrapper.appendChild(mainCartFooter);
+    }
   }
 
   disconnectedCallback() {
@@ -45,7 +72,6 @@ class CartItems extends HTMLElement {
   resetQuantityInput(id) {
     const input = this.querySelector(`#Quantity-${id}`);
     input.value = input.getAttribute('value');
-    this.isEnterPressed = false;
   }
 
   setValidity(event, index, message) {
@@ -112,6 +138,8 @@ class CartItems extends HTMLElement {
           const html = new DOMParser().parseFromString(responseText, 'text/html');
           const sourceQty = html.querySelector('cart-items');
           this.innerHTML = sourceQty.innerHTML;
+          // Re-setup two-column layout after cart update
+          this.setupTwoColumnLayout();
         })
         .catch((e) => {
           console.error(e);
@@ -188,6 +216,10 @@ class CartItems extends HTMLElement {
               section.selector
             );
           });
+
+          // Re-setup two-column layout after cart update
+          this.setupTwoColumnLayout();
+
           const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
           let message = '';
           if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
