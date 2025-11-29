@@ -32,6 +32,7 @@
           <div class="cart-drawer__warnings center{% if settings.cart_drawer_collection != blank %} cart-drawer__warnings--has-collection{% endif %}">
             <div class="cart-drawer__empty-content">
               <h2 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h2>
+              <p class="cart__empty-subheader">Check out some of our best sellers</p>
               <button
                 class="drawer__close"
                 type="button"
@@ -42,21 +43,32 @@
                   {{- 'icon-close.svg' | inline_asset_content -}}
                 </span>
               </button>
-              <a href="{{ routes.all_products_collection_url }}" class="button">
-                {{ 'general.continue_shopping' | t }}
-              </a>
-
-              {%- if shop.customer_accounts_enabled and customer == null -%}
-                <p class="cart__login-title h3">{{ 'sections.cart.login.title' | t }}</p>
-                <p class="cart__login-paragraph">
-                  {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
-                </p>
-              {%- endif -%}
             </div>
           </div>
-          {%- if settings.cart_drawer_collection != blank -%}
-            <div class="cart-drawer__collection">
-              {% render 'card-collection', card_collection: settings.cart_drawer_collection, columns: 1 %}
+          {%- assign best_sellers_collection = collections['best-sellers'] -%}
+          {%- if best_sellers_collection == blank -%}
+            {%- assign best_sellers_collection = collections['best sellers'] -%}
+          {%- endif -%}
+          {%- if best_sellers_collection == blank -%}
+            {%- assign best_sellers_collection = collections['featured-products'] -%}
+          {%- endif -%}
+          
+          {%- if best_sellers_collection != blank -%}
+            <div class="cart-drawer__best-sellers">
+              <ul class="cart-drawer__best-sellers-grid" role="list">
+                {%- for product in best_sellers_collection.products limit: 4 -%}
+                  <li class="cart-drawer__best-sellers-item">
+                    {% render 'card-product',
+                      card_product: product,
+                      media_aspect_ratio: 'portrait',
+                      show_secondary_image: false,
+                      show_vendor: false,
+                      show_rating: false,
+                      lazy_load: false
+                    %}
+                  </li>
+                {%- endfor -%}
+              </ul>
             </div>
           {%- endif -%}
         </div>
@@ -74,6 +86,61 @@
           </span>
         </button>
       </div>
+      
+      {%- comment -%} Free Shipping Progress Bar {%- endcomment -%}
+      {%- unless cart == empty -%}
+        {%- assign free_shipping_threshold = 5000 -%}
+        {%- assign free_shipping_threshold_dollars = free_shipping_threshold | divided_by: 100 -%}
+        {%- assign cart_total = cart.total_price -%}
+        {%- assign amount_remaining = free_shipping_threshold | minus: cart_total -%}
+        {%- assign progress_percentage_times_100 = cart_total | times: 100 -%}
+        {%- assign progress_percentage = progress_percentage_times_100 | divided_by: free_shipping_threshold -%}
+        {%- if progress_percentage > 100 -%}
+          {%- assign progress_percentage = 100 -%}
+        {%- endif -%}
+        {%- if progress_percentage < 0 -%}
+          {%- assign progress_percentage = 0 -%}
+        {%- endif -%}
+        
+        {%- if cart_total < free_shipping_threshold -%}
+        <div class="free-shipping-progress">
+          <div class="free-shipping-progress__message">
+            You're {{ amount_remaining | money }} away from <span class="free-shipping-progress__highlight">Free Shipping</span>
+          </div>
+          <div class="free-shipping-progress__bar-container">
+            <div 
+              class="free-shipping-progress__bar" 
+              role="presentation"
+            >
+              <div class="free-shipping-progress__bar-fill" style="width: {{ progress_percentage }}% !important; min-width: 1px;"></div>
+            </div>
+            <div class="free-shipping-progress__labels" aria-hidden="false">
+              <span><span class="visually-hidden">Starting point towards Free Shipping</span>$0</span>
+              <span><span class="visually-hidden">amount required for Free Shipping</span>${{ free_shipping_threshold_dollars }}</span>
+            </div>
+          </div>
+        </div>
+      {%- else -%}
+        <div class="free-shipping-progress">
+          <div class="free-shipping-progress__message">
+            <span class="free-shipping-progress__highlight">You qualified for Free Shipping!</span>
+          </div>
+          <div class="free-shipping-progress__bar-container">
+            <div 
+              class="free-shipping-progress__bar free-shipping-progress__bar--complete" 
+              role="presentation"
+            >
+              <div class="free-shipping-progress__bar-fill" style="width: 100%;"></div>
+            </div>
+            <div class="free-shipping-progress__labels" aria-hidden="false">
+              <span><span class="visually-hidden">Starting point towards Free Shipping</span>$0</span>
+              <span><span class="visually-hidden">amount required for Free Shipping</span>${{ free_shipping_threshold_dollars }}</span>
+            </div>
+          </div>
+        </div>
+        {%- endif -%}
+      {%- endunless -%}
+      
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
@@ -477,41 +544,73 @@
           </div>
 
           <small class="tax-note caption-large rte">
-            {%- if cart.duties_included and cart.taxes_included -%}
-              {%- if shop.shipping_policy.body == blank -%}
-                {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
-              {%- else -%}
-                {{
-                  'sections.cart.duties_and_taxes_included_shipping_at_checkout_with_policy_html'
-                  | t: link: shop.shipping_policy.url
-                }}
+            {%- assign free_shipping_threshold_check = 5000 -%}
+            {%- assign cart_total_for_shipping_check = cart.total_price -%}
+            {%- if cart_total_for_shipping_check >= free_shipping_threshold_check -%}
+              {%- comment -%} Free shipping qualified - remove "and shipping" from text {%- endcomment -%}
+              {%- if cart.duties_included and cart.taxes_included -%}
+                {%- if shop.shipping_policy.body == blank -%}
+                  Duties and taxes included. Discounts calculated at checkout
+                {%- else -%}
+                  Duties and taxes included. Discounts calculated at checkout
+                {%- endif -%}
+              {%- elsif cart.duties_included == false and cart.taxes_included -%}
+                {%- if shop.shipping_policy.body == blank -%}
+                  Taxes included. Discounts calculated at checkout
+                {%- else -%}
+                  Taxes included. Discounts calculated at checkout
+                {%- endif -%}
+              {%- elsif cart.duties_included and cart.taxes_included == false -%}
+                {%- if shop.shipping_policy.body == blank -%}
+                  Duties included. Taxes and discounts calculated at checkout
+                {%- else -%}
+                  Duties included. Taxes and discounts calculated at checkout
+                {%- endif -%}
+              {%- elsif cart.duties_included == false and cart.taxes_included == false -%}
+                {%- if shop.shipping_policy.body == blank -%}
+                  Taxes and discounts calculated at checkout
+                {%- else -%}
+                  Taxes and discounts calculated at checkout
+                {%- endif -%}
               {%- endif -%}
-            {%- elsif cart.duties_included == false and cart.taxes_included -%}
-              {%- if shop.shipping_policy.body == blank -%}
-                {{ 'sections.cart.taxes_included_shipping_at_checkout_without_policy' | t }}
-              {%- else -%}
-                {{
-                  'sections.cart.taxes_included_shipping_at_checkout_with_policy_html'
-                  | t: link: shop.shipping_policy.url
-                }}
-              {%- endif -%}
-            {%- elsif cart.duties_included and cart.taxes_included == false -%}
-              {%- if shop.shipping_policy.body == blank -%}
-                {{ 'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
-              {%- else -%}
-                {{
-                  'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html'
-                  | t: link: shop.shipping_policy.url
-                }}
-              {%- endif -%}
-            {%- elsif cart.duties_included == false and cart.taxes_included == false -%}
-              {%- if shop.shipping_policy.body == blank -%}
-                {{ 'sections.cart.taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
-              {%- else -%}
-                {{
-                  'sections.cart.taxes_at_checkout_shipping_at_checkout_with_policy_html'
-                  | t: link: shop.shipping_policy.url
-                }}
+            {%- else -%}
+              {%- comment -%} Normal text with shipping {%- endcomment -%}
+              {%- if cart.duties_included and cart.taxes_included -%}
+                {%- if shop.shipping_policy.body == blank -%}
+                  {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
+                {%- else -%}
+                  {{
+                    'sections.cart.duties_and_taxes_included_shipping_at_checkout_with_policy_html'
+                    | t: link: shop.shipping_policy.url
+                  }}
+                {%- endif -%}
+              {%- elsif cart.duties_included == false and cart.taxes_included -%}
+                {%- if shop.shipping_policy.body == blank -%}
+                  {{ 'sections.cart.taxes_included_shipping_at_checkout_without_policy' | t }}
+                {%- else -%}
+                  {{
+                    'sections.cart.taxes_included_shipping_at_checkout_with_policy_html'
+                    | t: link: shop.shipping_policy.url
+                  }}
+                {%- endif -%}
+              {%- elsif cart.duties_included and cart.taxes_included == false -%}
+                {%- if shop.shipping_policy.body == blank -%}
+                  {{ 'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+                {%- else -%}
+                  {{
+                    'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                    | t: link: shop.shipping_policy.url
+                  }}
+                {%- endif -%}
+              {%- elsif cart.duties_included == false and cart.taxes_included == false -%}
+                {%- if shop.shipping_policy.body == blank -%}
+                  {{ 'sections.cart.taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+                {%- else -%}
+                  {{
+                    'sections.cart.taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                    | t: link: shop.shipping_policy.url
+                  }}
+                {%- endif -%}
               {%- endif -%}
             {%- endif -%}
           </small>

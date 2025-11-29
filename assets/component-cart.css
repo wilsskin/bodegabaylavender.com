@@ -23,14 +23,14 @@ cart-items.is-empty .title-wrapper-with-link,
 }
 
 .cart__empty-text {
-  margin: 0;
-  padding-top: 3.2rem;
-  font-size: 3.2rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.8rem;
+  font-size: 2.4rem;
   font-weight: 600;
 }
 
 .cart__empty-subheader {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   margin: 0.4rem 0 2rem;
 }
 
@@ -78,7 +78,6 @@ cart-items.is-empty .title-wrapper-with-link,
 @media screen and (max-width: 450px) {
   .cart__empty-text {
     font-size: 2.4rem;
-    padding-top: 0.8rem;
   }
 
   .cart__empty-subheader {
@@ -103,10 +102,6 @@ cart-items.is-empty .title-wrapper-with-link,
 }
 
 @media screen and (min-width: 990px) {
-  .cart__empty-text {
-    padding-top: 3.2rem;
-  }
-
   .cart__empty-subheader {
     margin: 0.4rem 0 3rem;
   }
