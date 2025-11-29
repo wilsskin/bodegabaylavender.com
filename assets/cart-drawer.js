@@ -29,6 +29,7 @@ class CartDrawer extends HTMLElement {
     if (triggeredBy) this.setActiveElement(triggeredBy);
     const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
     if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
+    this.style.removeProperty('visibility');
     // here the animation doesn't seem to always get triggered. A timeout seem to help
     setTimeout(() => {
       this.classList.add('animate', 'active');
@@ -50,9 +51,16 @@ class CartDrawer extends HTMLElement {
   }
 
   close() {
-    this.classList.remove('active');
+    this.classList.remove('active', 'animate');
+    // Force hide immediately and after frame for mobile
+    this.style.setProperty('visibility', 'hidden', 'important');
     removeTrapFocus(this.activeElement);
     document.body.classList.remove('overflow-hidden');
+    
+    // Ensure it stays hidden on mobile
+    requestAnimationFrame(() => {
+      this.style.setProperty('visibility', 'hidden', 'important');
+    });
   }
 
   setSummaryAccessibility(cartDrawerNote) {

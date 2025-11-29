@@ -2321,8 +2321,11 @@ input[type='checkbox'] {
   align-items: center;
 }
 
-.announcement-bar__link:hover {
-  text-decoration: underline;
+.announcement-bar__link:hover,
+.announcement-bar__link:hover .announcement-bar__message,
+.announcement-bar__link:hover .announcement-bar__message span {
+  text-decoration: none;
+  color: #E1E0F1 !important;
 }
 
 .announcement-bar__link .icon-arrow {
@@ -2432,7 +2435,7 @@ input[type='checkbox'] {
 .header-wrapper {
   display: block;
   position: relative;
-  background-color: rgb(var(--color-background));
+  background-color: #FFFFFF;
 }
 
 .header-wrapper--border-bottom {
