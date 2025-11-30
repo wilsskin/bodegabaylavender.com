@@ -17,9 +17,9 @@
       "name": "Hero 2025",
       "settings": {
         "image": "shopify://shop_images/home-hero-1.webp",
-        "heading": "BODEGA BAY LAVENDER",
+        "heading": "Let a Little Lavender In!",
         "heading_size": "h1",
-        "subtitle": "Organic Products to Enrich Your Home",
+        "subtitle": "Handcrafted goods to help you relax and unwind",
         "subtitle_style": "h3",
         "button_label": "Shop Now",
         "button_link": "shopify://collections/featured-products",
@@ -33,10 +33,10 @@
       "type": "home-about-2025",
       "name": "About 2025",
       "settings": {
-        "background_color": "#edecfe",
+        "background_color": "#fafafa",
         "heading": "ABOUT US",
         "heading_size": "text-h3",
-        "text": "<p>We are a family-owned and operated lavender farm located in the town of Bodega Bay, situated along the Sonoma coast in Northern California.</p>",
+        "text": "<p>We distill our organic lavender onsite in Bodega Bay, CA to create high quality wellness, home, and culinary products</p>",
         "text_style": "text-h3",
         "icon_size": 32,
         "icon_color": "#6149a2"
@@ -60,7 +60,7 @@
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "solid",
-        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": false,
@@ -70,8 +70,8 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "anchor_id": "",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 56,
+        "padding_bottom": 64
       }
     },
     "image_banner_pJEhUQ": {
@@ -153,11 +153,11 @@
         "heading_size": "h2",
         "image_ratio": "square",
         "columns_desktop": 3,
-        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
         "show_view_all": false,
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "padding_top": 80,
+        "padding_top": 64,
         "padding_bottom": 80
       }
     },
@@ -165,7 +165,7 @@
       "type": "why-lavender-2025",
       "name": "Why Lavender 2025",
       "settings": {
-        "background_color": "#ffffff",
+        "background_color": "#e1e0f1",
         "heading": "Why Use Lavender?",
         "text": "Beyond the popular use cases like stress relief, aromatherapy, and floral beauty, there are many ways to use lavender!",
         "feature_1_title": "Treat burn wounds effectively",
@@ -209,10 +209,10 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "section_color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
+        "color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
         "padding_top": 64,
-        "padding_bottom": 64
+        "padding_bottom": 56
       }
     },
     "featured_blog_Ac9YWU": {
@@ -228,7 +228,7 @@
         "show_image": true,
         "show_date": false,
         "show_author": false,
-        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
         "padding_top": 8,
         "padding_bottom": 48
       }
@@ -283,8 +283,8 @@
       ],
       "name": "Gallery 2025",
       "settings": {
-        "background_color": "#ffffff",
-        "color_scheme": "",
+        "background_color": "#fafafa",
+        "color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
         "heading": "",
         "heading_size": "h2",
         "image_size": "landscape",
@@ -308,7 +308,7 @@
         "cover_image": "shopify://shop_images/stay-with-us.png",
         "description": "Bodega Bay Drone Video",
         "full_width": false,
-        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
+        "color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
         "padding_top": 48,
         "padding_bottom": 48
       }
@@ -332,9 +332,12 @@
         "heading_DDiqzG",
         "email_form_AtzNrq"
       ],
+      "custom_css": [
+        ".newsletter-2025 {background-color: #e1e0f1;}"
+      ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52

@@ -38,7 +38,7 @@
       "type": "stay-with-us-about",
       "name": "About 2025",
       "settings": {
-        "background_color": "#edecfe",
+        "background_color": "#fafafa",
         "heading": "Ready for a get away? Relax and unwind with privacy and spectacular views",
         "heading_size": "text-h3",
         "text": "<p>4.99 Guest Rating</p>",
@@ -88,7 +88,7 @@
       ],
       "name": "Gallery 2025",
       "settings": {
-        "background_color": "#e1e0f1",
+        "background_color": "#fafafa",
         "color_scheme": "",
         "heading": "",
         "heading_size": "h2",
@@ -105,7 +105,7 @@
       "type": "stay-with-us-quotes",
       "name": "Stay With Us Quotes",
       "settings": {
-        "background_color": "#ffffff",
+        "background_color": "#e1e0f1",
         "heading": "Guest Reviews",
         "feature_1_title": "One of the best Airbnb's we've stayed in. What a location – lavender fields, wildlife, and spectacular views.",
         "feature_1_text": "– Heidi",
@@ -148,8 +148,8 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "section_color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
+        "color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
         "padding_top": 64,
         "padding_bottom": 64
       }
@@ -174,7 +174,7 @@
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
         "full_width": true,
         "padding_top": 16,
         "padding_bottom": 80
@@ -200,7 +200,7 @@
         "email_form_iWME3V"
       ],
       "custom_css": [
-        ".newsletter-2025 {background-color: #ffffff;}"
+        ".newsletter-2025 {background-color: #E1E0F1;}"
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {

@@ -1,7 +1,7 @@
 {%- style -%}
   .section-{{ section.id }} {
     background-color: {{ section.settings.background_color | default: '#EDECFE' }};
-    padding: var(--spacing-section-small) 0;
+    padding: 64px 0;
     
     /* Icon customization variables */
     --icon-size: {{ section.settings.icon_size | default: 32 }}px;
@@ -42,7 +42,7 @@
     align-items: center;
     gap: var(--spacing-medium); /* 24px - using our spacing variable */
     text-align: center;
-    max-width: 680px;
+    max-width: 688px;
     width: 100%;
     padding: 0;
     margin: 0;
@@ -72,7 +72,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 0; /* No gap - features fill the full width */
-    max-width: 680px; /* Max width constraint as requested */
+    max-width: 688px; /* Max width constraint as requested */
     width: 100%;
     padding: 0;
     margin: 0;
