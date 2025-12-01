@@ -413,8 +413,8 @@
 
 /* Border color change on hover */
 .card-wrapper:hover .card__media img {
-  border: 1px solid #636DCF;
-  border-color: #636DCF;
+  border: 1px solid rgba(99, 109, 207, 0.5);
+  border-color: rgba(99, 109, 207, 0.5);
   filter: brightness(0.95);
 }
 

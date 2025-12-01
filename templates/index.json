@@ -200,7 +200,13 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "media_type": "video",
         "image": "shopify://shop_images/stay-with-us.png",
+        "video": "shopify://files/videos/bbl-video.mov",
+        "video_url": "",
+        "video_cover_image": "shopify://shop_images/stay-with-us.png",
+        "video_description": "",
+        "enable_video_looping": false,
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -298,6 +304,7 @@
     },
     "video_TX8Ygg": {
       "type": "video",
+      "disabled": true,
       "name": "t:sections.video.presets.name",
       "settings": {
         "heading": "",

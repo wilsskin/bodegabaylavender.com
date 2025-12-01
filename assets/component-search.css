@@ -1,9 +1,14 @@
-.search-field {
+.search-field,
+.field.search-field,
+.field.search-field--modal,
+.field.search-field--template {
   border: 2px solid #cccccc;
   border-radius: 9999px;
   padding: 0;
   box-shadow: none;
   position: relative;
+  background-color: #FAFAFA !important;
+  --color-background: 250, 250, 250;
 }
 
 .search-field:before,
@@ -22,6 +27,7 @@
   border-radius: 9999px;
   padding: 3.2rem 2.5rem 1.7rem 2rem;
   line-height: 1.4;
+  background-color: #FAFAFA !important;
 }
 
 .search-field .field__input:focus,

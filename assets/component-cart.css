@@ -86,7 +86,7 @@ cart-items.is-empty .title-wrapper-with-link,
 }
 
 .cart__contents > * + * {
-  margin-top: 2.5rem;
+  margin-top: 2.4rem;
 }
 
 .cart__login-title {
@@ -172,8 +172,7 @@ cart-items.is-empty {
 
 /* Title styling to match Figma */
 cart-items .title-wrapper-with-link {
-  padding: 0 24px;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 }
 
 cart-items .title-wrapper-with-link .title {

@@ -861,7 +861,7 @@ summary::-webkit-details-marker {
 /* component-title */
 .title,
 .title-wrapper-with-link {
-  margin: 3rem 0 2rem;
+  margin: 2.4rem 0 2rem;
 }
 
 .title-wrapper-with-link .title {
@@ -873,7 +873,7 @@ summary::-webkit-details-marker {
 }
 
 .title-wrapper {
-  margin-bottom: 3rem;
+  margin-bottom: 2.4rem;
 }
 
 .title-wrapper-with-link {
@@ -881,7 +881,7 @@ summary::-webkit-details-marker {
   justify-content: space-between;
   align-items: flex-end;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.4rem;
   flex-wrap: wrap;
 }
 
@@ -910,7 +910,7 @@ summary::-webkit-details-marker {
 @media screen and (min-width: 990px) {
   .title,
   .title-wrapper-with-link {
-    margin: 5rem 0 3rem;
+    margin: 5rem 0 2.4rem;
   }
 
   .title--primary {
