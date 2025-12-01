@@ -145,6 +145,9 @@
         "heading_pxTYAE",
         "email_form_8tzfjP"
       ],
+      "custom_css": [
+        ".newsletter-2025 {background-color: #e1e0f1;}"
+      ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
         "color_scheme": "",

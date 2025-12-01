@@ -22,7 +22,7 @@
       "name": "Hero 2025",
       "settings": {
         "image": "shopify://shop_images/stay-with-us-hero.webp",
-        "heading": "STAY WITH US",
+        "heading": "Stay With Us",
         "heading_size": "h1",
         "subtitle": "If you have a love for nature and the outdoors, this is the place for you!",
         "subtitle_style": "h3",
@@ -105,7 +105,7 @@
       "type": "stay-with-us-quotes",
       "name": "Stay With Us Quotes",
       "settings": {
-        "background_color": "#e1e0f1",
+        "background_color": "#fafafa",
         "heading": "Guest Reviews",
         "feature_1_title": "One of the best Airbnb's we've stayed in. What a location – lavender fields, wildlife, and spectacular views.",
         "feature_1_text": "– Heidi",
@@ -200,7 +200,7 @@
         "email_form_iWME3V"
       ],
       "custom_css": [
-        ".newsletter-2025 {background-color: #E1E0F1;}"
+        ".newsletter-2025 {background-color: #e1e0f1;}"
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
