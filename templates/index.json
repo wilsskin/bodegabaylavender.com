@@ -296,7 +296,7 @@
         "image_size": "landscape",
         "padding_top": 48,
         "padding_bottom": 80,
-        "button_label": "Shop Lavender",
+        "button_label": "Shop Now",
         "button_link": "shopify://collections/featured-products",
         "button_color": "#636dcf",
         "button_text_color": "#ffffff"
