@@ -144,7 +144,7 @@
       "settings": {
         "collection": "home-goods",
         "products_to_show": 25,
-        "title": "Home",
+        "title": "Home Goods",
         "heading_size": "h2",
         "description": "<p>Candles, room mists, sachets, notecards, hand sanitizer</p>",
         "show_description": false,
@@ -174,7 +174,7 @@
       "settings": {
         "collection": "wellness-products",
         "products_to_show": 25,
-        "title": "Wellness",
+        "title": "Wellness Products",
         "heading_size": "h2",
         "description": "<p>Soap, skin care, hydrosol, essential oil</p>",
         "show_description": false,
@@ -204,7 +204,7 @@
       "settings": {
         "collection": "culinary-essentials",
         "products_to_show": 15,
-        "title": "Culinary",
+        "title": "Culinary Essentials",
         "heading_size": "h2",
         "description": "<p>Honey, sugar, salt, tea, spices</p>",
         "show_description": false,
