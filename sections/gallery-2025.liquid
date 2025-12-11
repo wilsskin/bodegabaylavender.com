@@ -157,6 +157,15 @@
     }
   }
 
+  /* Subtitle above button */
+  .gallery-{{ section.id }}__subtitle {
+    font-size: 2.4rem;
+    text-align: center;
+    padding: 32px 0 16px 0; /* Ensure no padding */
+    margin: 0;
+
+  }
+
   /* Shop Now Button - matching hero-2025 styling */
   .gallery-{{ section.id }}__button {
     display: inline-flex;
@@ -175,7 +184,6 @@
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    margin-top: 80px;
   }
 
   .gallery-{{ section.id }}__button:hover {
@@ -210,13 +218,14 @@
     .gallery-{{ section.id }}__grid {
       gap: 1.5rem;
     }
-    .gallery-{{ section.id }}__button {
-          margin-top: 48px;
-    }
+  
     .gallery-{{ section.id }}__controls {
       padding-right: 1.5rem;
     }
   }
+    .gallery-{{ section.id }}__subtitle {
+      font-size: 1.8rem;
+    }
 
     .gallery-{{ section.id }}__item--square {
       width: clamp(150px, 35vw, 300px);
@@ -240,7 +249,7 @@
 <div class="gallery-{{ section.id }}__wrapper color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   <div class="page-width">
     {%- if section.settings.heading != blank -%}
-      <div class="title-wrapper title-wrapper--no-top-margin" style="margin-bottom: 3rem;">
+      <div class="title-wrapper title-wrapper--no-top-margin" style="margin-bottom: 2.4rem;">
         <h2 class="title {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
       </div>
     {%- endif -%}
@@ -334,6 +343,7 @@
     <!-- Shop Now Button -->
     {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
       <div style="text-align: center;">
+        <p class="gallery-{{ section.id }}__subtitle">Let a little lavender in!</p>
         <a href="{{ section.settings.button_link }}" class="gallery-{{ section.id }}__button">
           {{ section.settings.button_label }}
         </a>

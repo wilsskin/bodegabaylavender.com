@@ -18,7 +18,7 @@
 }
 
 .article-template__hero-medium {
-  height: 22rem;
+  height: 16rem;
 }
 
 .article-template__hero-large {
@@ -31,7 +31,7 @@
   }
 
   .article-template__hero-medium {
-    height: 44rem;
+    height: 32rem;
   }
 
   .article-template__hero-large {
@@ -45,7 +45,11 @@
   }
 
   .article-template__hero-medium {
-    height: 55rem;
+    height: 32rem;
+    max-width: 96rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
   }
 
   .article-template__hero-large {
@@ -76,9 +80,15 @@
 .article-template__link {
   font-size: 1.8rem;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   text-decoration: none;
+  font-weight: 600;
+  width: 18rem;
+}
+
+.article-template__link:hover {
+  color: #505ABC;
 }
 
 .article-template__link .icon-wrap {
@@ -88,7 +98,7 @@
 }
 
 .article-template__content {
-  margin-top: 3rem;
+  margin-top: 2.4rem;
   margin-bottom: 3rem;
 }
 
@@ -172,4 +182,31 @@
 
 .article-template__back:last-child {
   margin-bottom: 3.2rem;
+}
+
+.article-template__back-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: right;
+  gap: 3.2rem;
+  flex-wrap: wrap;
+  text-align: right;
+}
+
+.article-template__back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  font-size: 1.8rem;
+  color: #4D4D62;
+  font-weight: 300;
+  text-align: right;
+  align-items: right;
+
+}
+
+.article-template__back-button:hover {
+  color: #000000;
 }

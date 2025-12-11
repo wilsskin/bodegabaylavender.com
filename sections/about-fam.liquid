@@ -140,7 +140,7 @@
   <div class="section-{{ section.id }}__container">
     <div class="section-{{ section.id }}__content">
       <!-- Header -->
-      <div class="section-{{ section.id }}__header">
+      <div class="section-{{ section.id }}__header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {%- if section.settings.heading != blank -%}
           <h2>
             {{ section.settings.heading }}
@@ -150,7 +150,7 @@
 
       <!-- Photo -->
       {%- if section.settings.image != blank -%}
-        <div class="section-{{ section.id }}__photo">
+        <div class="section-{{ section.id }}__photo{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           <img 
             src="{{ section.settings.image | image_url: width: 800 }}"
             alt="{{ section.settings.image.alt | escape }}"
@@ -163,7 +163,7 @@
 
       <!-- Body Text -->
       {%- if section.settings.text != blank -%}
-        <div class="section-{{ section.id }}__text">
+        <div class="section-{{ section.id }}__text{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           <div class="text-content">
             {{ section.settings.text }}
           </div>

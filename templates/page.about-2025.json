@@ -22,7 +22,7 @@
       "name": "Hero 2025",
       "settings": {
         "image": "shopify://shop_images/about-hero.webp",
-        "heading": "ABOUT US",
+        "heading": "About Us",
         "heading_size": "h1",
         "subtitle": "We are a family-owned and operated lavender farm located in Bodega Bay",
         "subtitle_style": "h3",
@@ -38,14 +38,14 @@
       "type": "about-us-2025",
       "name": "About 2025",
       "settings": {
-        "background_color": "#edecfe",
+        "background_color": "#fafafa",
         "heading": "OUR STORY",
         "heading_size": "text-h3",
         "text": "<p>We wanted to grow something that was <strong>beautiful, useful, and sustainable</strong></p>",
         "text_style": "text-h3",
         "story_text": "<p>Since lavender is such a versatile plant with a range of potential health benefits, we couldn’t help but be intrigued. Lavender was already thriving in the garden year after year, so why not plant it in mass?</p>",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "gallery_2025_iWTpTX": {
@@ -91,13 +91,13 @@
       ],
       "name": "Gallery 2025",
       "settings": {
-        "background_color": "#e1e0f1",
+        "background_color": "#fafafa",
         "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
         "heading": "",
         "heading_size": "h2",
         "image_size": "portrait",
-        "padding_top": 48,
-        "padding_bottom": 48,
+        "padding_top": 32,
+        "padding_bottom": 32,
         "button_label": "",
         "button_link": "shopify://collections/all",
         "button_color": "#636dcf",
@@ -120,8 +120,8 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
+        "section_color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
+        "color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -142,9 +142,9 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
-        "color_scheme": "scheme-97072ff2-350e-46a5-afe4-334f5753a17f",
-        "padding_top": 80,
+        "section_color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
+        "color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
+        "padding_top": 32,
         "padding_bottom": 80
       }
     },
@@ -164,21 +164,21 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
-        "color_scheme": "scheme-92cc1630-8d97-4109-ab2d-f4d71643a00c",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "section_color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
+        "color_scheme": "scheme-a0dd312f-c95e-4a0c-86b6-df8249e3e52a",
+        "padding_top": 32,
+        "padding_bottom": 64
       }
     },
     "about_fam_x7DyNF": {
       "type": "about-fam",
       "name": "About Family",
       "settings": {
-        "background_color": "#ffffff",
+        "background_color": "#fafafa",
         "heading": "Meet Our Family",
         "image": "shopify://shop_images/WhatsApp_Image_2023-03-06_at_12.09.01_AM.jpg",
         "text": "<p>Bodega Bay Lavender is owned and operated by the Breen-Wellbeloved Family. While Jami and Robert run the day-to-day operations, their oldest son, Danny manages the field, oversees the harvest and manages the distillation process. All the boys play an important role in the success of the farm from field work to sales to pitching new ideas to help Bodega Bay Lavender thrive.</p>",
-        "padding_top": 64,
+        "padding_top": 48,
         "padding_bottom": 64
       }
     },
@@ -200,6 +200,9 @@
       "block_order": [
         "heading_Vi6G3Y",
         "email_form_DjXFLa"
+      ],
+      "custom_css": [
+        ".newsletter-2025 {background-color: #e1e0f1;}"
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {

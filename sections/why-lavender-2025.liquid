@@ -1,7 +1,7 @@
 {%- style -%}
   .section-{{ section.id }} {
     background-color: {{ section.settings.background_color | default: '#ffffff' }};
-    padding: var(--spacing-xlarge) 0; /* 64px top and bottom */
+    padding: 80px 0; /* 64px top and bottom */
   }
 
   .section-{{ section.id }}__container {
@@ -31,7 +31,7 @@
   .section-{{ section.id }}__header {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.6rem;
     text-align: left;
     max-width: 60rem; /* 600px - using rem */
     margin: 0;
@@ -73,7 +73,6 @@
     gap: var(--spacing-xsmall); /* 8px - using variable */
     align-items: flex-start;
     text-align: left;
-    background-color: #FFFFFF; /* White card background */
   }
 
   .section-{{ section.id }}__feature-header {
@@ -86,7 +85,7 @@
   .section-{{ section.id }}__feature-icon {
     width: 60px;
     height: 60px;
-    background-color: #EDECFE;
+    background-color: #FAFAFA;
     border-radius: 60px; 
     display: flex;
     align-items: center;
@@ -316,7 +315,7 @@
 <div class="section-{{ section.id }}">
   <div class="section-{{ section.id }}__container">
     <div class="section-{{ section.id }}__content">
-      <div class="section-{{ section.id }}__header">
+      <div class="section-{{ section.id }}__header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <h2 class="section-{{ section.id }}__heading">
           {{ section.settings.heading | default: 'Why Lavender?' }}
         </h2>
@@ -326,7 +325,12 @@
       </div>
 
       <div class="section-{{ section.id }}__features">
-        <div class="section-{{ section.id }}__feature">
+        <div class="section-{{ section.id }}__feature{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: 1;"
+          {% endif %}
+        >
           <div class="section-{{ section.id }}__feature-header">
             <div class="section-{{ section.id }}__feature-icon">
               {{ 'icon-burn.svg' | asset_url | img_tag: 'Burn treatment icon', 'width="22" height="22"' }}
@@ -340,7 +344,12 @@
           </p>
         </div>
 
-        <div class="section-{{ section.id }}__feature">
+        <div class="section-{{ section.id }}__feature{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: 2;"
+          {% endif %}
+        >
           <div class="section-{{ section.id }}__feature-header">
             <div class="section-{{ section.id }}__feature-icon">
               {{ 'icon-repel.svg' | asset_url | img_tag: 'Insect repellent icon', 'width="22" height="22"' }}
@@ -354,7 +363,12 @@
           </p>
         </div>
 
-        <div class="section-{{ section.id }}__feature">
+        <div class="section-{{ section.id }}__feature{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: 3;"
+          {% endif %}
+        >
           <div class="section-{{ section.id }}__feature-header">
             <div class="section-{{ section.id }}__feature-icon">
               {{ 'icon-glass.svg' | asset_url | img_tag: 'Glass cleaner icon', 'width="22" height="22"' }}
@@ -369,7 +383,7 @@
         </div>
       </div>
 
-      <div class="section-{{ section.id }}__cta section-{{ section.id }}__cta--desktop">
+      <div class="section-{{ section.id }}__cta section-{{ section.id }}__cta--desktop{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <a href="/blogs/news/advantages-of-lavender" class="section-{{ section.id }}__cta-link">
           Learn More <span class="arrow">→</span>
         </a>

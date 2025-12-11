@@ -161,12 +161,6 @@
     <div class="section-{{ section.id }}__content">
       <!-- Text Content -->
       <div class="section-{{ section.id }}__text">
-        {%- if section.settings.heading != blank -%}
-          <h2>
-            {{ section.settings.heading }}
-          </h2>
-        {%- endif -%}
-
         {%- if section.settings.text != blank -%}
           <div class="section-{{ section.id }}__text-rating">
             <div class="text-content">
@@ -180,6 +174,12 @@
               {%- endfor -%}
             </div>
           </div>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2>
+            {{ section.settings.heading }}
+          </h2>
         {%- endif -%}
       </div>
 

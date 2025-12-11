@@ -1,7 +1,7 @@
 {%- style -%}
   .section-{{ section.id }} {
     background-color: {{ section.settings.background_color | default: '#ffffff' }};
-    padding-top: 64px;
+    padding-top: 80px;
     padding-bottom: 80px;
   }
 
@@ -32,7 +32,7 @@
   .section-{{ section.id }}__header {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.6rem;
     text-align: left;
     max-width: 60rem; /* 600px - using rem */
     margin: 0;
@@ -62,7 +62,6 @@
     gap: var(--spacing-xsmall); /* 8px - using variable */
     align-items: flex-start;
     text-align: left;
-    background-color: #FFFFFF; /* White card background */
   }
 
   .section-{{ section.id }}__feature-header {
@@ -196,14 +195,19 @@
 <div class="section-{{ section.id }}">
   <div class="section-{{ section.id }}__container">
     <div class="section-{{ section.id }}__content">
-      <div class="section-{{ section.id }}__header">
+      <div class="section-{{ section.id }}__header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <h2 class="section-{{ section.id }}__heading">
           {{ section.settings.heading | default: 'Why Lavender?' }}
         </h2>
       </div>
 
       <div class="section-{{ section.id }}__features">
-        <div class="section-{{ section.id }}__feature">
+        <div class="section-{{ section.id }}__feature{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: 1;"
+          {% endif %}
+        >
           <div class="section-{{ section.id }}__feature-header">
             {{ 'icon-quote.svg' | asset_url | img_tag: 'quote icon', 'width="22" height="22"' }}
           </div>
@@ -215,7 +219,12 @@
           </p>
         </div>
 
-        <div class="section-{{ section.id }}__feature">
+        <div class="section-{{ section.id }}__feature{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: 2;"
+          {% endif %}
+        >
           <div class="section-{{ section.id }}__feature-header">
             {{ 'icon-quote.svg' | asset_url | img_tag: 'quote icon', 'width="22" height="22"' }}
           </div>
@@ -227,7 +236,12 @@
           </p>
         </div>
 
-        <div class="section-{{ section.id }}__feature">
+        <div class="section-{{ section.id }}__feature{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: 3;"
+          {% endif %}
+        >
           <div class="section-{{ section.id }}__feature-header">
             {{ 'icon-quote.svg' | asset_url | img_tag: 'quote icon', 'width="22" height="22"' }}
           </div>

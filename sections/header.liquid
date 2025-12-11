@@ -85,20 +85,12 @@
   .header a[aria-current="page"],
   .header .list-menu__item--active,
   .header .mega-menu__link--active {
-    color: #505ABC;
-    text-decoration: underline;
-    text-decoration-color: #505ABC;
-    text-decoration-thickness: 2px;
-    text-underline-offset: calc(0.3rem + 4px);
+    color: #000000;
   }
 
   /* Active state for dropdown summary text */
   .header summary.header__menu-item > span.header__active-menu-item {
-    color: #505ABC;
-    text-decoration: underline;
-    text-decoration-color: #505ABC;
-    text-decoration-thickness: 2px;
-    text-underline-offset: calc(0.3rem + 4px);
+    color: #000000;
   }
 
   .header .header__menu-item:hover,
@@ -106,17 +98,16 @@
   .header .header__inline-menu a.list-menu__item:hover,
   .header .mega-menu__link:hover,
   .header summary.header__menu-item:hover > span {
-    color: #505ABC;
+    color: #000000;
+    text-shadow: 0 0.25px 0 rgba(0, 0, 0);
   }
 
   /* Preserve thicker underline on hover for active states */
   .header .header__menu-item:hover .header__active-menu-item { text-decoration: none; }
   .header .list-menu__item--active:hover,
   .header .mega-menu__link--active:hover {
-    text-decoration: underline;
-    text-decoration-color: #505ABC;
-    text-decoration-thickness: 2px;
-    text-underline-offset: calc(0.3rem + 4px);
+    text-decoration-color: #000000;
+    text-shadow: 0 0.25px 0 rgba(0, 0, 0);
   }
 
   /* Nav link weight: set to medium (500) for all header variants */
@@ -127,12 +118,14 @@
   .header .header__submenu a.header__menu-item,
   .header .menu-drawer__menu-item {
     font-weight: 500;
-    font-size: 1.5rem; /* 16px - body text size */
+    font-size: 1.8rem; /* 16px - body text size */
+    color: #4D4D62;
   }
 
   /* Ensure active text (span) is purple, not theme default */
   .header .header__active-menu-item {
-    color: #505ABC;
+    color: #000000;
+    text-shadow: 0 0.25px 0 rgba(0, 0, 0);
   }
 
   /* Header icons: 28px size with custom colors */
@@ -142,16 +135,16 @@
   }
 
   .header__icon {
-    color: #000000; /* Default icon color */
+    color: #4D4D62; /* Default icon color */
   }
 
   .header__icon:hover {
-    color: #505ABC; /* Hover icon color */
+    color: #000000; /* Hover icon color */
   }
 
   /* Header icons spacing */
   .header__icons {
-    gap: 12px;
+    gap: 8px;
   }
 
   @media screen and (max-width: 749px) {
@@ -162,12 +155,12 @@
 
   /* Header background and container alignment */
   .header-wrapper {
-    background-color: #E1E0F1;
+    background-color: #FFFFFF;
   }
 
   .header.page-width {
     max-width: 1200px;
-    padding: 8px 48px;
+    padding: 16px 48px;
   }
 
   @media screen and (max-width: 450px) {
@@ -471,7 +464,9 @@
       }
 
       this.currentScrollTop = 0;
-      this.preventReveal = false;
+      // Check if we're on a product page and disable header reveal on scroll up
+      this.isProductPage = window.location.pathname.includes('/products/') || document.querySelector('main-product') !== null;
+      this.preventReveal = this.isProductPage; // Permanently prevent reveal on product pages
       this.predictiveSearch = this.querySelector('predictive-search');
 
       this.onScrollHandler = this.onScroll.bind(this);
@@ -517,9 +512,12 @@
         } else {
           window.clearTimeout(this.isScrolling);
 
-          this.isScrolling = setTimeout(() => {
-            this.preventReveal = false;
-          }, 66);
+          // Only reset preventReveal if we're not on a product page
+          if (!this.isProductPage) {
+            this.isScrolling = setTimeout(() => {
+              this.preventReveal = false;
+            }, 66);
+          }
 
           requestAnimationFrame(this.hide.bind(this));
         }
@@ -568,8 +566,8 @@
     "@context": "http://schema.org",
     "@type": "Organization",
     "name": {{ shop.name | json }},
-    {% if settings.logo %}
-      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+    {% if settings.favicon %}
+      "logo": {{ settings.favicon | image_url: width: 500 | prepend: "https:" | json }},
     {% endif %}
     "sameAs": [
       {{ settings.social_twitter_link | json }},
