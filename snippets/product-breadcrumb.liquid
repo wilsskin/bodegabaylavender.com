@@ -1,0 +1,81 @@
+{%- comment -%}
+  Product breadcrumb navigation
+  
+  Shows: Shop / Category (Home, Wellness, or Culinary) / Product Title
+{%- endcomment -%}
+
+{%- liquid
+  assign shop_url = '/collections/featured-products'
+  assign product_category = blank
+  assign category_url = blank
+  assign category_anchor = blank
+  assign category_title = blank
+  
+  # Priority order: wellness-products, home-goods, culinary-essentials
+  # Check product collections for main category collections
+  for collection in product.collections
+    if collection.handle == 'wellness-products'
+      assign product_category = collections['wellness-products']
+      assign category_anchor = 'wellness'
+      assign category_title = 'Wellness Products'
+      break
+    elsif collection.handle == 'home-goods' and product_category == blank
+      assign product_category = collections['home-goods']
+      assign category_anchor = 'home'
+      assign category_title = 'Home Goods'
+    elsif collection.handle == 'culinary-essentials' and product_category == blank
+      assign product_category = collections['culinary-essentials']
+      assign category_anchor = 'culinary'
+      assign category_title = 'Culinary Essentials'
+    endif
+  endfor
+  
+  # If main category found, build URL with anchor pointing to featured-products page
+  if product_category != blank and category_anchor != blank
+    assign category_url = shop_url | append: '#' | append: category_anchor
+  elsif product_category != blank
+    # Fallback: use collection URL if not a main category
+    assign category_url = product_category.url
+    assign category_title = product_category.title
+  endif
+  
+  # If no main category found, use first collection as fallback
+  if product_category == blank
+    assign product_category = product.collections.first
+    if product_category != blank
+      assign category_url = product_category.url
+      assign category_title = product_category.title
+    endif
+  endif
+-%}
+
+<div class="page-width">
+  <nav class="product-breadcrumb" aria-label="Breadcrumb">
+    <ol class="product-breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li class="product-breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="{{ shop_url }}" class="product-breadcrumb__link" itemprop="item">
+          <span itemprop="name">Shop</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+      {%- if product_category != blank and category_url != blank -%}
+        <li class="product-breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span class="product-breadcrumb__separator" aria-hidden="true">/</span>
+          <a href="{{ category_url }}" class="product-breadcrumb__link" itemprop="item">
+            <span itemprop="name">{% if category_title != blank %}{{ category_title }}{% else %}{{ product_category.title }}{% endif %}</span>
+          </a>
+          <meta itemprop="position" content="2" />
+        </li>
+      {%- endif -%}
+      <li class="product-breadcrumb__item product-breadcrumb__item--current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="product-breadcrumb__separator" aria-hidden="true">/</span>
+        <span class="product-breadcrumb__current" itemprop="name">
+          {%- assign clean_title = product.title | split: '(' | first | strip -%}
+          {{ clean_title }}
+        </span>
+        <meta itemprop="position" content="{% if product_category != blank and category_url != blank %}3{% else %}2{% endif %}" />
+      </li>
+    </ol>
+  </nav>
+</div>
+

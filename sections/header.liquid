@@ -464,7 +464,9 @@
       }
 
       this.currentScrollTop = 0;
-      this.preventReveal = false;
+      // Check if we're on a product page and disable header reveal on scroll up
+      this.isProductPage = window.location.pathname.includes('/products/') || document.querySelector('main-product') !== null;
+      this.preventReveal = this.isProductPage; // Permanently prevent reveal on product pages
       this.predictiveSearch = this.querySelector('predictive-search');
 
       this.onScrollHandler = this.onScroll.bind(this);
@@ -510,9 +512,12 @@
         } else {
           window.clearTimeout(this.isScrolling);
 
-          this.isScrolling = setTimeout(() => {
-            this.preventReveal = false;
-          }, 66);
+          // Only reset preventReveal if we're not on a product page
+          if (!this.isProductPage) {
+            this.isScrolling = setTimeout(() => {
+              this.preventReveal = false;
+            }, 66);
+          }
 
           requestAnimationFrame(this.hide.bind(this));
         }
@@ -561,8 +566,8 @@
     "@context": "http://schema.org",
     "@type": "Organization",
     "name": {{ shop.name | json }},
-    {% if settings.logo %}
-      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+    {% if settings.favicon %}
+      "logo": {{ settings.favicon | image_url: width: 500 | prepend: "https:" | json }},
     {% endif %}
     "sameAs": [
       {{ settings.social_twitter_link | json }},

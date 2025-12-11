@@ -29,6 +29,8 @@ class CartDrawer extends HTMLElement {
     if (triggeredBy) this.setActiveElement(triggeredBy);
     const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
     if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
+    // Remove inline background-color so CSS can take over (fixes reopening issue)
+    this.style.removeProperty('background-color');
     this.style.removeProperty('visibility');
     // here the animation doesn't seem to always get triggered. A timeout seem to help
     setTimeout(() => {
@@ -54,12 +56,15 @@ class CartDrawer extends HTMLElement {
     this.classList.remove('active', 'animate');
     // Force hide immediately and after frame for mobile
     this.style.setProperty('visibility', 'hidden', 'important');
+    // Explicitly remove background color for Safari compatibility
+    this.style.setProperty('background-color', 'transparent', 'important');
     removeTrapFocus(this.activeElement);
     document.body.classList.remove('overflow-hidden');
     
     // Ensure it stays hidden on mobile
     requestAnimationFrame(() => {
       this.style.setProperty('visibility', 'hidden', 'important');
+      this.style.setProperty('background-color', 'transparent', 'important');
     });
   }
 
