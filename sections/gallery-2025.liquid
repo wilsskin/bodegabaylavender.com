@@ -270,13 +270,12 @@
           >
             {%- if block.settings.image != blank -%}
               <img 
-                src="{{ block.settings.image | image_url: width: 1200 }}"
-                srcset="{{ block.settings.image | image_url: width: 400 }} 400w,
-                        {{ block.settings.image | image_url: width: 600 }} 600w,
-                        {{ block.settings.image | image_url: width: 800 }} 800w,
-                        {{ block.settings.image | image_url: width: 1000 }} 1000w,
-                        {{ block.settings.image | image_url: width: 1200 }} 1200w"
-                sizes="(max-width: 649px) 100vw, 600px"
+                src="{{ block.settings.image | image_url: width: 450 }}"
+                srcset="{{ block.settings.image | image_url: width: 300 }} 300w,
+                        {{ block.settings.image | image_url: width: 400 }} 400w,
+                        {{ block.settings.image | image_url: width: 450 }} 450w,
+                        {{ block.settings.image | image_url: width: 600 }} 600w"
+                sizes="(max-width: 649px) 35vw, (max-width: 989px) 40vw, 450px"
                 alt="{{ block.settings.image.alt | escape | default: 'Gallery image' }}"
                 class="gallery-{{ section.id }}__image"
                 loading="{% if forloop.index <= 2 %}eager{% else %}lazy{% endif %}"
