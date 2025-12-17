@@ -119,7 +119,7 @@
           "settings": {
             "collection": "home-goods",
             "custom_title": "Home Goods",
-            "custom_description": "Fill your home with the soothing scent of lavender and a lasting sense of peacefulness",
+            "custom_description": "Fill your space with soothing lavender goods made to relax your mind",
             "custom_button_label": "Shop Now"
           }
         },
@@ -128,7 +128,7 @@
           "settings": {
             "collection": "wellness-products",
             "custom_title": "Wellness Products",
-            "custom_description": "Recenter your body and mind with pure lavender essentials that restore balance",
+            "custom_description": "Refresh your routine with natural lavender remedies that nurture your body",
             "custom_button_label": "Shop Now"
           }
         },
