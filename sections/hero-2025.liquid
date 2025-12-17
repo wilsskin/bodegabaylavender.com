@@ -182,7 +182,15 @@
     </div>
 
     {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-      <a href="{{ section.settings.button_link }}" class="hero-2025__button">
+      {%- liquid
+        assign button_target = ''
+        assign button_rel = ''
+        if section.settings.button_link contains 'airbnb.com'
+          assign button_target = 'target="_blank"'
+          assign button_rel = 'rel="noopener noreferrer"'
+        endif
+      -%}
+      <a href="{{ section.settings.button_link }}" class="hero-2025__button" {{ button_target }} {{ button_rel }}>
         {{ section.settings.button_label }}
       </a>
     {%- endif -%}

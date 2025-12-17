@@ -139,11 +139,21 @@
                 {% endif %}
               >
                 {%- if block.settings.button_label != blank -%}
+                  {%- liquid
+                    assign button_1_target = ''
+                    assign button_1_rel = ''
+                    if block.settings.button_link contains 'airbnb.com'
+                      assign button_1_target = 'target="_blank"'
+                      assign button_1_rel = 'rel="noopener noreferrer"'
+                    endif
+                  -%}
                   <a
                     {% if block.settings.button_link == blank %}
                       role="link" aria-disabled="true"
                     {% else %}
                       href="{{ block.settings.button_link }}"
+                      {{ button_1_target }}
+                      {{ button_1_rel }}
                     {% endif %}
                     class="rich-text-button"
                   >
@@ -151,11 +161,21 @@
                   </a>
                 {%- endif -%}
                 {%- if block.settings.button_label_2 != blank -%}
+                  {%- liquid
+                    assign button_2_target = ''
+                    assign button_2_rel = ''
+                    if block.settings.button_link_2 contains 'airbnb.com'
+                      assign button_2_target = 'target="_blank"'
+                      assign button_2_rel = 'rel="noopener noreferrer"'
+                    endif
+                  -%}
                   <a
                     {% if block.settings.button_link_2 == blank %}
                       role="link" aria-disabled="true"
                     {% else %}
                       href="{{ block.settings.button_link_2 }}"
+                      {{ button_2_target }}
+                      {{ button_2_rel }}
                     {% endif %}
                     class="rich-text-button"
                   >
